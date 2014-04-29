@@ -16,6 +16,8 @@ author :
   github : terenezl
   twitter : terencezlew
 
+markdown: kramdown
+
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
@@ -127,4 +129,3 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
 
-  markdown: kramdown
