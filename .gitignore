@@ -8,3 +8,6 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+_config_astro1.yml
+upload.sh
