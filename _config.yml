@@ -9,7 +9,7 @@ twitter_username: terencezlew
 github_username:  terencezl
 linkedin_username: terence-zhi-liu
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://terencezl.github.io/" # the base hostname & protocol for your site
+url: "http://terencezl.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
