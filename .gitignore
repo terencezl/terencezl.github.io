@@ -9,5 +9,7 @@ Thumbs.db
 .rbenv-version
 .rvmrc
 
+.sass-cache/
 _config_astro1.yml
 upload.sh
+favicon.xcf
