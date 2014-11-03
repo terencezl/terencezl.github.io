@@ -12,7 +12,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://terencezl.github.io" # the base hostname & protocol for your site
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
+markdown: Redcarpet
 paginate: 10 # pagination based on number of posts
 paginate_path: "blog/page:num"
 defaults:
@@ -23,4 +24,4 @@ defaults:
     values:
       layout: post
 
-permalink: "/blog/:title/"
+permalink: "/blog/:year/:month/:day/:title/"
