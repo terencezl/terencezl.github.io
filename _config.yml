@@ -1,27 +1,23 @@
-# Site settings
-title: Terence
-description: >
-  His research site.
-name: Terence Zhi Liu
-email: terencelz90@gmail.com
-email_md5: a40ee9e9ce8a2bbd3c4a0d34962c83e2
-twitter_username: terencezlew
-github_username:  terencezl
-linkedin_username: terence-zhi-liu/42/3b1/335
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://terencezl.github.io" # the base hostname & protocol for your site
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-# Build settings
-#markdown: kramdown
-markdown: Redcarpet
-paginate: 10 # pagination based on number of posts
+redcarpet:
+  extensions: ['strikethrough']
+
+# Permalinks
+permalink:        /blog/:year/:month/:day/:title/
+relative_permalinks: true
+
+# Setup
+title:            Terence
+description:      'His research site.'
+url:              http://terencezl.github.io
+baseurl:          /
+
+author:
+  name:           'Terence Zhi Liu'
+  url:            http://terencezl.github.io
+
+paginate:         5
 paginate_path: "blog/page:num"
-defaults:
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-
-permalink: "/blog/:year/:month/:day/:title/"
