@@ -9,6 +9,8 @@ permalink: /projects/
 Database containing information on ceramic materials with various structures and compositions, obtained from published 
 literature.
 
+-----------------
+
 [pydass_vasp](http://terencezl.github.io/pydass_vasp/)
 -------------
 Convenient Python modules and wrapping executable scripts.

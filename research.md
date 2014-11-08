@@ -10,6 +10,8 @@ Computational physics/chemistry
 
 Density functional theory
 
+-----------------
+
 Publications
 ------------
 
@@ -18,15 +20,21 @@ Publications
 **Z. T. Y. Liu**, D. Gall and S. V. Khare, *Physical Review B* **90**, 134102 (2014)
 > We answer the question of the exceptional mechanical properties of pyrite-type PtN2 by a systematic computational analysis of it and other pyrite-type transition-metal pernitrides (MN2) with density functional theory.
 
+-----------------
+
 [Structural, mechanical and electronic properties of 3d transition metal nitrides in cubic zincblende, rocksalt and cesium chloride structures: a first-principles investigation](http://iopscience.iop.org/0953-8984/26/2/025404/)
 
 **Z. T. Y. Liu**, X. Zhou, S. V. Khare and D. Gall, *Journal of Physics: Condensed Matter* **26**, 025404 (2014)
 > We report systematic results from ab initio calculations with density functional theory on three cubic structures, zincblende (zb), rocksalt (rs) and cesium chloride (cc), of the ten 3d transition metal nitrides. We computed lattice constants, elastic constants, their derived mechanical moduli, ratios and Vickers hardness.
 
+-----------------
+
 [First-principles investigation of the structural, mechanical and electronic properties of the NbO-structured 3d, 4d and 5d transition metal nitrides](http://www.sciencedirect.com/science/article/pii/S0927025613007957)
 
 **Z. T. Y. Liu**, X. Zhou, D. Gall and S. V. Khare, *Computational Materials Science* **84**, 365 (2014)
 > We have performed ab initio calculations on 29 nitride phases of transition metals from the 3d, 4d and 5d rows, in NbO structure. We calculated cohesive energy, lattice constant and elastic constants C11, C12 and C44, and derived mechanical moduli, related ratios and Vickers hardness.
+
+-----------------
 
 [First-principles investigation of the structural, mechanical and electronic properties of the NbO-structured 3d, 4d and 5d transition metal nitrides](http://iopscience.iop.org/2053-1591/1/2/025904/)
 

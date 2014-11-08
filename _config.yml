@@ -1,6 +1,7 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      pygments
+excerpt_separator: "<!--more-->"
 
 redcarpet:
   extensions:     ['strikethrough']
@@ -9,8 +10,8 @@ redcarpet:
 permalink:        /blog/:year/:month/:day/:title/
 
 # Setup
-title:            Terence
-description:      His research site.
+title:            Terence's Site
+description:      His research site, mainly.
 
 author:
   name:           Terence Zhi Liu
