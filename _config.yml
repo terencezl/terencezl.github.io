@@ -10,13 +10,21 @@ permalink:        /blog/:year/:month/:day/:title/
 
 # Setup
 title:            Terence
-description:      'His research site.'
-url:              http://terencezl.github.io
-baseurl:          ''
+description:      His research site.
 
 author:
-  name:           'Terence Zhi Liu'
+  name:           Terence Zhi Liu
   url:            http://terencezl.github.io
+
+name: Terence Zhi Liu
+email: terencelz90@gmail.com
+email_md5: a40ee9e9ce8a2bbd3c4a0d34962c83e2
+twitter_username: terencezlew
+github_username:  terencezl
+linkedin_username: terence-zhi-liu/42/3b1/335
+
+url:              http://terencezl.github.io
+baseurl:          ''
 
 paginate:         5
 paginate_path:    blog/page:num

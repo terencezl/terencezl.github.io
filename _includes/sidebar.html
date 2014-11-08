@@ -7,8 +7,29 @@
         </a>
       </h1>
       <p class="lead">{{ site.description }}</p>
-    </div>
 
+      {% if site.email %}
+        <a href="mailto:{{ site.email }}">
+          <i class="fa fa-envelope"></i>
+        </a>
+      {% endif %}
+      {% if site.linkedin_username %}
+        <a href="https://linkedin.com/pub/{{ site.linkedin_username }}">
+          <i class="fa fa-linkedin"></i>
+        </a>
+      {% endif %}
+      {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      {% endif %}
+      {% if site.twitter_username %}
+        <a href="https://twitter.com/{{ site.twitter_username }}">
+          <i class="fa fa-twitter"></i>
+        </a>
+      {% endif %}
+    </div>
+    <br>
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
 
@@ -25,6 +46,8 @@
           {% endif %}
         {% endif %}
       {% endfor %}
+
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/blog/">Blog</a>
 
     </nav>
 
