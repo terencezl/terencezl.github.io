@@ -9,7 +9,7 @@ In a word, if you care so much about equality and go out to command/ask/encourag
 
 Let me make myself clear, children are different than adults. We should treat children with extra care. But as they grow up, you start to treat them like adults, and only by treating them like adults can they finally take the role and be adults.
 
-Stop treating adults like children. Treat children under 18 like children. As educators, maybe extend this limit to your early college students, but that's all. It is crucial they learn to do it in this phase and should be one of the most important lessons in college. After they graduate, let them deal with the world.
+Stop treating adults like children. Treat children under 18 like children. As educators, maybe extend this limit to your early college students, but that's all. It is crucial they learn to cope with identity difficulties in this phase and should be one of the most important lessons in college. After they graduate, let them deal with the world.
 
 Making it straight and harsh and contradicting a lot of gut feelings, my point is as follows.
 
