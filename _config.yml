@@ -3,21 +3,20 @@ markdown:         redcarpet
 highlighter:      pygments
 
 redcarpet:
-  extensions: ['strikethrough']
+  extensions:     ['strikethrough']
 
 # Permalinks
 permalink:        /blog/:year/:month/:day/:title/
-relative_permalinks: true
 
 # Setup
 title:            Terence
 description:      'His research site.'
 url:              http://terencezl.github.io
-baseurl:          /
+baseurl:          ''
 
 author:
   name:           'Terence Zhi Liu'
   url:            http://terencezl.github.io
 
 paginate:         5
-paginate_path: "blog/page:num"
+paginate_path:    blog/page:num
