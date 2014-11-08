@@ -10,22 +10,27 @@
 
       {% if site.email %}
         <a href="mailto:{{ site.email }}">
-          <i class="fa fa-envelope"></i>
+          <i class="fa fa-envelope fa-lg"></i>
         </a>
       {% endif %}
       {% if site.linkedin_username %}
         <a href="https://linkedin.com/pub/{{ site.linkedin_username }}">
-          <i class="fa fa-linkedin"></i>
+          <i class="fa fa-linkedin-square fa-lg"></i>
         </a>
       {% endif %}
       {% if site.github_username %}
         <a href="https://github.com/{{ site.github_username }}">
-          <i class="fa fa-github-alt"></i>
+          <i class="fa fa-github-square fa-lg"></i>
+        </a>
+      {% endif %}
+      {% if site.facebook_username %}
+        <a href="https://www.facebook.com/{{ site.facebook_username }}">
+          <i class="fa fa-facebook-square fa-lg"></i>
         </a>
       {% endif %}
       {% if site.twitter_username %}
         <a href="https://twitter.com/{{ site.twitter_username }}">
-          <i class="fa fa-twitter"></i>
+          <i class="fa fa-twitter-square fa-lg"></i>
         </a>
       {% endif %}
     </div>

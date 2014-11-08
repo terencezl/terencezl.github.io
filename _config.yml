@@ -13,16 +13,12 @@ permalink:        /blog/:year/:month/:day/:title/
 title:            Terence's Site
 description:      His research site, mainly.
 
-author:
-  name:           Terence Zhi Liu
-  url:            http://terencezl.github.io
-
 name: Terence Zhi Liu
 email: terencelz90@gmail.com
-email_md5: a40ee9e9ce8a2bbd3c4a0d34962c83e2
-twitter_username: terencezlew
-github_username:  terencezl
 linkedin_username: terence-zhi-liu/42/3b1/335
+github_username:  terencezl
+facebook_username:  zhi.liu.1656
+twitter_username: terencezlew
 
 url:              http://terencezl.github.io
 baseurl:          ''
