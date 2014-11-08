@@ -13,11 +13,11 @@ permalink: /blog/
       </a>
     </h1>
     <span class="post-date">{{ post.date | date_to_string }}</span>
-    <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"></a>
+    <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread">Comments</a>
 
     {{ post.excerpt }}
 
-      <a href="{{ site.baseurl }}{{ post.url }}">Read more...</a>
+    <a href="{{ site.baseurl }}{{ post.url }}">Read more...</a>
   </div>
   <hr>
   {% endfor %}
