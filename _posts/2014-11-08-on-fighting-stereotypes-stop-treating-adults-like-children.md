@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On Stereotype Correction: Stop Treating Adults Like Children"
+title: "On Fighting Stereotypes: Stop Treating Adults Like Children"
 ---
 
 When it comes to people in this country dealing with stereotypes, it always makes me frustratingly amused.

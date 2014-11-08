@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
-[Community-based Ceramics Database](http://astro1.panet.utoledo.edu/ceramicsdb)
+[Community-based Ceramics Database](http://astro1.panet.utoledo.edu/ceramicsdb/)
 -----------------------------------
 Database containing information on ceramic materials with various structures and compositions, obtained from published 
 literature.
