@@ -4,4 +4,11 @@ title: Projects
 permalink: /projects/
 ---
 
-This is the page for projects.
+[Community-based Ceramics Database](http://astro1.panet.utoledo.edu/ceramicsdb)
+-----------------------------------
+Database containing information on ceramic materials with various structures and compositions, obtained from published 
+literature.
+
+[pydass_vasp](http://terencezl.github.io/pydass_vasp/)
+-------------
+Convenient Python modules and wrapping executable scripts.

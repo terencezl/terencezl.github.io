@@ -2,3 +2,4 @@ _site/
 .sass-cache/
 .idea/
 _config_astro1.yml
+favicon.xcf
