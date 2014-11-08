@@ -18,7 +18,7 @@ Publications
 [Electronic and bonding analysis of hardness in pyrite-type transition-metal pernitrides](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.134102)
 
 **Z. T. Y. Liu**, D. Gall and S. V. Khare, *Physical Review B* **90**, 134102 (2014)
-> We answer the question of the exceptional mechanical properties of pyrite-type $PtN_2$ by a systematic computational analysis of it and other pyrite-type transition-metal pernitrides ($MN_2$) with density functional theory.
+> We answer the question of the exceptional mechanical properties of pyrite-type <span>\\(\text{PtN}\_2\\)</span> by a systematic computational analysis of it and other pyrite-type transition-metal pernitrides (<span>\\(M\text{N}_2\\)</span>) with density functional theory.
 
 -----------------
 
@@ -32,7 +32,7 @@ Publications
 [First-principles investigation of the structural, mechanical and electronic properties of the NbO-structured 3d, 4d and 5d transition metal nitrides](http://www.sciencedirect.com/science/article/pii/S0927025613007957)
 
 **Z. T. Y. Liu**, X. Zhou, D. Gall and S. V. Khare, *Computational Materials Science* **84**, 365 (2014)
-> We have performed *ab initio* calculations on 29 nitride phases of transition metals from the 3d, 4d and 5d rows, in NbO structure. We calculated cohesive energy, lattice constant and elastic constants $C_{11}$, $C_{12}$ and $C_{44}$, and derived mechanical moduli, related ratios and Vickers hardness.
+> We have performed *ab initio* calculations on 29 nitride phases of transition metals from the 3d, 4d and 5d rows, in NbO structure. We calculated cohesive energy, lattice constant and elastic constants <span>\\(C\_{11}\\)</span>, <span>\\(C\_{12}\\)</span> and <span>\\(C\_{44}\\)</span>, and derived mechanical moduli, related ratios and Vickers hardness.
 
 -----------------
 
