@@ -17,7 +17,7 @@ Publications
 
 [Pressure-induced transition in the multiferroic \\(\text{CoCr}\_2\text{O}\_4\\) spinel](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.92.064108)
 
-I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsurkan, A. Loidl, D. Popov, and Y. Wang
+I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsurkan, A. Loidl, D. Popov, and Y. Wang, *Physical Rreview B*, **92**, 064108 (2015)
 > We have explored the high-pressure structural, vibrational, electronic, and magnetic behavior of the multiferroic \\(\text{CoCr}\_2\text{O}\_4\\) spinel up to 30 GPa by means of x-ray diffraction, Raman spectroscopy, and density functional theory calculations. Our investigations revealed a reversible tetragonal distortion of the starting cubic structure above 16 GPa. We suggest that the structural modification is mainly driven by magnetic effects induced under pressure. The results obtained are compared with the high-pressure behavior of related spinels.
 
 [Electronic and bonding analysis of hardness in pyrite-type transition-metal pernitrides](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.134102)
