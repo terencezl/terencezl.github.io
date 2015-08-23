@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "On Fighting Stereotypes: Stop Treating Adults Like Children"
+published: false
 ---
 
 When it comes to people in this country dealing with stereotypes, it always makes me frustratingly amused.
