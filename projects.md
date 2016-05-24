@@ -11,7 +11,7 @@ literature.
 
 -----------------
 
-[pydass_vasp](http://terencezl.github.io/pydass_vasp/)
+[pydass_vasp](https://github.com/terencezl/pydass_vasp)
 -------------
 Convenient Python modules and wrapping executable scripts.
 
