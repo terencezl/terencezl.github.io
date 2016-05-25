@@ -6,9 +6,8 @@ permalink: /research/
 
 Interests
 --------
-Computational physics/chemistry
-
-Density functional theory (DFT)
+* Computational physics/chemistry
+* Density Functional Theory (DFT)
 
 -----------------
 
