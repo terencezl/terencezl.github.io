@@ -14,6 +14,14 @@ Interests
 Publications
 ------------
 
+`8`. [First-principles phase diagram calculations for the carbonate quasibinary systems CaCO\\(_3\\)-ZnCO\\(_3\\), CdCO\\(_3\\)-ZnCO\\(_3\\), CaCO\\(_3\\)-CdCO\\(_3\\) and MgCO\\(_3\\)-ZnCO\\(_3\\)](http://www.sciencedirect.com/science/article/pii/S0009254116304934) 
+
+**Z. T. Y. Liu**, B. P. Burton, S. V. Khare, P. Sarin, *Chem. Geol.* **443**, 137-145 (2016)
+
+> Quasibinary solid solutions of calcite-structure carbonate minerals play an important role in rock formation. We have investigated solid solutions with cations Ca\\(^{2+}\\), Cd\\(^{2+}\\), Mg\\(^{2+}\\) and Zn\\(^{2+}\\) by performing first-principles phase diagram calculations for Ca\\(\_{1-x}\\)Zn\\(\_x\\)CO\\(_3\\), Cd\\(\_{1-x}\\)Zn\\(\_x\\)CO\\(_3\\), Ca\\(\_{1-x}\\)Cd\\(\_x\\)CO\\(_3\\) and Mg\\(\_{1-x}\\)Zn\\(\_x\\)CO\\(_3\\) (0 ≤ x ≤ 1) with density functional theory, cluster expansion and Monte Carlo simulations.
+
+-----------------
+
 `7`. [Structural transition in the magnetoelectric ZnCr\\(_2\\)Se\\(_4\\) spinel under pressure](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.174103) 
 
 I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, V. Tsurkan, A. Loidl, D. Popov and Y. Wang, *Phys. Rev. B* **93**, 174103 (2016)
@@ -32,7 +40,7 @@ Y. Wang, **Z. T. Y. Liu**, S. V. Khare, S. A. Collins, J. Zhang, L. Wang and Y. 
 
 `5`. [Pressure-induced transition in the multiferroic CoCr\\(_2\\)O\\(_4\\) spinel](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.92.064108)
 
-I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsurkan, A. Loidl, D. Popov, and Y. Wang, *Physical Rreview B*, **92**, 064108 (2015)
+I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsurkan, A. Loidl, D. Popov, and Y. Wang, *Phys. Rev. B*, **92**, 064108 (2015)
 
 > We have explored the high-pressure structural, vibrational, electronic, and magnetic behavior of the multiferroic CoCr\\(_2\\)O\\(_4\\) spinel up to 30 GPa by means of X-ray diffraction, Raman spectroscopy, and density functional theory calculations. Our investigations revealed a reversible tetragonal distortion of the starting cubic structure above 16 GPa. We suggest that the structural modification is mainly driven by magnetic effects induced under pressure.
 
@@ -40,7 +48,7 @@ I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsu
 
 `4`. [Electronic and bonding analysis of hardness in pyrite-type transition-metal pernitrides](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.134102)
 
-**Z. T. Y. Liu**, D. Gall and S. V. Khare, *Physical Review B* **90**, 134102 (2014)
+**Z. T. Y. Liu**, D. Gall and S. V. Khare, *Phys. Rev. B* **90**, 134102 (2014)
 
 > We answer the question of the exceptional mechanical properties of pyrite-type PtN\\(_2\\) by a systematic computational analysis of it and other pyrite-type transition-metal pernitrides *M*N\\(_2\\) with density functional theory.
 
@@ -48,7 +56,7 @@ I. Efthimiopoulos, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, T. Lochbiler, V. Tsu
 
 `3`. [Diffusion in CdS of Cd and S vacancies and Cu, Cd, Cl, S and Te interstitials studied with first-principles computations](http://iopscience.iop.org/2053-1591/1/2/025904/)
 
-J. L. Roehl, **Z. T. Y. Liu** and S. V. Khare, *Materials Research Express* **1**, 025904 (2014)
+J. L. Roehl, **Z. T. Y. Liu** and S. V. Khare, *Mater. Res. Express* **1**, 025904 (2014)
 
 > We present an *ab initio* study of the diffusion profiles in CdS of native, Cd and S vacancies, and interstitial adatoms Cd, S, Te, Cu, and Cl.
 
@@ -56,7 +64,7 @@ J. L. Roehl, **Z. T. Y. Liu** and S. V. Khare, *Materials Research Express* **1*
 
 `2`. [First-principles investigation of the structural, mechanical and electronic properties of the NbO-structured 3d, 4d and 5d transition metal nitrides](http://www.sciencedirect.com/science/article/pii/S0927025613007957)
 
-**Z. T. Y. Liu**, X. Zhou, D. Gall and S. V. Khare, *Computational Materials Science* **84**, 365 (2014)
+**Z. T. Y. Liu**, X. Zhou, D. Gall and S. V. Khare, *Comput. Mater. Sci.* **84**, 365 (2014)
 
 > We have performed *ab initio* calculations on 29 nitride phases of transition metals from the 3d, 4d and 5d rows, in NbO structure. We calculated cohesive energy, lattice constant and elastic constants \\(C\_{11}\\), \\(C\_{12}\\) and \\(C\_{44}\\), and derived mechanical moduli, related ratios and Vickers hardness.
 
@@ -64,6 +72,6 @@ J. L. Roehl, **Z. T. Y. Liu** and S. V. Khare, *Materials Research Express* **1*
 
 `1`. [Structural, mechanical and electronic properties of 3d transition metal nitrides in cubic zincblende, rocksalt and cesium chloride structures: a first-principles investigation](http://iopscience.iop.org/0953-8984/26/2/025404/)
 
-**Z. T. Y. Liu**, X. Zhou, S. V. Khare and D. Gall, *Journal of Physics: Condensed Matter* **26**, 025404 (2014)
+**Z. T. Y. Liu**, X. Zhou, S. V. Khare and D. Gall, *J. Phys.-Condens. Matter* **26**, 025404 (2014)
 
 > We report systematic results from *ab initio* calculations with density functional theory on three cubic structures, zincblende (zb), rocksalt (rs) and cesium chloride (cc), of the ten 3d transition metal nitrides. We computed lattice constants, elastic constants, their derived mechanical moduli, ratios and Vickers hardness.
