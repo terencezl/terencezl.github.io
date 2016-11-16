@@ -14,6 +14,22 @@ Interests
 Publications
 ------------
 
+`10`. [First-principles phase diagram calculations for the rocksalt-structure quasibinary systems TiN–ZrN, TiN–HfN and ZrN–HfN](http://iopscience.iop.org/article/10.1088/0953-8984/29/3/035401)
+ 
+**Z. T. Y. Liu**, B. P. Burton, S. V. Khare, D. Gall, *J. Phys.-Condens. Matter*, **29**, 035401 (2016)
+
+> We have studied the phase equilibria of three ceramic quasibinary systems Ti\\(\_{1-x}\\)Zr\\(\_x\\)N, Ti\\(\_{1-x}\\)Hf\\(\_x\\)N and Zr\\(\_{1-x}\\)Hf\\(\_x\\)N (0 ≤ x ≤ 1) with density functional theory, cluster expansion and Monte Carlo simulations. We predict consolute temperatures (\\(T_{C}\\)), at which miscibility gaps close, for Ti\\(\_{1-x}\\)Zr\\(\_x\\)N to be 1400 K, for Ti\\(\_{1-x}\\)Hf\\(\_x\\)N to be 700 K, and below 200 K for Zr\\(\_{1-x}\\)Hf\\(\_x\\)N.
+
+-----------------
+
+`9`. [Pressure-induced phase transitions in the CdCr\\(_2\\)Se\\(_4\\) spinel](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.174106)
+
+I. Efthimiopoulos, **Z. T. Y. Liu**, M. Kucway, S. V. Khare, P. Sarin, V. Tsurkan, A. Loidl, and Y. Wang, *Phys. Rev. B*, **94**, 174106 (2016)
+
+> We have conducted high-pressure x-ray diffraction and Raman spectroscopic studies on the CdCr\\(_2\\)Se\\(_4\\) spinel at room temperature up to 42 GPa. We have resolved three structural transitions up to 42 GPa, i.e., the starting Fd-3m phase transforms at -11 GPa into a tetragonal I41/amd structure, an orthorhombic distortion was observed at -15 GPa, whereas structural disorder initiates beyond 25 GPa. Our ab initio density functional theory studies successfully reproduced the observed crystalline-to-crystalline structural transitions.
+
+-----------------
+
 `8`. [First-principles phase diagram calculations for the carbonate quasibinary systems CaCO\\(_3\\)-ZnCO\\(_3\\), CdCO\\(_3\\)-ZnCO\\(_3\\), CaCO\\(_3\\)-CdCO\\(_3\\) and MgCO\\(_3\\)-ZnCO\\(_3\\)](http://www.sciencedirect.com/science/article/pii/S0009254116304934) 
 
 **Z. T. Y. Liu**, B. P. Burton, S. V. Khare, P. Sarin, *Chem. Geol.* **443**, 137-145 (2016)
