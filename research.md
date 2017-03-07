@@ -7,7 +7,7 @@ permalink: /research/
 Interests
 --------
 * Computational physics/chemistry
-* Density Functional Theory (DFT)
+* Predictive models
 
 -----------------
 
