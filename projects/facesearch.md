@@ -10,7 +10,7 @@ permalink: /projects/facesearch/
 
 More Screenshots:
 
-<a href="{{ site.baseurl }}/public/imgs/facesearch.png"> <img src="{{ site.baseurl }}/public/imgs/facesearch.png"/></a>
+<a href="{{ site.baseurl }}/public/imgs/celebsearch0.png"> <img src="{{ site.baseurl }}/public/imgs/celebsearch0.png"/></a>
 
 ---
 
