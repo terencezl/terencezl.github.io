@@ -8,11 +8,9 @@ permalink:        /blog/:year/:month/:day/:title/
 
 # Setup
 title:            Terence's Site
-#description:      Research site, mainly.
 
 name: Terence Zhi Liu
 email: terence.z.liu@gmail.com
-linkedin_username: terence-zhi-liu
 github_username:  terencezl
 
 url:              http://terencezl.github.io
