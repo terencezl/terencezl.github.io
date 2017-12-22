@@ -14,7 +14,7 @@ Interests
 Publications
 ------------
 
-`11`. [Transparency enhancement for SrVO3 by SrTiO3 mixing: A first-principles study
+`11`. [Transparency enhancement for SrVO\\(\_3\\) by SrTiO\\(\_3\\) mixing: A first-principles study
 ](https://www.sciencedirect.com/science/article/pii/S092702561730705X)
 
 **Z. T. Y. Liu**, N. J. Podraza, S. V. Khare, P. Sarin, *Comput. Mater. Sci.* **144**, 139-146 (2018)
