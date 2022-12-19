@@ -26,20 +26,22 @@ I maintain a [Blog](/blog) and write occasionally.
 
 _Vice President, Research, 2021 - Present_
 
-I had previously worked on facial recognition back in 2017, and really wanted to solve two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years I was there.
+I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was there.
 
-During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization, all the way to indexing for search at a very large scale. These encompass almost the entirety of the industrial ML/DL specializations, and the hands-on technical experience and intuition I gained from them was priceless.
+During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization, all the way to indexing for search at a very large scale. These tasks encompass almost the entirety of the industrial ML/DL specializations. The hands-on technical experience and intuition I gained from them were priceless.
 
-I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
+I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
 
 Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
+
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like protobuf & gRPC, RocksDB, Redis Stream, Datadog, to Deep Learning specific ones like MXNet, PyTorch, OpenCV, OpenVINO, ONNX Runtime, ncnn, TensorRT, GPU batching utility service streamer, K-nearest neighbors algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
 * Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA, leading to true scalability and future cost savings on the level of ten million dollars.
 * Designed massive data pipelines with dense compute saturating hardware resource constraints. Perfected efficient parallelized model training using tens of nodes and GPUs.
 * Pushed models to be more lightweight and efficient with distillation training, quantization, pruning & trimming and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Laid out the company ML/Research foundation and built a team.
-* Worked to get the right science and messaging in marketing and policy campaigns with public letters and engagement to policy officials.
+* Worked to get the right science and messaging in marketing campaigns with public letters and engagement to policy officials.
 
 -----------------
 
@@ -47,7 +49,7 @@ Since the algorithm's debut success, I became the trusted expert on the core tec
 
 _Senior Software Engineer, 2017 - 2021_
 
-I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with C++, Operating Systems, System Design, DevOps & Platform Engineering, Cloud, etc.
+I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with C++ (it's a C++ shop after all!), Operating Systems, System Design, DevOps & Platform Engineering, Docker, Cloud, etc. I took special interest in scalable data pipeline and database components, like Apache Kafka, Redis (still have a T-shirt from Redis Day in NYC!), MongoDB, etc. Meawhile I kept learning about ML/AI on the side.
 
 * Maintained the widely-used Secure File Transfer Protocol (SFTP) infrastructure.
 * Developed the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with file system emulation. Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for OpenSSH.
@@ -85,7 +87,7 @@ Online courses:
 
 > Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
 
-![img](/public/imgs/TiN.jpg){: style="width: 95%;max-width:600px" }
+![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
 
 -----------------
 
@@ -129,7 +131,7 @@ _(2022-08-10)_
 
 > Clearview’s technology focuses on single images from commercial RGB images, VP of Research **Terence Liu** told Biometric Update during the same video call… Clearview takes an ensemble approach, combining models that look for different things, Liu says.
 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/737559530?h=be84cede9f" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/737559530?h=be84cede9f" width="95%" height="300" frameborder="0" allowfullscreen></iframe>
 
 -----------------
 
