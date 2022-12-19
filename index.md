@@ -34,7 +34,7 @@ I also carried various projects from research & prototyping to production in acc
 
 Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
 
-I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like protobuf & gRPC, RocksDB, Redis Stream, Datadog, to Deep Learning specific ones like MXNet, PyTorch, OpenCV, OpenVINO, ONNX Runtime, ncnn, TensorRT, GPU batching utility service streamer, K-nearest neighbors algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **RocksDB**, **Redis Stream**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **OpenVINO**, **ONNX Runtime**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
 * Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA, leading to true scalability and future cost savings on the level of ten million dollars.
@@ -49,10 +49,10 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 
 _Senior Software Engineer, 2017 - 2021_
 
-I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with C++ (it's a C++ shop after all!), Operating Systems, System Design, DevOps & Platform Engineering, Docker, Cloud, etc. I took special interest in scalable data pipeline and database components, like Apache Kafka, Redis (still have a T-shirt from Redis Day in NYC!), MongoDB, etc. Meawhile I kept learning about ML/AI on the side.
+I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Operating Systems**, **System Design**, **DevOps & Platform Engineering**, **Docker**, **Cloud**, etc. I took special interest in scalable data pipeline and database components, like **Apache Kafka**, **Redis** (still have a T-shirt from Redis Day in NYC!), **MongoDB**, etc. Meanwhile I kept learning about ML/AI on the side.
 
 * Maintained the widely-used Secure File Transfer Protocol (SFTP) infrastructure.
-* Developed the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with file system emulation. Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for OpenSSH.
+* Developed the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with file system emulation. Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for **OpenSSH**.
 * Safeguarded successful year-long high-stake account migration as technical lead.
 
 -----------------
@@ -61,7 +61,7 @@ I moved into the industry and realized I really liked to work with computers in 
 
 _Ph.D., Physics, 2012 – 2017_
 
-I spent 4 years as a funded researcher working on crystalline materials simulation with Density-Functional Theory on supercomputing clusters. I became proficient with Linux and Python and their scientific computing eco-systems. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
+I spent 4 years as a funded researcher working on crystalline materials simulation with Density-Functional Theory on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **matplotlib**, **pandas**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
 
 During this time I published [14](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) peer-reviewed papers with ~600 citations. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
 
