@@ -3,3 +3,4 @@ _site/
 .idea/
 _config_astro1.yml
 public/favicon.xcf
+.DS_Store

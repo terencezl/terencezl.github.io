@@ -1,13 +1,13 @@
 <div class="sidebar">
-  <div class="container">
+  <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
         <a href="{{ site.baseurl }}/">
           {{ site.title }}
         </a>
       </h1>
+      <p class="lead">{{ site.tagline }}</p>
       <p class="lead">{{ site.description }}</p>
-
       {% if site.email %}
         <a href="mailto:{{ site.email }}">
           <i class="fa fa-envelope fa-lg"></i>

@@ -4,26 +4,20 @@ title: Ten Million Celebrity Faces Search
 permalink: /projects/facesearch/
 ---
 
-# Ten Million Celebrity Faces Search
-
-[CLICK ME](http://terencezl.ngrok.io/facesearch)
+## Ten Million Celebrity Faces Search
 
 More Screenshots:
 
-<a href="{{ site.baseurl }}/public/imgs/celebsearch0.jpg"> <img src="{{ site.baseurl }}/public/imgs/celebsearch0.jpg"/></a>
+![img](/public/imgs/celebsearch1.jpg)
 
----
+-----
 
-<a href="{{ site.baseurl }}/public/imgs/celebsearch1.jpg"> <img src="{{ site.baseurl }}/public/imgs/celebsearch1.jpg"/></a>
+![img](/public/imgs/celebsearch2.jpg)
 
----
+-----
 
-<a href="{{ site.baseurl }}/public/imgs/celebsearch2.jpg"> <img src="{{ site.baseurl }}/public/imgs/celebsearch2.jpg"/></a>
+![img](/public/imgs/celebsearch3.jpg)
 
----
+-----
 
-<a href="{{ site.baseurl }}/public/imgs/celebsearch3.jpg"> <img src="{{ site.baseurl }}/public/imgs/celebsearch3.jpg"/></a>
-
----
-
-<a href="{{ site.baseurl }}/public/imgs/celebsearch4.jpg"> <img src="{{ site.baseurl }}/public/imgs/celebsearch4.jpg"/></a>
+![img](/public/imgs/celebsearch4.jpg)

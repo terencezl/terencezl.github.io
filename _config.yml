@@ -1,23 +1,26 @@
 # Dependencies
-markdown:         kramdown
-highlighter:      rouge
-excerpt_separator: "<!--more-->"
+markdown:           kramdown
+highlighter:        rouge
+excerpt_separator:  "<!--more-->"
 
 # Permalinks
-permalink:        /blog/:year/:month/:day/:title/
+permalink:         /blog/:year/:month/:day/:title/
 
 # Setup
-title:            Terence's Site
+title:             Terence Z. Liu
+tagline:           "ML/DL researcher<br>software/data engineer<br>computational physicist (Ph.D.)"
 
-name: Terence Zhi Liu
-email: terence.z.liu@gmail.com
-github_username:  terencezl
+name:              Terence Z. Liu
+email:             terence.z.liu@gmail.com
+linkedin_username: terence-z-liu
+github_username:   terencezl
+twitter_username:  "@terencezliu"
 
-url:              http://terencezl.github.io
-baseurl:          ''
+url:               https://terencezl.github.io
+baseurl:           ''
 
-paginate:         5
-paginate_path:    blog/page:num
+paginate:          5
+paginate_path:     blog/page:num
 
 # Plugins
-gems: ['jekyll-paginate']
+plugins:           [jekyll-paginate, jekyll-gist]

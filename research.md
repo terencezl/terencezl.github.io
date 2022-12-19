@@ -4,18 +4,47 @@ title: Research
 permalink: /research/
 ---
 
-Interests
---------
-* Computational physics/chemistry
-* Predictive models
+## Patents
+
+[Scalable Training Data Preparation Pipeline And Efficient Distributed Trainer For Deep Neural Networks In Facial Recognition](https://patentcenter.uspto.gov/applications/17676914)
+
+**Liu, Z.**, Ton-That, C.-H. (2022) U.S. Patent No. 11,443,553
+
+*More to come...*
 
 -----------------
 
-Publications
-------------
+## Publications
 
-`11`. [Transparency enhancement for SrVO\\(\_3\\) by SrTiO\\(\_3\\) mixing: A first-principles study
-](https://www.sciencedirect.com/science/article/pii/S092702561730705X)
+Find me on [Google Scholar](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en)
+
+### Computational Materials Science
+
+`14`. [First-principles study of mechanical and magnetic properties of transition metal (M) nitrides in the cubic M\\(\_4\\)N structure](https://www.sciencedirect.com/science/article/abs/pii/S0022369717320206)
+
+V. Adhikari, **Z. T. Y. Liu**, N. J. Szymanski, I. Khatri, D. Gall, P. Sarin, S. V. Khare, *J. Phys. Chem. Solids*, **120**, 197-206 (2018)
+
+> We report results from systematic calculations performed by density functional theory on mechanical properties of twenty-eight 3 d, 4 d and 5 d transition metal (M) nitrides (TMNs) in metal-rich cubic M4N structure as novel candidates for hard coatings materials.
+
+-----------------
+
+`13`. [Universal link of magnetic exchange and structural behavior under pressure in chromium spinels](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.184435)
+
+I. Efthimiopoulos, I. Khatri, **Z. T. Y. Liu**, S. V. Khare, P. Sarin, V. Tsurkan, A. Loidl, D. Zhang, Y. Wang, *Phys. Rev. B*, **97**, 184435 (2018)
+
+> We have conducted high-pressure x-ray diffraction studies on spinels at room temperature. Both compounds undergo pressure-induced structural transitions into diverse tetragonal modifications.
+
+-----------------
+
+`12`. [Electronic and optical properties of vanadium oxides from first principles](https://www.sciencedirect.com/science/article/abs/pii/S0927025618300612)
+
+N.J. Szymanski, **Z. T. Y. Liu**, T. Alderson, P. Sarin, S. V. Khare, *Comput. Mater. Sci.* **146**, 310-318 (2018)
+
+> We have studied the structural, energetic, electronic, and optical properties of six compounds belonging to the system of vanadium oxides, including both high- and low-temperature phases, obtained using first principles calculations based on density functional theory.
+
+-----------------
+
+`11`. [Transparency enhancement for SrVO\\(\_3\\) by SrTiO\\(\_3\\) mixing: A first-principles study](https://www.sciencedirect.com/science/article/pii/S092702561730705X)
 
 **Z. T. Y. Liu**, N. J. Podraza, S. V. Khare, P. Sarin, *Comput. Mater. Sci.* **144**, 139-146 (2018)
 
