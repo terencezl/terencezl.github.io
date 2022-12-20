@@ -63,7 +63,7 @@ _Ph.D., Physics, 2012 – 2017_
 
 I spent 4 years as a funded researcher working on crystalline materials simulation with Density-Functional Theory on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **matplotlib**, **pandas**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
 
-During this time I published [14](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) peer-reviewed papers with ~600 citations. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
+During this time I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) with ~600 citations. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
 
 Additional courses:
 
