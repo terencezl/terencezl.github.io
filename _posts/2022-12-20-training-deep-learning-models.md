@@ -3,13 +3,13 @@ layout: post
 title: Training Deep Learning Models
 ---
 
-I recently came across an [article](https://karpathy.github.io/2019/04/25/recipe/) by Andrej Karpathy, ex-Sr. Director of AI at Tesla. Besides being impressed by the content, it almost brought me to tears, because so much of it was what I personally experienced, learned the hard way, came to believe in, and decided to teach others. It felt vindicating to hear him say
+I recently came across an [article](https://karpathy.github.io/2019/04/25/recipe/) by Andrej Karpathy, ex-Sr. Director of AI at Tesla. Besides being impressed by the content, I was almost brought to tears. So much of it was what I personally experienced, learned the hard way, came to believe in, and decided to teach others. It felt vindicating to hear him say
 
 > ...a “fast and furious” approach to training neural networks does not work and only leads to suffering... the qualities that in my experience correlate most strongly to success in deep learning are patience and attention to detail.
 
 because I kept saying this but this point and its implications weren't going through people's minds.
 
-Here I offer some of my own rules of training deep learning models.
+Here I offer some of my own rules of training deep learning models. It might end up being a growing list.
 
 1. There are typically open source code and data to begin with. Replicate their results closely, then multiple times with slightly different configs to explore the param space.
 2. Perfect the training code with each iteration, making logging, charting, resuming extremely easy.
