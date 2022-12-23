@@ -10,17 +10,19 @@ permalink: /
 
 Well well. Welcome.
 
-I am a Machine Learning/Deep Learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I have developed an expertise in, with great independence, building world-leading **Deep Learning models**, massively **parallel compute systems** and **neural search engines**. I have delivered crucial and challenging projects that others hesitate to take on. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, leading to true scalability and future cost savings on the level of ten million dollars. My push towards technological advances has enabled business directions otherwise not viable. As a result my work has gotten some [media coverage](#media-highlights).
+I am a Machine Learning/Deep Learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I love building world-leading **Deep Learning models**, **parallel compute systems** and **neural search engines**. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, solving scalability once and for all. As a result my work has gotten some [media coverage](#media-highlights).
 
-During my academic years I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented in international conferences and mentored junior researchers. Currently I work in the industry and have several patents [granted](https://patentcenter.uspto.gov/applications/17676914) or in the pipeline. They represent the cutting edge of the **computer vision biometrics** & **neural search** domain. See more at [Research](/research).
+During my academic years I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented in international conferences and mentored junior researchers. Currently I work in the industry and have several patents [granted](https://patentcenter.uspto.gov/applications/17676914) or in the pipeline. See more at [Research](/research).
 
-In addition, I have led teams and pushed them to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers. I enjoy new challenges and seek to align my skills where they matter the most.
+In addition, I have led teams and pushed them to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
 I maintain a [Blog](/blog) and write occasionally.
 
 -----------------
 
 ## <u>EXPERIENCE</u>
+
+Here allow me to delve a bit more into each experience than what's on a one-pager resume. I got this inspiration because we can so easily know about a company and its executives through interviews online on our own time, but the reverse is not true for potential hires. This is a great place to do that.
 
 ### Clearview AI, Inc
 
@@ -34,7 +36,7 @@ I also carried various projects from research & prototyping to production in acc
 
 Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
 
-I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **OpenVINO**, **ONNX Runtime**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
 * Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA, leading to true scalability and future cost savings on the level of ten million dollars.
@@ -63,7 +65,7 @@ _Ph.D., Physics, 2012 – 2017_
 
 I spent 4 years as a funded researcher working on crystalline materials simulation with Density-Functional Theory on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **matplotlib**, **pandas**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
 
-During this time I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) with ~600 citations. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
+During this time I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) that are now widely cited. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
 
 Additional courses:
 
