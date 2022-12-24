@@ -10,9 +10,9 @@ permalink: /
 
 Well well. Welcome.
 
-I am a Machine Learning/Deep Learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I love building world-leading **Deep Learning models**, **parallel compute systems** and **neural search engines**. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, solving scalability once and for all. As a result my work has gotten some [media coverage](#media-highlights).
+I am a Machine Learning/Deep Learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I love building **Deep Learning models**, **parallel compute systems** and **neural search engines**. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, solving scalability once and for all. As a result my work has gotten some [media coverage](#media-highlights). My expertise expands into computer vision and large systems software engineering through a wide range of work.
 
-During my academic years I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented in international conferences and mentored junior researchers. Currently I work in the industry and have several patents [granted](https://patentcenter.uspto.gov/applications/17676914) or in the pipeline. See more at [Research](/research).
+During my academic years I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented in international conferences and mentored junior researchers. Currently I work in the industry and have several patents granted or in the pipeline. See more at [Research](/research).
 
 In addition, I have led teams and pushed them to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
@@ -22,7 +22,7 @@ I maintain a [Blog](/blog) and write occasionally.
 
 ## <u>EXPERIENCE</u>
 
-Here allow me to delve a bit more into each experience than what's on a one-pager resume. I got this inspiration because we can so easily know about a company and its executives through interviews online on our own time, but the reverse is not true for potential hires. This is a great place to do that.
+Here allow me to delve a bit more into each experience than what's on a one-pager resume. I got this inspiration because we can so easily know about a company and its executives through interviews online on our own time, but the reverse is not true for individuals. This is a great place to do that.
 
 ### Clearview AI, Inc
 
@@ -36,14 +36,16 @@ I also carried various projects from research & prototyping to production in acc
 
 Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
 
-I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms, **tensorboard**, **MLFlow**, **DVC**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
-* Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA, leading to true scalability and future cost savings on the level of ten million dollars.
-* Designed massive data pipelines with dense compute saturating hardware resource constraints. Perfected efficient parallelized model training using tens of nodes and GPUs.
-* Pushed models to be more lightweight and efficient with distillation training, quantization, pruning & trimming and hardware acceleration. Streamlined deployment with model encryption and serving engines.
-* Laid out the company ML/Research foundation and built a team.
-* Worked to get the right science and messaging in marketing campaigns with public letters and engagement to policy officials.
+* Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
+* Perfected efficient model training using tens of nodes/GPUs, enabling Research function.
+* Pushed models to be efficient with distillation training, quantization, pruning & trimming and hardware acceleration. Streamlined deployment with model encryption and serving engines.
+* Served as cross-team liaison in Platform Engineering. Designed & reviewed multiple compact ML data pipelines & inference infra for images/videos. Several $100k more efficient.
+* Laid out company ML foundation. Participated in hiring loops. Built & nurtured team.
+* Planned & executed on product development & GTM of PAD feature.
+* Co-wrote marketing materials, public letters and engaged with policy officials.
 
 -----------------
 
@@ -51,11 +53,13 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 
 _Senior Software Engineer, 2017 - 2021_
 
-I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Operating Systems**, **System Design**, **DevOps & Platform Engineering**, **Docker**, **Cloud**, etc. I took a special interest in scalable data pipeline and database components, like **Apache Kafka**, **Redis** (still have a T-shirt from Redis Day in NYC!), **MongoDB**, etc. Meanwhile I kept learning about ML/AI on the side.
+I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with **C++** (it's a C++ shop after all!), System Design & Monitoring tools such as **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools such as **Chef**, **Jenkins**, **Docker**, **Kubernetes**, etc. I took a special interest in scalable data pipeline and database components, like **Apache Kafka**, **Redis** (still have a T-shirt from Redis Day in NYC!), **MongoDB**, etc. Meanwhile I kept learning about ML/AI on the side.
 
-* Maintained the widely-used Secure File Transfer Protocol (SFTP) infrastructure.
-* Developed the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with file system emulation. Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for **OpenSSH**.
-* Safeguarded successful year-long high-stake account migration as technical lead.
+* Maintained the widely-used bare-metal SFTP infrastructure with 7M daily logins.
+* Designed & Implemented the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with S3 file system emulation and cross-data-center replication & failover.
+* Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for **OpenSSH**.
+* Spearheaded successful multi-year high-stake account migration as technical lead.
+
 
 -----------------
 
