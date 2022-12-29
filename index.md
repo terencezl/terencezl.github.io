@@ -31,7 +31,7 @@ _Vice President, Research, 2021 - Present_
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was there. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
-* Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
+* Research & implemented a **deca-B** face search engine that was **500+** times the SOTA throughput. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
 * Perfected efficient model training using tens of nodes/GPUs, enabling Research function.
 * Pushed models to be efficient with distillation training, quantization, pruning & trimming and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Served as cross-team liaison in Platform Engineering. Designed & reviewed multiple compact ML data pipelines & inference infra for images/videos. Several $100k more efficient.
