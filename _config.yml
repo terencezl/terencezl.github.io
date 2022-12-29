@@ -2,6 +2,8 @@
 markdown:           kramdown
 highlighter:        rouge
 excerpt_separator:  "<!--more-->"
+kramdown:
+  parse_block_html: true
 
 # Permalinks
 permalink:         /blog/:year/:month/:day/:title/

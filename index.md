@@ -28,15 +28,7 @@ Here allow me to delve a bit more into each experience than what's on a one-page
 
 _Vice President, Research, 2021 - Present_
 
-I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was there.
-
-During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization, all the way to indexing for search at a very large scale. These tasks encompass almost the entirety of the industrial ML/DL specializations. The hands-on technical experience and intuition I gained from them were priceless.
-
-I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
-
-Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
-
-I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products like **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, to Deep Learning specific ones like **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, GPU batching utility **service streamer**, **K-nearest neighbors** algorithms, **tensorboard**, **MLFlow**, **DVC**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was there. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
 * Research & implemented a **deca-billion-scale** face search engine that was **500+** times the throughput of SOTA. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
@@ -44,8 +36,22 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 * Pushed models to be efficient with distillation training, quantization, pruning & trimming and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Served as cross-team liaison in Platform Engineering. Designed & reviewed multiple compact ML data pipelines & inference infra for images/videos. Several $100k more efficient.
 * Laid out company ML foundation. Participated in hiring loops. Built & nurtured team.
-* Planned & executed on product development & GTM of PAD feature.
+* Planned & executed on product development & GTM of [PAD](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing) feature.
 * Co-wrote marketing materials, public letters and engaged with policy officials.
+
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from general SWE products **protobuf & gRPC**, **Redis Stream**, **RocksDB**, **AWS**, **Datadog**, **GitLab CI/CD**, **Kubernetes**, to Deep Learning specific ones **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, GPU batching engine **service streamer**, **Approximate Nearest Neighbors** libraries such as **Faiss** and **hnswlib**, MLOps tools like **TensorBoard**, **MLFlow** and **DVC**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+
+<details markdown=block>
+<summary markdown=span>**MORE**</summary>
+
+> During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization/inference optimization, all the way to indexing for search at a very large scale. These tasks encompassed almost the entirety of the industrial ML/DL specializations.
+>
+> You can define the role as _ML Research Scientist/Engineer_. However, the work interfaced heavily with Platform Engineering, which echoed back with my experience at [Bloomberg](#bloomberg-lp) as a senior software engineer. In addition, due to the visual nature of computer vision, being able to anticipate and connect to the frontend/product experience was essential. Therefore I took an IC liaison role at adjacent teams and contributed heavy-handedly to a few projects in order to drive the initiatives to the logical end and reap the benefits of what the ML core had to offer. One project was a rewrite of the MLAPI service with the GPU batching engine **service streamer** that was simple, flexible and effective. Another project was a multi-threaded video frame ML processor that parsed unique face groups with tracking and clustering. Another project was re-architecting the neural vector DB/index engine and the wiring around it, which ended up being **5** times more efficient, then another **500+** times (you read that right!) on top of that, solving scalability once and for all. Through them I got to really stretch my capabilities. The hands-on technical experience and intuition I gained from these projects were priceless.
+>
+> I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process in the context of the company: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
+>
+> Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
+</details>
 
 -----------------
 
@@ -53,13 +59,14 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 
 _Senior Software Engineer, 2017 - 2021_
 
-I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. At Bloomberg I became serious with **C++** (it's a C++ shop after all!), System Design & Monitoring tools such as **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools such as **Chef**, **Jenkins**, **Docker**, **Kubernetes**, etc. I took a special interest in scalable data pipeline and database components, like **Apache Kafka**, **Redis** (still have a T-shirt from Redis Day in NYC!), **MongoDB**, etc. Meanwhile I kept learning about ML/AI on the side.
+I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. Here I became a more equipped developer, and learned on the job key data structures, system design patterns, essential tools and frameworks.
 
-* Maintained the widely-used bare-metal SFTP infrastructure with 7M daily logins.
-* Designed & Implemented the next-generation SFTP backed by Bloomberg Cloud Computing and Storage with S3 file system emulation and cross-data-center replication & failover.
-* Designed & implemented reliable account & routing management and robust messaging control. Wrote OS-level modules and plugins for **OpenSSH**.
+* Maintained & monitored widely-used bare-metal SFTP infrastructure with 7M daily logins.
+* Designed & implemented reliable account management, auth, routing and messaging control for cloud-based next-gen SFTP. Wrote OS-level modules for auth.
+* Leveraged S3 Storage as OpenSSH SFTP subsystem with file system emulation and cross-data-center replication & failover.
 * Spearheaded successful multi-year high-stake account migration as technical lead.
 
+At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Golang**, **OpenSSH**, Web development stack **Flask**, **SQLAlchemy**, **Postgres**, **Redis**, **MongoDB**, messaging frameworks **RabbitMQ**, **Apache Kafka**, system monitoring tools **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools **Jenkins**, **Chef**, **Docker**, **Kubernetes**, **OpenStack**. I took a special interest in scalable data/messaging pipeline and database components. Meanwhile I kept learning about ML/AI on the side.
 
 -----------------
 
@@ -67,33 +74,39 @@ I moved into the industry and realized I really liked to work with computers in 
 
 _Ph.D., Physics, 2012 – 2017_
 
-I spent 4 years as a funded researcher working on crystalline materials simulation with Density-Functional Theory on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **matplotlib**, **pandas**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
+I spent 4 years as a funded researcher working on crystalline materials simulation with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **scikit-learn**, **XGBoost**, **LightGBM**, **pandas**, **matplotlib**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
 
 During this time I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) that are now widely cited. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
 
-Additional courses:
+I did three open-source projects during this time: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
 
-* Statistical Inference (MATH 8650)
-* Categorical Data Analysis (MATH 8620)
-* Topics In Statistics (MATH 8640)
-* Statistical Consulting (MATH 8600)
+<details markdown=block>
+<summary markdown=span>**MORE**</summary>
 
-Online courses:
-
-* Introduction to Databases (Stanford) - with Distinction
-* Algorithms, Part I (Princeton)
-* Introduction to Probability and Data (Duke)
-* Inferential Statistics (Duke)
-* R Programming (Johns Hopkins)
-* Regression Models (Johns Hopkins)
-* Practical Machine Learning (Johns Hopkins)
-* Statistical Learning “ISLR” (Stanford)
-
-[Dissertation on material properties prediction with cluster expansion regression models](http://iopscience.iop.org/article/10.1088/0953-8984/29/3/035401)
-
-> Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
-
-![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
+> Additional courses:
+>
+> * Statistical Inference (MATH 8650)
+> * Categorical Data Analysis (MATH 8620)
+> * Topics In Statistics (MATH 8640)
+> * Statistical Consulting (MATH 8600)
+>
+> Online courses:
+>
+> * Introduction to Databases (Stanford) - with Distinction
+> * Algorithms, Part I (Princeton)
+> * Introduction to Probability and Data (Duke)
+> * Inferential Statistics (Duke)
+> * R Programming (Johns Hopkins)
+> * Regression Models (Johns Hopkins)
+> * Practical Machine Learning (Johns Hopkins)
+> * Statistical Learning “ISLR” (Stanford)
+>
+> [Dissertation on material properties prediction with cluster expansion regression models](http://iopscience.iop.org/article/10.1088/0953-8984/29/3/035401)
+>
+> > Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
+>
+> ![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
+</details>
 
 -----------------
 
