@@ -61,7 +61,7 @@ In []: %timeit quantizer.search(data[:10000], 5)
 2min 42s ± 3.48 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
 ```
 
-This is what CPU usage looks like in `htop` for hnswlib:
+This was what CPU usage looks like in `htop` for hnswlib:
 ![img](/public/imgs/hnswlib/htop1.png){: style="width: 95%" }
 
 And this for Faiss `HNSW32`:
@@ -93,7 +93,7 @@ In [63]: %timeit quantizer.search(data[:50], 5)
 
 I did another experiment with `HNSW,SQ8`, which [made use](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/impl/ScalarQuantizer.cpp#L74) of AVX2 instructions, and the slowness and kernel thrashing behavior still persisted.
 
-My strongest hypothesis is that it was due to the way `IndexHNSW` variants were implemented, with actual vector storage [separate](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp#L899-L945) from the HNSW [graph structure](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/impl/HNSW.h#L38). Memory is supposed to be fast, but somehow the access pattern did not play well with this type of separation. hnswlib did [not](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/hnswalg.h#L32) suffer from this problem so it was able to operate at peak capacity.
+My strongest hypothesis is that it was due to the way `IndexHNSW` variants were implemented, with actual vector storage [separate](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp#L899-L945) from the HNSW [graph structure](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/impl/HNSW.h#L38). Memory was supposed to be fast, but somehow the access pattern did not play well with this type of separation. hnswlib did [not](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/hnswalg.h#L32) suffer from this problem so it was able to operate at peak capacity.
 
 This seems to be a bummer, because it was such an elegant way to implement the graph structure / storage separation. But it's probably wise to use the original hnswlib implementation for max performance.
 

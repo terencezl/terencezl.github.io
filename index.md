@@ -28,7 +28,7 @@ Here allow me to delve a bit more into each experience than what's on a one-page
 
 _Vice President, Research, 2021 - Present_
 
-I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was there. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
+I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
 * Researched & implemented a **deca-B** face search engine that was **500+** times the SOTA throughput. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
