@@ -16,7 +16,7 @@ During my academic years I published 14 peer-reviewed [papers](https://scholar.g
 
 In addition, I have led teams and pushed them to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
-I maintain a [Blog](/blog) and write occasionally.
+I maintain a technical [Blog](/blog) and write occasionally.
 
 -----------------
 

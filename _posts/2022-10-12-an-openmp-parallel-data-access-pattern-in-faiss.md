@@ -1,6 +1,6 @@
 ---
 layout: post
-title: openmp Parallel Data Access Pattern in Faiss
+title: An openmp Parallel Data Access Pattern in Faiss
 ---
 
 This is a quick note on how to use `openmp` or rather, any multithreading library to divide the underlying data. Let's use some code snippets from Faiss.
