@@ -74,7 +74,7 @@ At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Golan
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
-The work here felt like a high-stake crash course of the book [System Design Interview](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF). Clients, servers, DNS, API gateways, load balancers, proxies, route hosts, databases, caches, message buses, logging, metrics, rate limting, JWT auth, cryptographic padding/cert signing, user models, isolated networks and staged rollouts... and a lot more. It was humbling to see it first hand how seasoned engineers deal with large system serving millions of users and requests every day. I made valuable contributions to the over-arching theme of transitioning from the old system to the new system, and matured into the likes of my peers.
+> The work here felt like a high-stake crash course of the book [System Design Interview](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF). Clients, servers, DNS, API gateways, load balancers, proxies, route hosts, databases, caches, message buses, logging, metrics, rate limting, JWT auth, cryptographic padding/cert signing, user models, isolated networks and staged rollouts... and a lot more. It was humbling to see it first hand how seasoned engineers deal with large system serving millions of users and requests every day. I made valuable contributions to the over-arching theme of transitioning from the old system to the new system, and matured into the likes of my peers.
 </details>
 
 -----------------
