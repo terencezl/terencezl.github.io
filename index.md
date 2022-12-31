@@ -66,23 +66,33 @@ _Senior Software Engineer, 2017 - 2021_
 I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. Here I became a more equipped developer, and learned on the job key data structures, system design patterns, essential tools and frameworks.
 
 * Maintained & monitored widely-used bare-metal SFTP infrastructure with 7M daily logins.
-* Designed & implemented reliable account management, auth, routing and messaging control for cloud-based next-gen SFTP. Wrote OS-level modules for auth.
+* Designed & implemented reliable account management, auth, routing, caching, messaging for cloud-based next-gen SFTP. Wrote OS-level modules and web servers for auth.
 * Leveraged S3 Storage as OpenSSH SFTP subsystem with file system emulation and cross-data-center replication & failover.
 * Spearheaded successful multi-year high-stake account migration as technical lead.
 
 At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Golang**, **OpenSSH**, Web development stack **Flask**, **SQLAlchemy**, **Postgres**, **Redis**, **MongoDB**, messaging frameworks **RabbitMQ**, **Apache Kafka**, system monitoring tools **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools **Jenkins**, **Chef**, **Docker**, **Kubernetes**, **OpenStack**. I took a special interest in scalable data/messaging pipeline and database components. Meanwhile I kept learning about ML/AI on the side.
 
+<details markdown=block>
+<summary markdown=span>**MORE**</summary>
+The work here felt like a high-stake crash course of the book [System Design Interview](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF). Clients, servers, DNS, API gateways, load balancers, proxies, route hosts, databases, caches, message buses, logging, metrics, rate limting, JWT auth, cryptographic padding/cert signing, user models, isolated networks and staged rollouts... and a lot more. It was humbling to see it first hand how seasoned engineers deal with large system serving millions of users and requests every day. I made valuable contributions to the over-arching theme of transitioning from the old system to the new system, and matured into the likes of my peers.
+</details>
+
 -----------------
 
 ### University of Toledo
 
-_Ph.D., Physics, 2012 – 2017_
+_Ph.D., Physics, 2012 – 2017_<br>
+_Researcher & Developer, 2013 - 2017_
 
-I spent 4 years as a funded researcher working on crystalline materials simulation with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **scikit-learn**, **XGBoost**, **LightGBM**, **pandas**, **matplotlib**, etc. It naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning. I took a lot of additional courses to be fully equipped in these domains before dissertation defense.
+I spent four of the five years here as a funded researcher working on First-Principles materials simulations with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. It was an exciting field that only became feasible after ~50 years of advances in supercomputing since WWII... not just quantum mechanics theories any more. However the tooling around the core Fortran software package [VASP](https://www.vasp.at/) was very scarce, and I had to be very proactive on what to learn and build. This journey taught me a lot of things, _resilience_ being the most valuable aspect of it. Because of the fundamental similarity in problem scope (iterative optimization), working approach (scientific experiments) and technical requirements (big computers), it naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning.
 
-During this time I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) that are now widely cited. I got the opportunities to present in numerous international conferences, and mentored three undergraduate and two graduate students.
+* Specialized in materials simulations with parallel computing clusters. 14 [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) published.
+* Calculated electronic ground states with gradient descent & residual minimization schemes, (non-)linear regression - similar routines as in ML/DL frameworks. Had various ML [projects](/projects/).
+* Authored open-source projects: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
+* Built a materials database [website](/projects/#ceramics-database) with a modern stack, supporting tabulation/graphing, user auth/contribution. Project helped get a $100k research grant.
+* Mentored three undergraduate and two graduate students.
 
-I did three open-source projects during this time: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
+Here I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **scikit-learn**, **XGBoost**, **LightGBM**, **pandas**, **matplotlib**, etc. I took a lot of additional courses and did [projects](/projects/) to be fully equipped in SWE/ML/DL in the industry.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
@@ -110,6 +120,8 @@ I did three open-source projects during this time: [ScriptsForVASP](https://gith
 > > Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
 >
 > ![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
+>
+> NOTE: if you would like to plan for a transition from PhD to the SWE/ML/AI industry, prepare early, and read [A Survival Guide to a PhD](http://karpathy.github.io/2016/09/07/phd/) from Andrej Karpathy and the [HN discussion](https://news.ycombinator.com/item?id=12447495).
 </details>
 
 -----------------
