@@ -10,7 +10,7 @@ permalink: /
 
 Well well. Welcome.
 
-I am a machine learning/deep learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I love building and deploying **deep learning models**, **parallel compute systems** and **neural search engines**. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, solving scalability once and for all. As a result my work has gotten some [media coverage](#media-highlights). My expertise expands into **computer vision**, **semantic search** and **large systems software engineering** through various endeavors. I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering and product.
+I am a machine learning/deep learning researcher, software/data engineer, and academically trained computational physicist with a PhD. I love building and deploying **deep learning models**, **parallel compute systems** and **neural search engines**. In 2021 I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** among top companies and research institutions. In 2022 I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state of the art, solving scalability once and for all. As a result, my work has gotten some [media coverage](#media-highlights). My expertise expands into **computer vision**, **semantic search** and **large systems software engineering** through various endeavors. I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering and product.
 
 During my academic years, I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented at international conferences, and mentored junior researchers. Currently, I work in the industry and have several patents granted or in the pipeline. See more at [Research](/research).
 
@@ -26,7 +26,7 @@ Here allow me to delve a bit more into each experience than what's on a one-page
 
 ### Clearview AI, Inc
 
-_Vice President, ML Research, 2021 - Present_
+_Vice President, ML / Research, 2021 - Present_
 
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
@@ -131,7 +131,7 @@ Here I became proficient with **Linux** and **Python** and their **scientific co
 
 _Bachelor of Science, Materials Science & Engineering, 2008 – 2012_
 
-This major was interdisciplinary in nature. As a result I studied a broad range of subjects: materials science & engineering, physics, chemistry, electrical engineering, computer science, math, statistics, etc. I also prepared and participated in a mathematical modeling contest with a team that focused on operations research using **MATLAB** and **Mathematica**.
+This major was interdisciplinary in nature. As a result, I studied a broad range of subjects: materials science & engineering, physics, chemistry, electrical engineering, computer science, math, statistics, etc. I also prepared and participated in a mathematical modeling contest with a team that focused on operations research using **MATLAB** and **Mathematica**.
 
 -----------------
 
