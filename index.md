@@ -12,13 +12,13 @@ Well well. Welcome.
 
 I am a leader in building and deploying **machine learning models**, **neural search engines**, and **parallel computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compact ML data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
 
-My expertise expands into **computer vision**, **NLP**, **semantic search**, and [**MLOps**](https://www.databricks.com/glossary/mlops) through various endeavors. I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. Here is some [media coverage](#media-highlights) about my work.
+ML/data tooling acceleration has only been increasingly intense in recent years. The term [**MLOps**](https://www.databricks.com/glossary/mlops) underpins the excitement and frustration of practitioners trying to make sense of it all. Newer research and ever-growing data & compute drive constant shifts in development & deployment patterns. I aim to keep abreast of the dominating trends and envision a healthy ML/data platform.
 
-In addition, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
+As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
 During my academic years, I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented at international conferences, and mentored junior researchers. Currently, I work in the industry and have several patents granted or in the pipeline. See more at [Research](/research).
 
-I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities. Here is my [CV](/public/cv.pdf).
+I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. Here is some [media coverage](#media-highlights). I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities. Here is my [CV](/public/cv.pdf).
 
 -----------------
 
@@ -26,9 +26,9 @@ I maintain a technical [Blog](/blog) and write occasionally. Please find me on [
 
 Here allow me to delve a bit more into each experience than what's on a one-pager resume. I got this inspiration because we can so easily know about a company and its executives through interviews online on our own time, but the reverse is not true for individuals. This is a great place to do that.
 
-### Clearview AI, Inc
+### Clearview AI
 
-_Vice President, ML / Research, 2021 - Present_
+_Head of ML, 2021 - Present_
 
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
@@ -62,7 +62,7 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 
 -----------------
 
-### Bloomberg, LP
+### Bloomberg LP
 
 _Senior Software Engineer, Platform, 2017 - 2021_
 
