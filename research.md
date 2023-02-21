@@ -4,6 +4,8 @@ title: Research
 permalink: /research/
 ---
 
+During my academic years, I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented at international conferences, and mentored junior researchers. Currently, I work in the industry and have several patents granted or in the pipeline.
+
 ## Patents
 
 [Scalable Training Data Preparation Pipeline And Efficient Distributed Trainer For Deep Neural Networks In Facial Recognition](https://patentcenter.uspto.gov/applications/17676914)

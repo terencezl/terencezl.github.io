@@ -14,11 +14,9 @@ I am a leader in building and deploying **machine learning models**, **neural se
 
 ML/data tooling acceleration has only been increasingly intense in recent years. The term [**MLOps**](https://www.databricks.com/glossary/mlops) underpins the excitement and frustration of practitioners trying to make sense of it all. Newer research and ever-growing data & compute drive constant shifts in development & deployment patterns. I aim to keep abreast of the dominating trends and envision a healthy ML/data platform.
 
-As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
+As a highly motivated individual, I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
-During my academic years, I published 14 peer-reviewed [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) in high-quality scientific journals, presented at international conferences, and mentored junior researchers. Currently, I work in the industry and have several patents granted or in the pipeline. See more at [Research](/research).
-
-I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. Here is some [media coverage](#media-highlights). I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities. Here is my [CV](/public/cv.pdf).
+Here is some [media coverage](#media-highlights). I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities ([CV](/public/cv.pdf)).
 
 -----------------
 
