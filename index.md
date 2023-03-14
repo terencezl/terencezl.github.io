@@ -10,7 +10,7 @@ permalink: /
 
 Well well. Welcome.
 
-I am a leader in building and deploying **machine learning models**, **neural search engines**, and **parallel computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation into a **deca-billion-scale** face search engine that was **500+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compact ML data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
+I am a leader in building and deploying **machine learning models**, **neural search engines**, and **parallel computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation into a **deca-billion-scale** face search engine that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compact ML data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
 
 ML/data tooling acceleration has only been increasingly intense in recent years. The term [**MLOps**](https://www.databricks.com/glossary/mlops) underpins the excitement and frustration of practitioners trying to make sense of it all. Newer research and ever-growing data & compute drive constant shifts in development & deployment patterns. I aim to keep abreast of the dominating trends and envision a healthy ML/data platform.
 
@@ -26,20 +26,20 @@ Here allow me to delve a bit more into each experience than what's on a one-page
 
 ### Clearview AI
 
-_Head of ML, 2021 - Present_
+_Head of ML / Principal Engineer, 2021 - Present_
 
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
-* Researched & implemented a **deca-B** face search engine that was **500+** times the SOTA throughput. Near-term 1/10 server cost & much higher capacity. Long-term $10M annual savings.
+* Researched & implemented a **deca-B** face search engine that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries to push the industry boundary. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
 * Perfected efficient model training using tens of nodes/GPUs, enabling Research function.
 * Drove model efficiency using distillation training, quantization, pruning & trimming, and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Led cross-functional collaboration to design & review multiple compact ML data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
-* Established foundational ML practices & tooling and built a team of ML engineers.
+* Established foundational ML practices, tooling & platform and built a team of ML engineers.
 * Planned & executed product development & GTM of [PAD](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing) feature with team.
 * Co-wrote marketing materials and public letters. Engaged with policy officials.
 
-I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from ML frameworks **MXNet**, **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **ncnn**, **CuPy**, **TensorRT**, powerful MLOps platforms/tools **AWS SageMaker**, **GCP Vertex AI**, **Ray**, **Airflow**, **Flyte**, **MLFlow**, **TensorBoard**, **DVC**, approximate nearest neighbors libraries **Faiss**, **hnswlib**, and general SWE tools **FastAPI**, **Socket.IO**, **Protobuf & gRPC**, **Redis Stream**, **RocksDB**, **Datadog**, **GitLab CI/CD**, **Docker**, **Kubernetes**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from ML frameworks **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **CuPy**, **TensorRT**, powerful MLOps platforms/tools **AWS SageMaker**, **GCP Vertex AI**, [**Ray**](https://github.com/ray-project/ray), **Airflow**, **Flyte**, **MLFlow**, **DVC**, approximate nearest neighbors libraries [**Faiss**](https://github.com/facebookresearch/faiss/), [**hnswlib**](https://github.com/nmslib/hnswlib), and general SWE tools **FastAPI**, **Socket.IO**, **Protobuf & gRPC**, **Redis Stream**, [**RocksDB**](https://github.com/facebook/rocksdb), **Datadog**, **GitLab CI/CD**, **Docker**, **Kubernetes**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fusioned three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
@@ -51,7 +51,7 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 > * One project was a rewrite of the MLAPI service with the GPU batching engine **service streamer** that was simple, flexible and effective. - It was like [Ray Serve](https://www.ray.io/ray-serve).
 > * Another project was a distributed ML data pipeline framework that was fault tolerant for spot GPU instances, orchestrated minimally by S3, Redis, `rsync`, `ssh` and UNIX tools. It was flexible for reuse and enabled observability by terminal dashboards (`tmux`, `watch`). - It was like [Ray Core](https://www.ray.io/ray-core).
 > * Another project was a multithreaded video frame ML processor that parsed unique face groups with tracking and clustering.
-> * Another project was re-architecting the neural vector DB/index engine, which ended up being **5** times more efficient, then another **500+** times (you read that right!) on top of that, solving scalability once and for all.
+> * Another project was re-architecting the neural vector DB/index engine, which ended up being **5** times more efficient, then another **100+** times on top of that, solving scalability once and for all.
 >
 > I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process in the context of the company: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
 >
@@ -67,8 +67,8 @@ _Senior Software Engineer, Platform, 2017 - 2021_
 I moved into the industry and realized I really liked to work with computers in a more general capacity. In order to take things to the next level, I needed more rigorous training in Software Engineering. Here I became a more equipped developer, and learned on the job key data structures, system design patterns, essential tools and frameworks.
 
 * Maintained & monitored widely-used bare-metal SFTP infrastructure with 7M daily logins.
-* Designed & implemented reliable account management, auth, routing, caching, messaging for cloud-based next-gen SFTP. Wrote OS-level modules and web servers for auth.
-* Leveraged S3 Storage as OpenSSH SFTP subsystem with file system emulation and cross-data-center replication & failover.
+* Designed & implemented reliable account management, auth, routing, caching, messaging for cloud-based next-gen SFTP. Wrote OS-level modules and web servers for auth interfacing with OpenSSH. Managed deployment on internal Kubernetes-based PaaS.
+* Leveraged S3 Storage as SFTP subsystem with file system emulation and cross-data-center replication & failover.
 * Spearheaded successful multi-year high-stake account migration as technical lead.
 
 At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Golang**, **OpenSSH**, Web development stack **Flask**, **SQLAlchemy**, **Postgres**, **Redis**, **MongoDB**, data/messaging frameworks **RabbitMQ**, **Kafka**, **Flink**, **Spark**, system monitoring tools **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools **Jenkins**, **Chef**, **Docker**, **Kubernetes**, **OpenStack**. I took a special interest in scalable data/messaging pipeline and database components. Meanwhile I kept learning about ML/AI on the side.
