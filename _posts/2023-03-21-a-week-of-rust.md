@@ -22,9 +22,9 @@ vector<int> v1 = {1, 2, 3};
 // this copies the entire vector
 vector<int> v2 = v1;
 
-string s = "hello";
+string s1 = "hello";
 // this copies the entire string
-string s2 = s;
+string s2 = s1;
 ```
 
 In Rust, when you assign a variable to another variable, the value is [moved](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html), if it does not implement the `Copy` trait. This is a very different behavior from C++.
