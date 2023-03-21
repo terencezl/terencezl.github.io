@@ -53,11 +53,11 @@ In C++, you have the concepts of pointers and references.
 // This is how you get a pointer:
 int* p = &a;
 
-// This is how you dereference a pointer.
+// This is how you dereference a pointer:
 int a_copy = *p;
 ```
 
-The `&` in `&a` and `*` in `*p` are operators. The `int*` is a type for pointers. You announce it on both ends.
+The `&` in `&a` and `*` in `*p` are operators. The `int*` is a pointer type. You announce it on both ends.
 
 ```c++
 // This is how you get a reference:
@@ -66,7 +66,7 @@ int& r = a;
 int a_copy = r;
 ```
 
-You don't need operators to get a reference. The `int&` is a type for references. You announce it only with the type notation.
+You don't need operators to get a reference. The `int&` is a reference type. You announce it only with the type notation.
 
 Whereas in Rust, references look like the below.
 
@@ -77,7 +77,7 @@ let r: &i32 = &a;
 let a_copy: i32 = *r;
 ```
 
-The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a type. Rust uses `&i32` instead of `int*` to represent this concept.
+The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a reference type. Rust uses `&i32` instead of `int*` to represent this concept.
 
 ### Pattern Matching
 
