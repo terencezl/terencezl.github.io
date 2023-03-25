@@ -21,7 +21,7 @@ twitter_username:  "@terencezliu"
 url:               https://terencezl.github.io
 baseurl:           ''
 
-paginate:          10
+paginate:          100
 paginate_path:     blog/page:num
 
 # Plugins

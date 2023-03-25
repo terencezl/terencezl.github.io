@@ -1,11 +1,15 @@
 ---
 layout: post
-title: Kids! Use hnswlib for HNSW
+title: Kids! Use <code>hnswlib</code> for HNSW
 ---
 
 For people who fool around in the small field of Approximate Nearest Neighbors (ANN) search, [Faiss](https://github.com/facebookresearch/faiss) and [hnswlib](https://github.com/nmslib/hnswlib) are two big names. Faiss is a much broader library with a lot of in-memory ANN methods, vector compression schemes, GPU counterparts and utility functions, whereas hnswlib is a lot more specific, at only one graph-based in-memory index construction method called Hierarchical Navigable Small Worlds (HNSW)[^1][^2]. After the open-source implementation of HNSW in hnswlib came out, Faiss also attempted it with its `IndexHNSW` class.
 
-Which to pick? Being a long-time Faiss user, I had the natural inclination to keep using what it offered. So I whipped up a large HNSW index with scalar quantization (SQ) `HNSW32,SQ8`, 512 dimensions, ~30M vectors, with `efConstruction=100`. It amounted to a little over 20GB in size. The general setup was a cloud instance with 32 physical cores and 64 hyperthreads and 120GB ~ 590GB memory, but a smaller or larger config would yield similar outcomes. I also experimented with both Intel and AMD, Ubuntu and RHEL-based OSes, so what I saw should be representative. Note the CPUs all supported AVX512 and less instructions.
+Which to pick? Being a long-time Faiss user, I had the natural inclination to keep using what it offered. However, issues ensued.
+
+<!--more-->
+
+So I whipped up a large HNSW index with scalar quantization (SQ) `HNSW32,SQ8`, 512 dimensions, ~30M vectors, with `efConstruction=100`. It amounted to a little over 20GB in size. The general setup was a cloud instance with 32 physical cores and 64 hyperthreads and 120GB ~ 590GB memory, but a smaller or larger config would yield similar outcomes. I also experimented with both Intel and AMD, Ubuntu and RHEL-based OSes, so what I saw should be representative. Note the CPUs all supported AVX512 and less instructions.
 
 Initially, everything was fine, all cores/threads firing 100% (green in `htop` meaning all user threads), and memory usage stable. As I kept adding new vectors in it, suddenly, around ~25GB in size, ~30M vectors, searches became twice to three times slower. The CPU utilization was less than total thread count, and there was a lot of red in `htop` indicating kernel threads firing. The residential memory started fluctuating within a 3GB range.
 

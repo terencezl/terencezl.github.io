@@ -24,6 +24,8 @@ inline uint64_t lo_offset(uint64_t lo) {
 }
 ```
 
+<!--more-->
+
 The original implementation used rather smart bitwise shifting and masking to accommodate two `uint32` integers in `uint64` allocations into one `uint64` integer. It worked out beautifully on its own. I proceeded to set up my custom [comparator](https://github.com/facebook/rocksdb/wiki/Basic-Operations#comparators) in RocksDB reinterpreting the `uint64` integer `LO` as a byte string, and that worked out great. Then I discovered [_prefix seek_](https://github.com/facebook/rocksdb/wiki/Prefix-Seek) and slapped on a `NewFixedPrefixTransform(4)` (4 bytes for the `list_id`/`listno`). This was when the iterator seeks broke down. One should expect all elements prefixed by the same `listno` to be returned with the fixed prefix, but the results suggested otherwise. It somehow seemed to be treating the `offset` as the prefix.
 
 I spent hours isolating the problem with trial and error. Then at dinner it dawned on me... **Little Endian**[^1][^2]!

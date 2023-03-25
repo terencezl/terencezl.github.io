@@ -19,6 +19,8 @@ Usually you would `parallel for`, or first `parallel` then `for` over a sequence
 
 I came across a different [use case](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexIVF.cpp#L253) that was note-worthy:
 
+<!--more-->
+
 ```c++
     DirectMapAdd dm_adder(direct_map, n, xids);
 

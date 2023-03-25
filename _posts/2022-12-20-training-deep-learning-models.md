@@ -11,6 +11,8 @@ because I kept saying this but this point and its implications weren't going thr
 
 Here I offer some of my own rules of training deep learning models. It might end up being a growing list.
 
+<!--more-->
+
 1. There are typically open source code and data to begin with. Replicate their results closely, then multiple times with slightly different configs to explore the param space.
 2. Perfect the training code with each iteration, making logging, charting, resuming extremely easy.
 3. For lack of better tooling for tracking experiments in dynamic ways, create a worklog, form a mental map of the things done, and be sensitive to the file sizes, timestamps, git diff outputs in the commandline to enrich your own working memory. The ability to hold a lot of trial and error outcomes in your head provides chances for breakthroughs. It's like your brain CPU's fast-access memory.
