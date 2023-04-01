@@ -29,7 +29,7 @@ _Head of ML / Principal Engineer, 2021 - Present_
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
-* Researched & implemented a **deca-B** face search engine that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries to push the industry boundary. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
+* Researched & implemented a **deca-B** vector database that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries to push the industry boundary. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
 * Perfected efficient model training using tens of nodes/GPUs, enabling Research function.
 * Drove model efficiency using distillation training, quantization, pruning & trimming, and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Led cross-functional collaboration to design & review multiple compact ML data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.

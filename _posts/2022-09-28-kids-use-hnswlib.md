@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kids! Use <code>hnswlib</code> for HNSW
+title: Kids! Use hnswlib for HNSW
 ---
 
 For people who fool around in the small field of Approximate Nearest Neighbors (ANN) search, [Faiss](https://github.com/facebookresearch/faiss) and [hnswlib](https://github.com/nmslib/hnswlib) are two big names. Faiss is a much broader library with a lot of in-memory ANN methods, vector compression schemes, GPU counterparts and utility functions, whereas hnswlib is a lot more specific, at only one graph-based in-memory index construction method called Hierarchical Navigable Small Worlds (HNSW)[^1][^2]. After the open-source implementation of HNSW in hnswlib came out, Faiss also attempted it with its `IndexHNSW` class.

@@ -4,6 +4,14 @@ title: Projects
 permalink: /projects/
 ---
 
+### [Ethereum Latest Block](https://github.com/terencezl/ethereum-latest-block)
+
+_(2023)_
+
+> This builds a simple one-page website to get the latest block info from the Ethereum blockchain. The website uses the classical frontend/backend stack, connected through HTTP and WebSocket. The backend is built with Flask, Flask-SocketIO, and web3.py for the core function.
+
+![img](/public/imgs/ethereum-latest-block.png){: style="width: 95%;max-width:600px" }
+
 ### Offline Video Facial Recognition/Object Detection
 
 _(2017)_
