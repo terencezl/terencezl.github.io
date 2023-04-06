@@ -10,7 +10,7 @@ permalink: /
 
 Well well. Welcome.
 
-I am a leader in building and deploying **machine learning models**, **neural search engines**, and **parallel computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation into a **deca-billion-scale** face search engine that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compact ML data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
+I am an expert in building and deploying **machine learning models**, **neural search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a **deca-billion-scale** vector search engine that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compute-intensive data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
 
 As a highly motivated individual, I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
@@ -26,13 +26,13 @@ Here allow me to delve a bit more into each experience than what's on a one-page
 
 _Head of ML / Principal Engineer, 2021 - Present_
 
-I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the face search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
+I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
-* Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2**.
-* Researched & implemented a **deca-B** vector database that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries to push the industry boundary. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
-* Perfected efficient model training using tens of nodes/GPUs, enabling Research function.
+* Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** by [NIST](https://pages.nist.gov/frvt/html/frvt11.html).
+* Researched & implemented a **deca-B** vector search engine that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
+* Perfected efficient model training using tens of nodes with machine & job orchestration tools.
 * Drove model efficiency using distillation training, quantization, pruning & trimming, and hardware acceleration. Streamlined deployment with model encryption and serving engines.
-* Led cross-functional collaboration to design & review multiple compact ML data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
+* Led cross-functional collaboration to design & review multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
 * Established foundational ML practices, tooling & platform and built a team of ML engineers.
 * Planned & executed product development & GTM of [PAD](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing) feature with team.
 * Co-wrote marketing materials and public letters. Engaged with policy officials.
