@@ -17,7 +17,7 @@ Initially, everything was fine, all cores/threads firing 100% (green in `htop` m
 
 I checked the SSD, not much IO, and there was no swap set up. All were indicating memory access pattern issues. I found this article about [Transparent Hugepage Support](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html), that some databases such as MongoDB and Postgres did not like it to be enabled. However, my situation actually improved if I went the opposite way and enabled `always` to THP, instead of `madvise`. Speed went up by about 1.5x, but there was still a lot of kernel threads activity, and memory still fluctuating.
 
-If I had to guess, it was probably tweakable through some OS setting related to memory and caching. But how could I best debug and analyze the issue? I was [informed](https://github.com/facebookresearch/faiss/issues/2490#issuecomment-1256549270) that I should try the original/reference implementation from hnswlib by the Faiss author Matthijs Douze.
+If I had to guess, it was probably tweakable through some OS setting related to memory and caching. But how could I best debug and analyze the issue? I was [informed](https://github.com/facebookresearch/faiss/issues/2490#issuecomment-1256549270) by the Faiss author Matthijs Douze, that I should try the original/reference implementation from hnswlib.
 
 Here is a side-by-side comparison using full precision `float32` vectors. Both were benchmarked through bindings using Python 3.8. Faiss 1.7.2 was installed from the Anaconda pytorch channel with AVX2 support, and hnswlib 0.6.2 was compiled with `native` flag enabling AVX512 support.
 
