@@ -71,7 +71,7 @@ And this for Faiss `HNSW32`:
 
 Compare hnswlib's 22s with Faiss `IndexHNSW`'s 2min42s. That was a huge difference.
 
-Why? I thought first off there were confounding factors - CPU advanced instruction sets. The `float32` [implementation](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/space_ip.h#L328) in hnswlib was at an advantage because it fully utilized AVX512, whereas in Faiss it [did not](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp). These powerful vectorization techniques would make a lot of difference in numerical computations.
+Why? I thought first off there were confounding factors - CPU advanced instruction sets. The `float32` [implementation](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/space_ip.h#L328) in hnswlib was at an advantage because it fully utilized AVX512, whereas in Faiss it used AVX at best ([here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp#L103), [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexFlat.cpp#L144), and [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/utils/distances_simd.cpp#L350)). These powerful vectorization techniques would make a lot of difference in numerical computations.
 
 To highlight this factor, I did some single-core benchmarking at the same param settings with `float32` vectors. I did not observe kernel thrashing (red in `htop`) so the difference must have been mostly due to advanced instruction sets. Faiss's search queries took ~1.72x (quite consistently) those of hnswlib.
 
