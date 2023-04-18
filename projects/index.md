@@ -12,6 +12,8 @@ _(2023)_
 
 ![img](/public/imgs/ethereum-latest-block.png){: style="width: 95%;max-width:600px" }
 
+-----------------
+
 ### Offline Video Facial Recognition/Object Detection
 
 _(2017)_
