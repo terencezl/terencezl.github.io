@@ -10,7 +10,7 @@ permalink: /
 
 Well well. Welcome.
 
-I am an expert in building and deploying **machine learning models**, **neural search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a **deca-billion-scale** vector search engine that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compute-intensive data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
+I am an expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compute-intensive data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
 
 As a highly motivated individual, I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
 
@@ -29,7 +29,7 @@ _Head of ML / Principal Engineer, 2021 - Present_
 I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** by [NIST](https://pages.nist.gov/frvt/html/frvt11.html).
-* Researched & implemented a **deca-B** vector search engine that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
+* Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
 * Perfected efficient model training using tens of nodes with machine & job orchestration tools.
 * Drove model efficiency using distillation training, quantization, pruning & trimming, and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Led cross-functional collaboration to design & review multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
@@ -49,7 +49,7 @@ I encountered a vast lineup of technologies along the way, and became a proficie
 > * One project was a rewrite of the MLAPI service with the GPU batching engine **service streamer** that was simple, flexible and effective. - It was like [Ray Serve](https://www.ray.io/ray-serve).
 > * Another project was a distributed ML data pipeline framework that was fault tolerant for spot GPU instances, orchestrated minimally by S3, Redis, `rsync`, `ssh` and UNIX tools. It was flexible for reuse and enabled observability by terminal dashboards (`tmux`, `watch`).
 > * Another project was a multithreaded video frame ML processor that parsed unique face groups with tracking and clustering.
-> * Another project was re-architecting the neural vector DB/index engine, which ended up being **5** times more efficient, then another **100+** times on top of that, solving scalability once and for all.
+> * Another project was re-architecting the vector DB/index engine, which ended up being **5** times more efficient, then another **100+** times on top of that, solving scalability once and for all.
 >
 > I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process in the context of the company: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
 >
@@ -174,3 +174,11 @@ _(2022-08-10)_
 _(2022-08-25)_
 
 > Clearview Vice President of Research **Terence Liu** explained to Biometric Update in an interview that face biometrics algorithms are trained by ingesting several images from each subject, and then organizing data from ingested images into “clusters” with other images from the same subject.
+
+-----------------
+
+[How We Store and Search 30 Billion Faces](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces)
+
+_(2023-04-18)_
+
+> The Clearview AI platform has evolved significantly over the past few years, with our database growing from a few million face images to an astounding 30 billion today. Faces can be represented and compared as embedding vectors, but face vectors have unique properties that make it challenging to search at scale.
