@@ -15,7 +15,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 How do we get the embedding vectors from a model? We can use the `transformer` part of the model to get the hidden states - layer-by-layer outputs of the transformer blocks. Thanks to a conversation with [Vlad](https://vladlialin.com/), I decided to use the last hidden state. The shape of this output is `(batch_size, seq_len, hidden_size)`, so we would need to aggregate over the `seq_len` dimension to get the "summary". We could take the mean, or max, or some other way. I tried the max, but the similarity scores looked all close to 1. So here let's stick with the mean.
 
-It is noteworthy to spell out the variety of choices here. Echoing my previous [post](https://terencezl.github.io/blog/2023/04/17/the-world-of-embedding-vectors/), the embeddings from a generative model were not trained to definitively tell things apart.
+It is noteworthy to spell out the variety of choices here. Echoing my previous [post](/blog/2023/04/17/the-world-of-embedding-vectors/), the embeddings from a generative model were not trained to definitively tell things apart.
 
 <!--more-->
 
@@ -79,7 +79,6 @@ openai.api_key = "YOUR_API_KEY"
 def get_openai_embedding(text, model="text-embedding-ada-002"):
    text = text.replace("\n", " ")
    return torch.tensor(openai.Embedding.create(input = [text], model=model)['data'][0]['embedding'])
-
 ```
 
 ## SantaCoder
@@ -106,40 +105,42 @@ print(santacoder.tokenizer.decode(outputs[0], truncate_before_pattern=[r"\n\n^#"
 
 **Output:**
 
-    Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+```
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 
 
-    def binary_search():
-        # 1. Get the input
-        n = int(input())
-        # 2. Initialize the list
-        arr = [0] * n
-        # 3. Get the elements
-        for i in range(n):
-            arr[i] = int(input())
-        # 4. Find the index
-        index = binary_search_recursive(arr, 0, n - 1)
-        # 5. Print the result
-        print(index)
+def binary_search():
+    # 1. Get the input
+    n = int(input())
+    # 2. Initialize the list
+    arr = [0] * n
+    # 3. Get the elements
+    for i in range(n):
+        arr[i] = int(input())
+    # 4. Find the index
+    index = binary_search_recursive(arr, 0, n - 1)
+    # 5. Print the result
+    print(index)
 
-    def binary_search_recursive(arr, left, right):
-        # 1. Base case
-        if left > right:
-            return -1
-        # 2. Get the middle index
-        mid = (left + right) // 2
-        # 3. Check if the element is present at the middle index
-        if arr[mid] == mid:
-            return mid
-        # 4. Check if the element is smaller than the middle index
-        elif arr[mid] < mid:
-            return binary_search_recursive(arr, left, mid - 1)
-        # 5. Check if the element is greater than the middle index
-        else:
-            return binary_search_recursive(arr, mid + 1, right)
+def binary_search_recursive(arr, left, right):
+    # 1. Base case
+    if left > right:
+        return -1
+    # 2. Get the middle index
+    mid = (left + right) // 2
+    # 3. Check if the element is present at the middle index
+    if arr[mid] == mid:
+        return mid
+    # 4. Check if the element is smaller than the middle index
+    elif arr[mid] < mid:
+        return binary_search_recursive(arr, left, mid - 1)
+    # 5. Check if the element is greater than the middle index
+    else:
+        return binary_search_recursive(arr, mid + 1, right)
 
-    if __name__ == '__main__':
-        binary_search()<|endoftext|>...
+if __name__ == '__main__':
+    binary_search()<|endoftext|>...
+```
 
 The `truncate_before_pattern` argument didn't seem to take effect here and I saw a lot more code after `<|endoftext|>`. Doesn't affect this experiment, so I'll leave it as is.
 
@@ -153,9 +154,11 @@ print(embedding)
 
 **Output:**
 
-    torch.Size([2048])
-    tensor([-0.2162,  0.7902, -1.0303,  ...,  1.9904, -1.1341, -2.7802],
-           device='cpu')
+```
+torch.Size([2048])
+tensor([-0.2162,  0.7902, -1.0303,  ...,  1.9904, -1.1341, -2.7802],
+        device='cpu')
+```
 
 Time to compute the cosine similarity scores using the embedding vectors. We denote `SIM local` as the results from the open-source model, and `SIM openai` as the results from the OpenAI model.
 
@@ -172,37 +175,39 @@ for code1, code2 in combinations(code_snippets, 2):
 
 **Output:**
 
-    def print_hello_world():
-        print("hello world")
+```
+def print_hello_world():
+    print("hello world")
 
-    ----------
-    def do_something():
-        a = 1
-        b = a + 1
-        return b
+----------
+def do_something():
+    a = 1
+    b = a + 1
+    return b
 
-    SIM local: 0.79 SIM openai: 0.81
-    =================================
-    def print_hello_world():
-        print("hello world")
+SIM local: 0.79 SIM openai: 0.81
+=================================
+def print_hello_world():
+    print("hello world")
 
-    ----------
-    def hello_world():
-        return "hello world"
+----------
+def hello_world():
+    return "hello world"
 
-    SIM local: 0.90 SIM openai: 0.93
-    =================================
-    def do_something():
-        a = 1
-        b = a + 1
-        return b
+SIM local: 0.90 SIM openai: 0.93
+=================================
+def do_something():
+    a = 1
+    b = a + 1
+    return b
 
-    ----------
-    def hello_world():
-        return "hello world"
+----------
+def hello_world():
+    return "hello world"
 
-    SIM local: 0.84 SIM openai: 0.82
-    =================================
+SIM local: 0.84 SIM openai: 0.82
+=================================
+```
 
 You know... They agree quite well. If I don't want to use the OpenAI model, I can just use SantaCoder.
 
@@ -231,26 +236,28 @@ print(codegen.tokenizer.decode(outputs[0], truncate_before_pattern=[r"\n\n^#", "
 
 **Output:**
 
-    Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+```
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 
 
-    def binary_search():
-        print("Binary Search")
-        arr = list(map(int, input("Enter the array: ").split()))
-        key = int(input("Enter the key: "))
-        low = 0
-        high = len(arr) - 1
-        while low <= high:
-            mid = (low + high) // 2
-            if arr[mid] == key:
-                print("Element found at index: ", mid)
-                break
-            elif arr[mid] < key:
-                low = mid + 1
-            else:
-                high = mid - 1
+def binary_search():
+    print("Binary Search")
+    arr = list(map(int, input("Enter the array: ").split()))
+    key = int(input("Enter the key: "))
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == key:
+            print("Element found at index: ", mid)
+            break
+        elif arr[mid] < key:
+            low = mid + 1
         else:
-            print("Element not found")
+            high = mid - 1
+    else:
+        print("Element not found")
+```
 
 Examine the CodeGen embedding vector.
 
@@ -262,9 +269,11 @@ print(embedding)
 
 **Output:**
 
-    torch.Size([2560])
-    tensor([ 1.2350,  1.5245,  1.9772,  ...,  3.1278, -2.5663, -1.3473],
-           device='cpu')
+```
+torch.Size([2560])
+tensor([ 1.2350,  1.5245,  1.9772,  ...,  3.1278, -2.5663, -1.3473],
+        device='cpu')
+```
 
 Compute the cosine similarity scores. Here `SIM local` are from the Salesforce model, and `SIM openai` as the results from the OpenAI model.
 
@@ -281,37 +290,39 @@ for code1, code2 in combinations(code_snippets, 2):
 
 **Output:**
 
-    def print_hello_world():
-        print("hello world")
+```
+def print_hello_world():
+    print("hello world")
 
-    ----------
-    def do_something():
-        a = 1
-        b = a + 1
-        return b
+----------
+def do_something():
+    a = 1
+    b = a + 1
+    return b
 
-    SIM local: 0.98 SIM openai: 0.81
-    =================================
-    def print_hello_world():
-        print("hello world")
+SIM local: 0.98 SIM openai: 0.81
+=================================
+def print_hello_world():
+    print("hello world")
 
-    ----------
-    def hello_world():
-        return "hello world"
+----------
+def hello_world():
+    return "hello world"
 
-    SIM local: 0.99 SIM openai: 0.93
-    =================================
-    def do_something():
-        a = 1
-        b = a + 1
-        return b
+SIM local: 0.99 SIM openai: 0.93
+=================================
+def do_something():
+    a = 1
+    b = a + 1
+    return b
 
-    ----------
-    def hello_world():
-        return "hello world"
+----------
+def hello_world():
+    return "hello world"
 
-    SIM local: 0.98 SIM openai: 0.82
-    =================================
+SIM local: 0.98 SIM openai: 0.82
+=================================
+```
 
 Here CodeGen is giving scores all close to 1. It doesn't seem to differentiate between different snippets. I've tried to use the 6B model, but the results were similar. CodeGen should be a decent model for code generation, but apparently, the embedding vector obtained from its last hidden state is not suitable for code similarity.
 
