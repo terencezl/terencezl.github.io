@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X times)
+title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X Times)
 ---
 
 ![img](/public/imgs/week-of-py03-rust-numpy.png){: style="width: 95%" }
