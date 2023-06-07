@@ -5,15 +5,15 @@ title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X times)
 
 ![img](/public/imgs/week-of-py03-rust-numpy.png){: style="width: 95%" }
 
-This post is a more hands-on sequel of my beginner [article](/blog/2023/03/21/a-week-of-rust/) of getting to learn Rust. You can check out the code [here](https://github.com/terencezl/rust-ext-example).
+This post is a more hands-on sequel to my beginner [article](/blog/2023/03/21/a-week-of-rust/) about getting to learn Rust. You can check out the code [here](https://github.com/terencezl/rust-ext-example).
 
-If you are like me (and many other developers), you'd need a strong reason to learn a new programming language (my [journey](/blog/2023/03/20/my-programming-journey/)). It's a big commitment, and requires a lot of days and nights to do it right. Even for languages like Python that boast simplicity, under the hood there is a lot going on. Python is the non-negotiable gluing/orchestrating layer that sits closest to users, because it frees them from the distractions that are not part of the main business logic, and has evolved to become the central language for ML/AI.
+If you are like me (and many others), you'd need a strong reason to learn a new programming language (my [journey](/blog/2023/03/20/my-programming-journey/)). It's a big commitment, and requires a lot of days and nights to do it right. Even for languages like Python that boast simplicity, under the hood there is a lot going on. For many developers, Python is the non-negotiable gluing/orchestrating layer that sits closest to them, because it frees them from the distractions that are not part of the main business logic, and has evolved to become the central language for ML/AI.
 
-Rust on the other hand, has a lot going on upfront. Beyond a "hello world" toy example, it is particularly good at building, e.g. command line programs, because it's a great modern systems language, extremely fast and portable. However, my main programming activities have been in ML and data pipelines.
+Rust on the other hand, has a lot going on up front. Beyond a "hello world" toy example, it is particularly good at building, e.g. command line programs, because it's a great modern systems language, extremely fast and portable. However, my main programming activities have been in ML and data pipelines.
 
-This mostly revolves around the Python numeric ecosystem, which really took off when [NumPy](https://en.wikipedia.org/wiki/NumPy) brought in the array interface and advanced math to become the "open-source researchers' MATLAB", that eventually kicked off almost 20 years of ML/AI development. Following that script, there emerged many Python-based workflows and packages that benefited from faster compiled languages as extension modules. They could be exploratory routines in scientific computing (physics, graphics, data analytics) that needed to be flexible yet efficient. They could also be distributed pipelines that ingest & transform large amounts of data, or web servers with heavy computation demands. The interoperating layer was fulfilled by [SWIG](https://github.com/swig/swig), [Cython](https://github.com/cython/cython), and [Boost.Python](https://github.com/boostorg/python). [pybind11](https://github.com/pybind/pybind11) grew as a successor to Boost.Python (different authors!) to offer C++ integration, and got good traction in late 2010.
+This mostly revolves around the Python numeric ecosystem, which really took off when [NumPy](https://en.wikipedia.org/wiki/NumPy) brought in the array interface and advanced math to become the "open-source researchers' MATLAB", that eventually kicked off almost 20 years of ML/AI development. Following that script, there emerged many Python-based workflows and packages that benefited from faster compiled languages as extension modules. They could be exploratory routines in scientific computing (physics, graphics, data analytics) that needed to be flexible yet efficient. They could be deep learning frameworks. They could also be distributed pipelines that ingest & transform large amounts of data, or web servers with heavy computation demands. The interoperating layer was fulfilled by [SWIG](https://github.com/swig/swig), [Cython](https://github.com/cython/cython), and [Boost.Python](https://github.com/boostorg/python). [pybind11](https://github.com/pybind/pybind11) grew as a successor to Boost.Python (different authors!) to offer C++ integration, and got good traction in late 2010.
 
-On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. People love Rust's safety guarantees, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "command line program" example. It wasn't easy cramming everything up... Took me through exhileration, confusion, frustration, and finally, enlightenment. I hope this post can help you get started with your own journey.
+On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. People love Rust's safety guarantees, modern features, and excellent ecosystem, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "command line program" example. It wasn't easy to get started this way... Took me through exhilaration, confusion, frustration, and finally, enlightenment in a short span of days. I hope this post can help you get started with your own journey.
 
 Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://pyo3.rs/v0.19.0/#articles-and-other-media) section, reading about other developers' journeys[^1][^2][^3].
 
@@ -21,7 +21,7 @@ Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 h
 
 ## The GIL and NumPy
 
-It's worth mentioning that you can already use NumPy for most of the heavy lifting. It is a fast compiled extension module, and already has the ability to release the [GIL](https://realpython.com/python-gil/) (global interpreter lock) in many occasions. Releasing the GIL is important for compute-intensive tasks because it enables Python threads to truly utilize multiple CPU cores. It is a big deal with today's multicore CPU architecture ([goodbye Moore's Law](https://arstechnica.com/gaming/2022/09/do-expensive-nvidia-graphics-cards-foretell-the-death-of-moores-law/)). For example, if you run the code below in enough loops, and check CPU usage, multiple CPUs will be engaged.
+It's worth mentioning that you can already use NumPy for most of the heavy lifting. It is a fast compiled extension module, and already has the ability to release the [GIL](https://realpython.com/python-gil/) (global interpreter lock) on many occasions. Releasing the GIL is important for compute-intensive tasks because it enables Python threads to truly utilize multiple CPU cores. It is a big deal with today's multicore CPU architecture ([goodbye Moore's Law](https://arstechnica.com/gaming/2022/09/do-expensive-nvidia-graphics-cards-foretell-the-death-of-moores-law/)). For example, if you run the code below in enough loops, and check CPU usage, multiple CPUs will be engaged.
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
@@ -158,9 +158,9 @@ With native Python / process pool:
 32/32 [00:06<00:00,  4.86it/s]
 ```
 
-It's actually slower! Why is that? Usually this trick works quite well, a simple swap to `ProcessPoolExecutor` to access many CPU cores. Here, it is slower because another source of latency creeped in - (de-)serialization of the big NumPy arrays! Each returned array is sized at `50000 * 512 * 4 / 1024**2 = 98MB`.
+It's actually slower! Why is that? Usually this trick works quite well, a simple swap to `ProcessPoolExecutor` to access many CPU cores. Here, it is slower because another source of latency crept in - (de-)serialization of the big NumPy arrays! Each returned array is sized at `50000 * 512 * 4 / 1024**2 = 98MB`.
 
-To demonstrate this, let's construct a simple test, where we don't do anything but returning a newly allocated NumPy array.
+To demonstrate this, let's construct a simple test, where we don't do anything but return a newly allocated NumPy array.
 
 ```python
 def func():
@@ -304,9 +304,9 @@ With Rust extension / thread pool:
 32/32 [00:01<00:00, 24.38it/s]
 ```
 
-## Closing Words
+## Closing Thoughts
 
-Before being able to write Rust extensions, I always resorted to workarounds, like using process workers to unlock multicore usage, and paying for their overheads. For this specific task, it used to take me **three full days** to ingest billions of entries into a database, and I needed to do it many times for experimentation. Now, it can be a little of over one day, much faster turnaround, leading to more active experimentation loops and bigger findings. I have finally found a powerful alternative, embracing the full potential of performance computing with the mighty combo - Python and Rust. I know for a fact this is going to be the start of something special, and hope you feel the same.
+Before being able to write Python extensions in Rust, I always resorted to workarounds, like using process workers to unlock multicore usage, and paying for their overheads. For this specific task, it used to take me **three full days** to ingest tens of billions of entries into a database, and I needed to do it many times for experimentation. Now, it can be as short as one single day, a much faster turnaround, leading to more active experimentation loops and bigger findings. I have finally found a powerful alternative, embracing the full potential of performance computing with the mighty combo - Python and Rust. I know for a fact this is going to be the start of something special, and hope you feel the same.
 
 -----
 [^1]: [Making Python 100x faster with less than 100 lines of Rust](https://ohadravid.github.io/posts/2023-03-rusty-python/)
