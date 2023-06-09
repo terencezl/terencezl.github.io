@@ -53,6 +53,7 @@ So why do you need additional Python extensions? Well, not all operations can re
 This is what I ran into. I have many msgpack files generated from some ML routine that packs tens of thousands of NumPy arrays into bytes in each, like below.
 
 ```python
+from typing import Iterator
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np
 import msgpack
@@ -87,20 +88,24 @@ def iterate_msgpack(filename):
 The main logic is to have many thread workers, each processing one msgpack file and returning a large NumPy array with the content to the main thread. The main thread will do something with the arrays from thread workers in sequence. For every iteration of a msgpack file, we copy the vector into the pre-allocated NumPy array. This copy involves individual Python objects, so is bound by the GIL.
 
 ```python
-def take_iter_py(iterator):
-    np_vectors = np.empty((COUNT_PER_MSGPACK_UPPERBOUND, SIZE_ARRAY_DIM), dtype=np.float32)
+def take_iter_py(iterator: Iterator[bytes], np_vectors: np.ndarray) -> int:
     idx = 0
     for bytes_vector in iterator:
-        vector = np.frombuffer(bytes_vector, dtype=np.float32).reshape(SIZE_ARRAY_DIM)
-        np_vectors[idx] = vector
+        try:
+            vector = np.frombuffer(bytes_vector, dtype=np.float32).reshape(SIZE_ARRAY_DIM)
+            np_vectors[idx] = vector
+        except ValueError:
+            print(f"array size does not match at {idx}!")
+            continue
         idx += 1
 
-    np_vectors = np_vectors[:idx]
-    return np_vectors
+    return idx
 
 
 def process_py(filepath):
-    np_vectors = take_iter_py(iterate_msgpack(filepath))
+    np_vectors = np.empty((COUNT_PER_MSGPACK_UPPERBOUND, SIZE_ARRAY_DIM), dtype=np.float32)
+    count = take_iter_py(iterate_msgpack(filepath), np_vectors)
+    np_vectors = np_vectors[:count]
     return np_vectors
 ```
 
@@ -221,7 +226,7 @@ fn copy_array(
         }
         return Ok(());
     } else {
-        return Err("array size does not match!".to_string());
+        return Err(format!("array size does not match at {idx}!"));
     };
 }
 
@@ -247,13 +252,13 @@ fn rust_ext(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
             let mut idx = 0;
             for &bytes_vector in raw_list.iter() {
                 match copy_array(&mut vectors, bytes_vector, idx) {
-                    Ok(_) => {
-                        idx += 1;
-                    }
                     Err(e) => {
                         println!("Error: {}", e);
+                        continue;
                     }
+                    Ok(_) => {}
                 }
+                idx += 1;
             }
             Ok(idx)
         })
