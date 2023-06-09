@@ -15,7 +15,7 @@ This mostly revolves around the Python numeric ecosystem, which really took off 
 
 On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. People love Rust's safety guarantees, modern features, and excellent ecosystem, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "command line program" example. It wasn't easy to get started this way... Took me through exhilaration, confusion, frustration, and finally, enlightenment in a short span of days. I hope this post can help you get started with your own journey.
 
-Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://pyo3.rs/v0.19.0/#articles-and-other-media) section, reading about other developers' journeys[^1][^2][^3].
+Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://github.com/pyo3/pyo3#articles-and-other-media) section, reading about other developers' journeys[^1][^2][^3]. (Note: this article also joined the list!)
 
 <!--more-->
 
@@ -203,7 +203,11 @@ use numpy::PyReadwriteArrayDyn;
 
 static SIZE_ARRAY_DIM: usize = 512;
 
-fn copy_array(vectors: &mut ArrayViewMutD<'_, f32>, bytes_vector: &[u8], idx: usize) {
+fn copy_array(
+    vectors: &mut ArrayViewMutD<'_, f32>,
+    bytes_vector: &[u8],
+    idx: usize,
+) -> Result<(), String> {
     if bytes_vector.len() == SIZE_ARRAY_DIM * 4 {
         // f32 from msgpack
         // copy bytes in f32 le format to vectors at idx
@@ -215,8 +219,9 @@ fn copy_array(vectors: &mut ArrayViewMutD<'_, f32>, bytes_vector: &[u8], idx: us
         ) {
             *dst = src;
         }
+        return Ok(());
     } else {
-        println!("array size does not match!");
+        return Err("array size does not match!".to_string());
     };
 }
 
@@ -229,7 +234,7 @@ fn rust_ext(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
         mut np_vectors: PyReadwriteArrayDyn<f32>,
     ) -> PyResult<usize> {
         // First collect bytes in a Rust-native vector.
-        // We can't release the GIL here because we are dealing with a Python object.
+        // We can’t release the GIL here because we are dealing with a Python object.
         let mut raw_list: Vec<&[u8]> = vec![];
         for item in iter {
             raw_list.push(item?.downcast::<PyBytes>()?.as_bytes());
@@ -241,8 +246,14 @@ fn rust_ext(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
         py.allow_threads(|| {
             let mut idx = 0;
             for &bytes_vector in raw_list.iter() {
-                copy_array(&mut vectors, bytes_vector, idx);
-                idx += 1;
+                match copy_array(&mut vectors, bytes_vector, idx) {
+                    Ok(_) => {
+                        idx += 1;
+                    }
+                    Err(e) => {
+                        println!("Error: {}", e);
+                    }
+                }
             }
             Ok(idx)
         })
