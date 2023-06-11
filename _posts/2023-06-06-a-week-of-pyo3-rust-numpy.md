@@ -24,12 +24,18 @@ Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 h
 It's worth mentioning that you can already use NumPy for most of the heavy lifting. It is a fast compiled extension module, and already has the ability to release the [GIL](https://realpython.com/python-gil/) (global interpreter lock) on many occasions. Releasing the GIL is important for compute-intensive tasks because it enables Python threads to truly utilize multiple CPU cores. It is a big deal with today's multicore CPU architecture ([goodbye Moore's Law](https://arstechnica.com/gaming/2022/09/do-expensive-nvidia-graphics-cards-foretell-the-death-of-moores-law/)). For example, if you run the code below in enough loops, and check CPU usage, multiple CPUs will be engaged.
 
 ```python
+import os
+# need to set OMP_NUM_THREADS=1 to avoid MKL/OpenBlas using internal multithreading to confound the measurement
+# also much faster overall due to less thread contention (only python threads)
+os.environ["OMP_NUM_THREADS"] = "1"
+
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np
 from tqdm import tqdm
 
 def func():
-    return np.dot(np.random.rand(1000, 1000), np.random.rand(1000, 1000))
+    for _ in range(10):
+        return np.dot(np.random.rand(1000, 1000), np.random.rand(1000, 1000))
 
 
 if __name__ == "__main__":
