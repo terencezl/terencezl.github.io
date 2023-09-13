@@ -10,11 +10,11 @@ permalink: /
 
 Well well. Welcome.
 
-I am an expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the throughput of state-of-the-art, solving scalability once and for all. In achieving them, I designed multiple compute-intensive data pipelines and inference platforms. I also accumulated valuable experience & intuition on system abstraction, long-term maintainability, resource constraints, and efficiency maximizers.
+I am an expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a new **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces), which has since been powering the service at Clearview AI.
 
-As a highly motivated individual, I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I find great potential to contribute at the intersection of research, engineering, and product. As a manager, I have led teams to excellence with fairness and empathy. I love being a team player and seek to understand established working patterns before instituting change. I make it a point to communicate and share knowledge that enriches and empowers my peers.
+I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I enjoy the cutting-edge while seeking to understand established working patterns before instituting change.
 
-Here is some [media coverage](#media-highlights). I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities ([CV](/public/cv.pdf)).
+I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities ([CV](/public/cv.pdf)).
 
 -----------------
 
