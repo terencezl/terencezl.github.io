@@ -10,11 +10,9 @@ permalink: /
 
 Well well. Welcome.
 
-I am an expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a new **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces), which has since been powering the service at Clearview AI.
+I am an expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions. In 2022, I drove the research and implementation of a new **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces), which has since been powering the service at Clearview AI. Being an academically trained computational physicist, I am passionate about performance computing, and the fundamental hardware/language/software breakthroughs that accelerate its progress.
 
-I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I enjoy the cutting-edge while seeking to understand established working patterns before instituting change.
-
-I maintain a technical [Blog](/blog) and write occasionally. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) if there are exciting opportunities ([CV](/public/cv.pdf)).
+I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I enjoy the cutting-edge while seeking to understand established working patterns before instituting change. This technical [Blog](/blog) might interest you. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) ([CV](/public/cv.pdf)).
 
 -----------------
 
@@ -24,7 +22,7 @@ I maintain a technical [Blog](/blog) and write occasionally. Please find me on [
 
 _Head of ML / Principal Engineer, 2021 - Present_
 
-I had previously worked on facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
+I had previously worked on computer vision / facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more responsibilities, both in leadership/strategy and in people management.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** (at time of submission) by [NIST](https://pages.nist.gov/frvt/html/frvt11.html).
 * Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
@@ -132,11 +130,43 @@ This major was interdisciplinary in nature. As a result, I studied a broad range
 
 ## <u>MEDIA HIGHLIGHTS</u>
 
-[NYT: Clearview AI finally takes part in a federal accuracy test.](https://www.nytimes.com/2021/10/28/technology/clearview-ai-test.html)
+[Interview with Biometric Update: How Clearview developed its method for fast search on an above-billion scale database](https://www.biometricupdate.com/202306/how-clearview-developed-its-method-for-fast-search-on-an-above-billion-scale-database)
 
-_(2021-10-28)_
+_(2023-06-28)_
 
-> In a field of over 300 algorithms from over 200 facial recognition vendors, Clearview ranked among the top 10 in terms of accuracy, alongside NTechLab of Russia, Sensetime of China and other more established outfits.
+> As explained in a company blog post by Liu and expanded on in conversation with Biometric Update, Clearview believes the smarter way is to index vectors so only small portion needs to be searched. This means “you can effectively search only a small portion of the database, finding very highly likely matches,” Liu says.
+
+[Blog Post: How We Store and Search 30 Billion Faces](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces)
+
+_(2023-04-18)_
+
+> The Clearview AI platform has evolved significantly over the past few years, with our database growing from a few million face images to an astounding 30 billion today. Faces can be represented and compared as embedding vectors, but face vectors have unique properties that make it challenging to search at scale.
+
+-----------------
+
+[Interview with Biometric Update: Clearview patent on method for scaling biometric training dataset gets US notice of allowance](https://www.biometricupdate.com/202208/clearview-patent-on-method-for-scaling-biometric-training-dataset-gets-us-notice-of-allowance)
+
+_(2022-08-25)_
+
+> Clearview Vice President of Research Terence Liu explained to Biometric Update in an interview that face biometrics algorithms are trained by ingesting several images from each subject, and then organizing data from ingested images into “clusters” with other images from the same subject.
+
+-----------------
+
+[Interview with Biometric Update: Clearview reveals biometric presentation attack detection feature, talks training and testing](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing)
+
+_(2022-08-10)_
+
+> Clearview’s technology focuses on single images from commercial RGB images, VP of Research Terence Liu told Biometric Update during the same video call… Clearview takes an ensemble approach, combining models that look for different things, Liu says.
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/737559530?h=be84cede9f" width="95%" height="300" frameborder="0" allowfullscreen></iframe>
+
+-----------------
+
+[Reuters: EXCLUSIVE Facial recognition company Clearview AI seeks first big deals, discloses research chief](https://www.reuters.com/technology/exclusive-facial-recognition-company-clearview-ai-seeks-first-big-deals-2022-02-22/)
+
+_(2022-02-22)_
+
+> Ton-That said Terence Liu is the Pennsylvania-based computational physicist behind some of Clearview's algorithms and its vice president of research. They are listed together on a patent application filed Tuesday… The research head Liu formally joined last year after working as a senior software engineer at Bloomberg LP since 2017, he said. He earlier had partnered with Ton-That to advance Clearview's prototype.
 
 -----------------
 
@@ -148,34 +178,8 @@ _(2021-11-23)_
 
 -----------------
 
-[Reuters: EXCLUSIVE Facial recognition company Clearview AI seeks first big deals, discloses research chief](https://www.reuters.com/technology/exclusive-facial-recognition-company-clearview-ai-seeks-first-big-deals-2022-02-22/)
+[NYT: Clearview AI finally takes part in a federal accuracy test.](https://www.nytimes.com/2021/10/28/technology/clearview-ai-test.html)
 
-_(2022-02-22)_
+_(2021-10-28)_
 
-> Ton-That said **Terence Liu** is the Pennsylvania-based computational physicist behind some of Clearview's algorithms and its vice president of research. They are listed together on a patent application filed Tuesday… The research head Liu formally joined last year after working as a senior software engineer at Bloomberg LP since 2017, he said. He earlier had partnered with Ton-That to advance Clearview's prototype.
-
------------------
-
-[Biometric Update: Clearview reveals biometric presentation attack detection feature, talks training and testing](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing)
-
-_(2022-08-10)_
-
-> Clearview’s technology focuses on single images from commercial RGB images, VP of Research **Terence Liu** told Biometric Update during the same video call… Clearview takes an ensemble approach, combining models that look for different things, Liu says.
-
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/737559530?h=be84cede9f" width="95%" height="300" frameborder="0" allowfullscreen></iframe>
-
------------------
-
-[Biometric Update: Clearview patent on method for scaling biometric training dataset gets US notice of allowance](https://www.biometricupdate.com/202208/clearview-patent-on-method-for-scaling-biometric-training-dataset-gets-us-notice-of-allowance)
-
-_(2022-08-25)_
-
-> Clearview Vice President of Research **Terence Liu** explained to Biometric Update in an interview that face biometrics algorithms are trained by ingesting several images from each subject, and then organizing data from ingested images into “clusters” with other images from the same subject.
-
------------------
-
-[How We Store and Search 30 Billion Faces](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces)
-
-_(2023-04-18)_
-
-> The Clearview AI platform has evolved significantly over the past few years, with our database growing from a few million face images to an astounding 30 billion today. Faces can be represented and compared as embedding vectors, but face vectors have unique properties that make it challenging to search at scale.
+> In a field of over 300 algorithms from over 200 facial recognition vendors, Clearview ranked among the top 10 in terms of accuracy, alongside NTechLab of Russia, Sensetime of China and other more established outfits.
