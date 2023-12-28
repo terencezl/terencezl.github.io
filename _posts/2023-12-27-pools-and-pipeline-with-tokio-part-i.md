@@ -26,12 +26,13 @@ Let's zoom in on the RPC model, building off the example provided by the excelle
 ```rust
 use tokio::sync::{mpsc, oneshot};
 
+enum ActorMessage {
+    GetUniqueId { respond_to: oneshot::Sender<u32> },
+}
+
 struct MyActor {
     receiver: mpsc::Receiver<ActorMessage>,
     next_id: u32,
-}
-enum ActorMessage {
-    GetUniqueId { respond_to: oneshot::Sender<u32> },
 }
 
 impl MyActor {
@@ -102,7 +103,7 @@ We would create and refer to the actor with:
 
 ### Actor Pool
 
-This is just one actor. How can we make a pool of them? We need to consider the ergonomics from the caller's perspective. We would like to have one single instance to call, instead of having to go through some selection logic. So these actors in the pool should share the same request channel. Tokio's `mpsc` channel does not allow multiple actors to share the receiver. So we either need to wrap it with a `Arc<Mutex<mpsc::Reciver>>`, or use an `mpmc` channel, such as from [async-channel](https://crates.io/crates/async-channel), or [flume](https://crates.io/crates/flume). With that, we convert the `MyActorHandle` into a `MyActorPool`:
+This is just one actor. How can we make a pool of them? We need to consider the ergonomics from the caller's perspective. We would like to have one single instance to call, instead of having to go through some selection logic. So these actors in the pool should share the same request channel. Tokio's `mpsc` channel does not allow multiple actors to share the receiver. So we either need to wrap it with a `Arc<Mutex<mpsc::Reciver>>`, or use an `mpmc` channel, such as from [async-channel](https://crates.io/crates/async-channel), or [Flume](https://crates.io/crates/flume). With that, we convert the `MyActorHandle` into a `MyActorPool`:
 
 ```rust
 // adapt MyActor to using async_channel
@@ -141,17 +142,19 @@ impl MyActorPool {
 }
 ```
 
-Now let's create 4 actors in a pool and call it 4 times:
+Now let's create 4 actors in a pool and call it 8 times:
 
 ```rust
 use pools_and_pipeline::my_actor_pool::MyActorPool;
+
+const N_TASKS: u64 = 8;
 
 #[tokio::main]
 async fn main() {
     let pool = MyActorPool::new(4);
 
     let mut res_all = vec![];
-    for i in 0..8 {
+    for i in 0..N_TASKS {
         let t = tokio::time::Instant::now();
         println!("{i} starting...");
         let res = pool.get_unique_id().await;
@@ -196,7 +199,7 @@ async fn main() {
     let mut join_set = tokio::task::JoinSet::new();
 
     let mut res_all = vec![];
-    for i in 0..8 {
+    for i in 0..N_TASKS {
         let pool = pool.clone();
         join_set.spawn(async move {
             let t = tokio::time::Instant::now();
@@ -253,7 +256,7 @@ async fn main() {
     let sem = std::sync::Arc::new(tokio::sync::Semaphore::new(4));
     let mut join_set = tokio::task::JoinSet::new();
 
-    for i in 0..8 {
+    for i in 0..N_TASKS {
         let permit = sem.clone().acquire_owned().await.unwrap();
 
         let pool = pool.clone();
@@ -300,7 +303,7 @@ async fn main() {
 res_all = [1, 1, 1, 1, 2, 2, 2, 2]
 ```
 
-If you don't care about the results, but just would like to process through tasks where internally work is done. You could use a [`TaskTracker`](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html).
+If you don't care about the results, but just would like to process through tasks where internally work is done. You could use a [`TaskTracker`](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html) to avoid the extra complexity of spawning the join task.
 
 ### Full Program
 
@@ -413,4 +416,4 @@ You probably want to use [Anyhow](https://crates.io/crates/anyhow) to handle err
 
 ## To be Continued... The Streaming Model
 
-Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism implied and provided. I will spec out that design in a separate post.
+Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism was implied and provided. I will spec out that design in a separate post.
