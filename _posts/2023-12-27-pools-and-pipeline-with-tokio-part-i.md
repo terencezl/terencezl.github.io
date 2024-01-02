@@ -248,7 +248,7 @@ There are two main issues with this simplified caller code.
 1. The source task list could be very long. Spawning caller tasks without bounds and letting them wait on the RPC is bad. Async tasks are cheap, but we don't want the design to not have a bound. It's also much harder to exit gracefully this way.
 2. The `JoinSet` will actually [hoard the memory](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html) of every task it spawns but not consumed. We need to consume from it concurrently/in parallel.
 
-The first one can be resolved by a semaphore. The second one requires a bigger change - we need to spawn a separate task to process the results. As it turns out, we can't use `JoinSet` for this, and `mpsc` channels are the ideal pattern. The task submitter holds the `Sender` part of the channel, and the task receiver holds the `Receiver` part. It is up to you to either put the submitter or the receiver in a background task. I prefer the former, because mentally I am more interested in the results.
+The first one can be resolved by a semaphore. The second one requires a bigger change - we need to spawn a separate task to process the results. As it turns out, we can't use `JoinSet` for this, and `mpsc` channels are the ideal pattern. The task submitter holds the `Sender` part of the channel, and the task receiver holds the `Receiver` part. The receiver will break out of its loop when all `Sender`s are dropped by the individual submitted tasks. It is up to you to either put the submitter or the receiver in a background task. I prefer the former, because mentally I am more interested in the results. It also makes graceful shutdown more natural as the receiver loop ends.
 
 ```rust
 #[tokio::main]
@@ -259,6 +259,7 @@ async fn main() {
     // submitter & receiver comm
     let (sender, mut receiver) = tokio::sync::mpsc::channel(4);
 
+    // submit tasks
     tokio::spawn(async move {
         // concurrency control
         let sem = std::sync::Arc::new(tokio::sync::Semaphore::new(4));
@@ -369,6 +370,7 @@ async fn main() {
     // submitter & receiver comm
     let (sender, mut receiver) = tokio::sync::mpsc::channel(4);
 
+    // submit tasks
     tokio::spawn(async move {
         // concurrency control
         let sem = Arc::new(Semaphore::new(4));
