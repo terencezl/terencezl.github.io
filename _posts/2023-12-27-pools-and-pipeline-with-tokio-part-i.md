@@ -95,6 +95,8 @@ impl MyActorHandle {
 }
 ```
 
+Note that in practice, you could have `MyActor().handle_message()` send a `Result` type with a custom `Err` variant, and `MyActorHandle().get_unique_id()` can return that to the caller to handle errors. We'll do that in Part II.
+
 We would create and refer to the actor with:
 
 ```rust
@@ -246,40 +248,44 @@ There are two main issues with this simplified caller code.
 1. The source task list could be very long. Spawning caller tasks without bounds and letting them wait on the RPC is bad. Async tasks are cheap, but we don't want the design to not have a bound. It's also much harder to exit gracefully this way.
 2. The `JoinSet` will actually [hoard the memory](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html) of every task it spawns but not consumed. We need to consume from it concurrently/in parallel.
 
-The first one can be resolved by a semaphore. The second one can be resolved by spawning another background task that waits on the `join_set`:
+The first one can be resolved by a semaphore. The second one requires a bigger change - we need to spawn a separate task to process the results. As it turns out, we can't use `JoinSet` for this, and `mpsc` channels are the ideal pattern. The task submitter holds the `Sender` part of the channel, and the task receiver holds the `Receiver` part. It is up to you to either put the submitter or the receiver in a background task. I prefer the former, because mentally I am more interested in the results.
 
 ```rust
 #[tokio::main]
 async fn main() {
+    // create pool
     let pool = MyActorPool::new(4);
 
-    let sem = std::sync::Arc::new(tokio::sync::Semaphore::new(4));
-    let mut join_set = tokio::task::JoinSet::new();
+    // submitter & receiver comm
+    let (sender, mut receiver) = tokio::sync::mpsc::channel(4);
 
-    for i in 0..N_TASKS {
-        let permit = sem.clone().acquire_owned().await.unwrap();
+    tokio::spawn(async move {
+        // concurrency control
+        let sem = std::sync::Arc::new(tokio::sync::Semaphore::new(4));
 
-        let pool = pool.clone();
-        join_set.spawn(async move {
-            let _permit = permit;  // own the permit
+        for _i in 0..N_TASKS {
+            let permit = sem.clone().acquire_owned().await.unwrap();
 
-            let t = tokio::time::Instant::now();
-            println!("{i} starting...");
-            let res = pool.get_unique_id().await;
-            println!("{i} ended in {}ms", t.elapsed().as_millis());
-            res
-        });
-    }
+            let pool = pool.clone();
+            let sender = sender.clone();
+            tokio::spawn(async move {
+                let _permit = permit; // own the permit
 
-    let join_handle = tokio::spawn(async move {
-        let mut res_all = vec![];
-        while let Some(res) = join_set.join_next().await {
-            res_all.push(res.unwrap());
+                let t = tokio::time::Instant::now();
+                println!("{_i} starting...");
+                let res = pool.get_unique_id().await;
+                println!("{_i} ended in {}ms", t.elapsed().as_millis());
+                sender.send(res).await.unwrap();
+            });
         }
-        println!("res_all = {:?}", res_all);
     });
 
-    join_handle.await.unwrap();
+    // wait for all tasks to finish
+    let mut res_all = vec![];
+    while let Some(res) = receiver.recv().await {
+        res_all.push(res);
+    }
+    println!("res_all = {:?}", res_all);
 }
 ```
 
@@ -303,7 +309,7 @@ async fn main() {
 res_all = [1, 1, 1, 1, 2, 2, 2, 2]
 ```
 
-If you don't care about the results, but just would like to process through tasks where internally work is done. You could use a [`TaskTracker`](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html) to avoid the extra complexity of spawning the join task.
+If you don't care about the results, but just would like to process through tasks where internally work is done. You could use a [`TaskTracker`](https://docs.rs/tokio-util/0.7.10/tokio_util/task/task_tracker/struct.TaskTracker.html) to avoid the extra complexity of spawning a separate task.
 
 ### Full Program
 
@@ -357,6 +363,40 @@ async fn main() {
     // attach CTRL+C handler
     let interrupt_indicator = InterruptIndicator::new();
 
+    // create pool
+    let pool = MyActorPool::new(4);
+
+    // submitter & receiver comm
+    let (sender, mut receiver) = tokio::sync::mpsc::channel(4);
+
+    tokio::spawn(async move {
+        // concurrency control
+        let sem = Arc::new(Semaphore::new(4));
+
+        for _i in 0..N_TASKS {
+            if interrupt_indicator.is_set() {
+                println!("Interrupted! Exiting gracefully...");
+                break;
+            }
+
+            let permit = sem.clone().acquire_owned().await.unwrap();
+
+            let pool = pool.clone();
+            let sender = sender.clone();
+            tokio::spawn(async move {
+                let _permit = permit; // own the permit
+
+                // let t = tokio::time::Instant::now();
+                // println!("{_i} starting...");
+                let res = pool.get_unique_id().await;
+                // println!("{_i} ended in {}ms", t.elapsed().as_millis());
+                sender.send(res).await.unwrap();
+            });
+        }
+    });
+
+    // wait for all tasks to finish
+
     // make pretty progress bar
     let pb = ProgressBar::new(N_TASKS);
     let sty = ProgressStyle::with_template(
@@ -364,44 +404,13 @@ async fn main() {
     ).unwrap().progress_chars("#>-");
     pb.set_style(sty);
 
-    // create pool
-    let pool = MyActorPool::new(4);
-
-    // concurrency control
-    let sem = Arc::new(Semaphore::new(4));
-    let mut join_set = JoinSet::new();
-
-    for _i in 0..N_TASKS {
-        if interrupt_indicator.is_set() {
-            println!("Interrupted! Exiting gracefully...");
-            break;
-        }
-
-        let permit = sem.clone().acquire_owned().await.unwrap();
-
-        let pool = pool.clone();
-        join_set.spawn(async move {
-            let _permit = permit;  // own the permit
-
-            // let t = tokio::time::Instant::now();
-            // println!("{i} starting...");
-            let res = pool.get_unique_id().await;
-            // println!("{i} ended in {}ms", t.elapsed().as_millis());
-            res
-        });
+    let mut res_all = vec![];
+    while let Some(res) = receiver.recv().await {
+        res_all.push(res);
+        pb.inc(1);
     }
-
-    let join_handle = tokio::spawn(async move {
-        let mut res_all = vec![];
-        while let Some(res) = join_set.join_next().await {
-            res_all.push(res.unwrap());
-            pb.inc(1);
-        }
-        pb.finish();
-        println!("res_all = {:?}", res_all);
-    });
-
-    join_handle.await.unwrap();
+    pb.finish();
+    println!("res_all = {:?}", res_all);
 }
 ```
 
@@ -416,4 +425,4 @@ You probably want to use [Anyhow](https://crates.io/crates/anyhow) to handle err
 
 ## To be Continued... The Streaming Model
 
-Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism was implied and provided. I will spec out that design in a separate post.
+Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism was implied and provided. I will spec out that design in a separate post - ([Part II](/blog/2023/12/27/pools-and-pipeline-with-tokio-part-i/)).

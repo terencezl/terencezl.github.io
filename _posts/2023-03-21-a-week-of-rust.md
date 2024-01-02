@@ -11,7 +11,7 @@ I tweaked the color combo to "Rust" and went through the first eight chapters sl
 
 <!--more-->
 
-This book was written for experienced programmers with a few other languages under their belts. As of today, I think most programmers embarking on learning Rust are from the C++ land. Like C++, Rust was designed as a system language that aimed to be extremely efficient ([zero-cost abstraction](https://stackoverflow.com/questions/69178380/what-does-zero-cost-abstraction-mean)). So as a user, you must pay attention to resource management, notably [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (vs [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) in other popular languages), copying vs referencing, etc. But it also aims to solve issues practitioners of C++ have struggled with at scale regarding memory safety ([undefined behavior](https://en.wikipedia.org/wiki/Undefined_behavior), [segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)). This imposes much unexpectedness on programmers at various levels.
+This book was written for experienced programmers with a few other languages under their belts. As of today, I think most programmers embarking on learning Rust are from the C++ land. Like C++, Rust was designed as a systems language that aimed to be extremely efficient ([zero-cost abstraction](https://stackoverflow.com/questions/69178380/what-does-zero-cost-abstraction-mean)). So as a user, you must pay attention to resource management, notably [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (vs [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) in other popular languages), copying vs referencing, etc. But it also aims to solve issues practitioners of C++ have struggled with at scale regarding memory safety ([undefined behavior](https://en.wikipedia.org/wiki/Undefined_behavior), [segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)). This imposes much unexpectedness on programmers at various levels.
 
 I wrote about my programming journey in a separate [post](/blog/2023/03/20/my-programming-journey/). Long story short, I had enough exposure to C++-style resource management and found it instrumental to my learning of Rust. If you come from other backgrounds, your mileage will differ. There was a synthesis of properties from other languages into Rust, and I found myself returning to the C++ mental box for comparisons the most. Here I would like to highlight the parts I found note-worthy.
 
@@ -102,7 +102,7 @@ match c {
 
 ### Borrowing (and Borrow Checker)
 
-This is the most important/novel concept in Rust, but I would just redirect you to read [the book](https://doc.rust-lang.org/book/). It gets more intuitive as you see it everywhere, and its occurrences logically make sense. Notably, in C++, you don't think about ownership too much in the context of an object's methods, but in Rust, you do because `&self`/`&mut self` are explicitly invoked in the method signatures and follow the same rules.
+This is the most important/novel concept in Rust, but I would just redirect you to read [the book](https://doc.rust-lang.org/book/). It gets more intuitive as you see it everywhere, and its occurrences logically make sense. Notably, in C++, you don't have variations of `self` in the context of an object's methods, but in Rust, you do because `&self`/`&mut self` are explicitly invoked in the method signatures and follow the same rules.
 
 ## Conclusion
 
