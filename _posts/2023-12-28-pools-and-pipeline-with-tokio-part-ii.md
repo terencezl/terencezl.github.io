@@ -503,3 +503,7 @@ res_all = [1, 1, 1, 1, 2, 2, 2, 2]
 Because of the buffering at the input channel, tasks would run further until gracefully exiting.
 
 Again, you probably want to use [Anyhow](https://crates.io/crates/anyhow) to handle errors and convert the `unwrap()` into `?` propagation for good measure.
+
+## To Conclude
+
+The RPC and streaming models in this series are suitable for more elaborate tasks with actors. They require some boilerplate code to set up, but you get great encapsulation, resource management, and separation of responsibilities. On the other hand, what do you do when you don't need actors, and the pipeline is mostly stateless? Let's expore that in another [post](/blog/2024/01/06/stateless-pipeline-with-async-stream/).

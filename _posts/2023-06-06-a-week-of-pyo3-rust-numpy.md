@@ -15,7 +15,7 @@ This mostly revolves around the Python numeric ecosystem, which really took off 
 
 On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. People love Rust's safety guarantees, modern features, and excellent ecosystem, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "command line program" example. It wasn't easy to get started this way... Took me through exhilaration, confusion, frustration, and finally, enlightenment in a short span of days. I hope this post can help you get started with your own journey.
 
-Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://github.com/pyo3/pyo3#articles-and-other-media) section, reading about other developers' journeys[^1][^2][^3]. (Note: this article also joined the list!)
+Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://github.com/pyo3/pyo3#articles-and-other-media) section, reading about other developers' journeys[^1] [^2] [^3]. (Note: this article also joined the list!)
 
 <!--more-->
 

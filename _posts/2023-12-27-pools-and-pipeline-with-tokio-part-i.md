@@ -66,6 +66,8 @@ impl MyActor {
 }
 ```
 
+Note we store `next_id` to demonstrate the actor holding a mutable state that changes upon client requests. This is just one reason why you would use the actor model. In practice, you could choose it because you want to hold an immutable resource that is expensive to create and destroy, like a database connection, or an ML model.
+
 Then the actor handle, with which we reference the actor:
 
 ```rust
