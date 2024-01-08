@@ -11,7 +11,9 @@ After the series on pools and pipeline ([Part I](/blog/2023/12/27/pools-and-pipe
 
 There are some good guides on streams[^1] [^2] [^3]. Note that both the [futures](https://docs.rs/futures/latest/futures/stream/trait.StreamExt.html) and [Tokio](https://docs.rs/tokio-stream/0.1.14/tokio_stream/trait.StreamExt.html) crates have their own `StreamExt` utility traits and methods. As of today, futures' implementation has a broader selection. We will be using some of them here.
 
-At first, I was having a little hard time wrapping my head around streams. A Stream is the async-equivalent to `std::iter::Iterator`. Iterators are lazy, and they will get executed at the end of the method chain by methods like `collect()` and `for_each()`. Streams are lazier, compounded by the fact that Rust futures are lazy. This introduces another degree of freedom and complexity into the richness of Rust functional programming that iterators champion. Because of this, we are able to express concurrency **and** parallelism directly in the stream method chaining. In the sync land, you'd need [Rayon](https://crates.io/crates/rayon) to achieve parallelism (we'll compare them a bit later).
+At first, I was having a little hard time wrapping my head around streams. A Stream is the async-equivalent to an `Iterator`. Iterators are lazy, and they will get executed at the end of the method chain by methods like `collect()` and `for_each()`. Streams are lazier, compounded by the fact that Rust futures are lazy. This introduces another degree of freedom and complexity into the richness of Rust functional programming that iterators champion. Because of this, we are able to express concurrency **and** parallelism directly in the stream method chaining. In the sync land, you'd need [Rayon](https://crates.io/crates/rayon) to achieve parallelism (we'll compare them a bit later).
+
+**Comment:** Little did I know when writing this post, that the relationship between iterators and futures in Rust has a long history[^9], both of which are fundamentally driven by what defines the modern Rust programming language with a need for zero-cost abstraction. In addition, there exhibits some elegant symmetry between them[^11] [^12] ([Maxwell's Equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) everyone?) These referenced articles were posted very recently (fresh off the Boats, sorry, can't help it) and they are very relevant and insightful. So I would recommend a read if you are inclined to dig deeper.
 
 <!--more-->
 
@@ -100,7 +102,7 @@ So let's get back to the previous question about `map()`, `for_each()`, and `buf
 >     type Item;
 >
 >     // Provided methods
->     fn map<B, F>(self, f: F) -> Map<Self, F> ⓘ
+>     fn map<B, F>(self, f: F) -> Map<Self, F>
 >        where Self: Sized,
 >              F: FnMut(Self::Item) -> B { ... }
 >
@@ -115,7 +117,7 @@ So let's get back to the previous question about `map()`, `for_each()`, and `buf
 >        where F: FnMut(Self::Item) -> T,
 >              Self: Sized { ... }
 >
->     fn for_each<Fut, F>(self, f: F) -> ForEach<Self, Fut, F> ⓘ
+>     fn for_each<Fut, F>(self, f: F) -> ForEach<Self, Fut, F>
 >        where F: FnMut(Self::Item) -> Fut,
 >              Fut: Future<Output = ()>,
 >              Self: Sized { ... }
@@ -149,7 +151,7 @@ So `Stream`'s `for_each()` needs an async closure, which is a closure that retur
 
 You see that `async`? That's exactly it.
 
-This is a good opportunity to share some notes of my Rust learning journey. Coming from a less typed background, it surely was an uphill battle to reason with Rust types in such intensity, and adding async to it was truly icing (salt) on the cake (wound)! On one hand, as a Rust programmer, you kind of have to understand this to get through the beginner's phase, and this is where a lot of peopel give up. On the other hand, after these concepts begin to take shape in your head, Rust starts to become magical, and (many of) you might get really addicted - well, until you reach a certain point as a library developer, with some [thorny fights](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html) with the compiler (here is a [rebuttal](https://itsallaboutthebit.com/async-simple/)).
+This is a good opportunity to share some notes of my Rust learning journey. Coming from a less typed background, it surely was an uphill battle to reason with Rust types in such intensity, and adding async to it was truly icing (salt) on the cake (wound)! On one hand, as a Rust programmer, you kind of have to understand this to get through the beginner's phase, and this is where a lot of people give up. On the other hand, after these concepts begin to take shape in your head, Rust starts to become magical, and (many of) you might get really addicted - well, until you reach a certain point as a library developer, with some [thorny fights](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html) with the compiler (here is a [rebuttal](https://itsallaboutthebit.com/async-simple/)).
 
 ### What about `map()`?
 
@@ -211,6 +213,8 @@ The closure we gave to `map()` returns an `async move {}`. What is this? It's an
 
 Those two exact blocks won't actually compile, unfortunately. Because the future escapes the closure where it's defined when the closure returns, you have to prove to the compiler the future captures the right things and owns the right things. If you feel a bit overwhelmed (I did many times), just recall that async Rust loves to annotate futures with a `move` when spawning tasks, like `async move {}`. When in doubt, try using the explicit regular closure returning an async block approach, and take clones/immutable references right before the `async move {}` line. Move things around and let the compiler teach you where you are.
 
+**Comment:** Again, little did I know when writing this post, I stumbled upon one of the items Rust key contributors [highlighted](https://smallcultfollowing.com/babysteps/blog/2023/03/29/thoughts-on-async-closures/) in 2023 and would like to resolve in the near future[^10]. Reading up on them and a few of their other posts (see [refs](#more-on-async)) after writing my own truly opened my eyes. I am very grateful for being enlightened from their insights, and remain hopeful these features are stablized for broad adoption.
+
 ### What about `buffered()`/`buffer_unordered()`?
 
 Look at the signatures:
@@ -229,7 +233,7 @@ The `Self::Item` is just `Stream::Item`. It is saying, these two methods want to
 
 ### Stacking up
 
-We can create multiple stages of the pipeline by adding more `map()` and `buffered()`/`buffer_unordered()`. Why would we do that? After all, our pipeline is stateless, so we don't have many resources to manage, so why do we still need different stages? Well, consider a pipeline that downloads from a source, and uploads to a destination. Even if the common "resource" is just a stateless client, the source and destination servers might exhibit different capacities and rate limiting rules. Using the same number of workers might not be compatible with both - one might be under the rate limit, the other might blow over. Our pipeline will then exhibit a modal behavior, swinging from all workers working on one stage, to all workers working on another at a time. In a way, the resources are external, and we need to capture that. By having separate stages, we can configure different number of workers to match the external capacities. Different stages will then work continuously to overlap with other stages. Let's write it out:
+We can create multiple stages of the pipeline by adding more `map()` and `buffered()`/`buffer_unordered()`. Why would we do that? After all, our pipeline is stateless, so we don't have many resources to manage, so why do we still need different stages? Well, consider a pipeline that downloads from a source, and uploads to a destination. Even if the common "resource" is just a stateless client, the source and destination servers might exhibit different capacities and rate limiting rules. Using the same number of workers might not be compatible with both - one might be under the rate limit, the other might blow over. Our pipeline will then exhibit a modal behavior, swinging from all workers working on one stage, to all workers working on another at a time. In a way, the resources are external, and we need to capture that. By having separate stages, we can configure different numbers of workers to match the external capacities. Different stages will then work continuously to overlap with other stages. Let's write it out:
 
 ```rust
 const N_TASKS: usize = 8;
@@ -331,7 +335,7 @@ Finally: 7: Got string with length 13
 
 There are many ways to extend our pipeline to do more things. Let's look at the typical input and output - files. We will also think about concurrency and parallelism from the start.
 
-The input could be many files, and concurrency/parallelism can go from there. In that case, put file names into the initial vector, and create a stream by `Stream::iter(filenames)`. Each file will be a unit of work. Alternatively, if you have one large file, you could use the [stream!] macro from the [async-stream](https://crates.io/crates/async-stream) crate to define an iterator from file lines.
+The input could be many files, and concurrency/parallelism can go from there. In that case, put file names into the initial vector, and create a stream by `Stream::iter(filenames)`. Each file will be a unit of work. Alternatively, if you have one large file, you could use the `stream!` macro from the [async-stream](https://crates.io/crates/async-stream) crate to define an iterator from file lines.
 
 It's worth going into the output a bit more. The output writer is usually required to be `mut`, and it might be tricky to set up in the async context. First, we need a writer, and we modify the `for_each` closure to use the writer:
 
@@ -417,21 +421,21 @@ use std::rc::Rc;
 
 This works! Check out the `output.txt`! What a journey.
 
-Currently, async Rust does not handle file IO very efficiently (absent `io-uring`). In fact, the `tokio::fs` is mostly a [wrapper to `std::fs`](https://www.reddit.com/r/rustjerk/comments/nst3hw/tokio_executing_blocking_io_api_in_a_thread_pool/) with a dedicated big thread pool for blocking IO tasks[^4] [^5]. As a result, there is a lot of overhead moving tasks to the thread pool and results back if IO tasks are small. If your output file IO is slowing you down, consider using [async-channel](https://crates.io/crates/async-channel), or [Flume](https://crates.io/crates/flume) to `send()` tasks in the async land, and `receive_blocking()` in the sync land with [`tokio::task::spawn_blocking()`](https://docs.rs/tokio/latest/tokio/task/fn.spawn_blocking.html). It's a very useful pattern.
+Currently, async Rust does not handle file IO very efficiently (absent `io-uring`). In fact, the `tokio::fs` is mostly a [wrapper to `std::fs`](https://www.reddit.com/r/rustjerk/comments/nst3hw/tokio_executing_blocking_io_api_in_a_thread_pool/) with a dedicated big thread pool for blocking IO tasks[^4] [^5]. As a result, there is a lot of overhead moving tasks to the thread pool and results back if IO tasks are small. If your output file IO is slowing you down, consider using [async-channel](https://crates.io/crates/async-channel), or [Flume](https://crates.io/crates/flume) to `send()` tasks in the async land, and `receive_blocking()` in the sync land with [`spawn_blocking()`](https://docs.rs/tokio/latest/tokio/task/fn.spawn_blocking.html). It's a very useful pattern.
 
 ## Comparison with Rayon in Sync Land
 
-It's worthwhile drawing some comparison between async streams to Rayon parallel iterators in the sync land. These are two different beasts. Rayon is designed to achieve multi-threaded/multi-core parallelism for high-compute-density tasks that fully take up CPU cycles. It expects you to feed it tasks that won't wait on IO for too long, and usually no more than N of (physical or logical with hyperthreading) cores number of tasks are running in parallel. Async Rust solves the complementary problem, where your tasks have heavy IO needs, and you need to spawn many more tasks to take up even one CPU's cycles (this is concurrency) to saturate computing resources - we are assuming IO limit is high. In Rust, async tasks can also be truly multi-threaded/multi-core parallel, depending on the executor, like Tokio. The downside is you need to ensure IO function calls are not blocking, but yielding, which create a "paralel universe" to the sync land. This has been a point of frustration to async Rust. You are encouraged to read up on it.
+It's worthwhile drawing some comparison between async streams to Rayon parallel iterators in the sync land. These are two different beasts. Rayon is designed to achieve multi-threaded/multi-core parallelism for high-compute-density tasks that fully take up CPU cycles. It expects you to feed it tasks that won't wait on IO for too long, and usually no more than N of (physical or logical with hyperthreading) cores number of tasks are running in parallel. Async Rust solves the complementary problem, where your tasks have heavy IO needs, and you need to spawn many more tasks to take up even one CPU's cycles (this is concurrency) to saturate computing resources - we are assuming IO limit is high. In Rust, async tasks can also be truly multi-threaded/multi-core parallel, depending on the executor, like Tokio. The downside is you need to ensure IO function calls are not blocking, but yielding, which creates a "paralel universe" to the sync land. This has been a point of frustration to async Rust, and yet is tied to everything that makes modern Rust the way it is - zero-cost abstraction. You are encouraged to read up[^9] on it.
 
 From a user's perspective, however, the tasks are always a mix of both CPU- and IO- intensive. If you really want it, you **could** run CPU-intensive tasks with async, and IO-intensive tasks with Rayon. Performance may degrade quite a lot, but it should still work.
 
 With Rayon, there are two approaches to achieve parallelism. You stick a `.par_iter()`/`.into_par_iter()` to a collection with a known length (not an iterator), like a `Vec`, or a `HasMap`, and Rayon uses divide-and-conquer to cut up the sequence. The advantage of this approach is work division is done on the stack with recursion, and is extremely fast when work scheduling is the bottleneck otherwise. The disadvantage is you can't convert any iterator with unknown length to a parallel one this way. To do that, Rayon added `par_bridge()`. However, one notable behavior difference is the collected results from it is not ordered according to the original iterator. You could borrow the logic from [here](https://stackoverflow.com/questions/76960134/rust-after-parallelization-with-rayon-write-out-results-in-order-without-waiti) as a remedy.
 
-With async streams, you can express concurrency with or without parallelism, and define stages with arbitrary number of tasks executed at the same time. There is more flexibility, due to the nature of async, and of course, more complexity.
+With async streams, you can express concurrency with or without parallelism, and define stages with an arbitrary number of tasks executed at the same time. There is more flexibility, due to the nature of async, and of course, more complexity.
 
 ## More on Async
 
-Async Rust is a very interesting topic. If interest follows, please check out a few articles[^6] [^7] [^8] [^9] I found insightful.
+Async Rust is a very interesting topic. If interest follows, please check out a few articles[^6] [^7] [^8] [^9] [^10] [^11] [^12] I found insightful.
 
 ----
 [^1]: https://tokio.rs/tokio/tutorial/streams
@@ -440,6 +444,9 @@ Async Rust is a very interesting topic. If interest follows, please check out a 
 [^4]: https://stackoverflow.com/questions/70599317/is-there-any-point-in-async-file-io
 [^5]: https://darkcoding.net/software/linux-what-can-you-epoll/
 [^6]: https://ryhl.io/blog/async-what-is-blocking/
-[^7]: https://without.boats/blog/why-async-rust/
-[^8]: https://www.infoq.com/presentations/rust-2019/
-[^9]: https://users.rust-lang.org/t/green-threads-vs-async/42159/2
+[^7]: https://www.infoq.com/presentations/rust-2019/
+[^8]: https://users.rust-lang.org/t/green-threads-vs-async/42159/2
+[^9]: https://without.boats/blog/why-async-rust/
+[^10]: https://without.boats/blog/a-four-year-plan/
+[^11]: https://without.boats/blog/poll-next/
+[^12]: https://without.boats/blog/coroutines-async-and-iter/
