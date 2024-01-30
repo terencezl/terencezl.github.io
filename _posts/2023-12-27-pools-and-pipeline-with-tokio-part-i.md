@@ -429,4 +429,4 @@ You probably want to use [Anyhow](https://crates.io/crates/anyhow) to handle err
 
 ## To be Continued... The Streaming Model
 
-Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism was implied and provided. I will spec out that design in a separate post - ([Part II](/blog/2023/12/27/pools-and-pipeline-with-tokio-part-i/)).
+Earlier we discussed that, if the multi-worker pool behaves like a processing queue instead of a server, the bridge to parallelism was implied and provided. I will spec out that design in a separate post - ([Part II](/blog/2023/12/28/pools-and-pipeline-with-tokio-part-ii/)).
