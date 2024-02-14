@@ -26,28 +26,28 @@ I had previously worked on computer vision / facial recognition back in 2017, an
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** (at time of submission) by [NIST](https://pages.nist.gov/frvt/html/frvt11.html).
 * Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
-* Perfected efficient model training using tens of nodes with machine & job orchestration tools.
+* Iterated efficient model training using a cluster of nodes with machine & job orchestration tools to achieve SOTA in the given category.
 * Drove model efficiency using distillation training, quantization, pruning & trimming, and hardware acceleration. Streamlined deployment with model encryption and serving engines.
 * Led cross-functional collaboration to design & review multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
 * Established foundational ML practices, tooling & platform and built a team of ML engineers.
-* Co-wrote marketing materials and public letters. Engaged with policy officials.
+* Co-wrote marketing materials and public letters, engaged with policy officials to establish the company reputation.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
 
-> During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization/inference optimization, all the way to indexing for search at a very large scale. These tasks encompassed almost the entirety of the industrial ML/DL specializations.
+> During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization/inference optimization, all the way to indexing for search at deca-B scale. These tasks encompassed almost the entirety of the industrial ML/DL specializations.
 >
-> My role here was a combination of _ML Research Scientist/Engineer_ and _ML Platform Engineer_. The latter one echoed back with my experience at [Bloomberg](#bloomberg-lp) doing platform work. In addition, due to the visual nature of computer vision, being able to anticipate and connect to the frontend/product experience was essential. Therefore I took lead roles at adjacent teams and contributed heavy-handedly to a few projects. The aim was to drive the initiatives to the logical conclusions and reap the benefits of what the ML core had to offer. Through them I got to really stretch my abilities. The hands-on technical experience and intuition I gained from these projects were priceless.
+> My role here was a combination of _ML/Data Research Engineer_ and _Platform Engineer_. The latter one echoed back with my experience at [Bloomberg](#bloomberg-lp) doing platform engineering work. In addition, due to the visual nature of computer vision, being able to anticipate and connect to the frontend/product experience was essential. Therefore I took lead roles at adjacent teams and contributed heavy-handedly to a few projects. The aim was to drive the initiatives to the logical conclusions and reap the benefits of what the ML core had to offer. Through them I got to really stretch my abilities. The hands-on technical experience and intuition I gained from these projects were priceless.
 >
-> * One project was a rewrite of the MLAPI service with the GPU batching engine **service streamer** that was simple, flexible and effective. - It was like [Ray Serve](https://www.ray.io/ray-serve).
-> * Another project was a distributed ML data pipeline framework that was fault tolerant for spot GPU instances, orchestrated minimally by S3, Redis, `rsync`, `ssh` and UNIX tools. It was flexible for reuse and enabled observability by terminal dashboards (`tmux`, `watch`).
+> * One project was a rewrite of the MLAPI service with the GPU batching engine **service streamer** that was simple, flexible and effective.
+> * Another project was a minimalistic distributed ML data pipeline framework that was fault tolerant for spot GPU instances, orchestrated minimally by S3, Redis, `rsync`, `ssh` and UNIX tools. It was just enough to be flexible for reuse and enabled observability by terminal dashboards (`tmux`, `watch`).
 > * Another project was a multithreaded video frame ML processor that parsed unique face groups with tracking and clustering.
 > * Another project was re-architecting the vector DB/index engine, which ended up being many times more efficient.
-> I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I defined the Technology Process in the context of the company: problem definition & claim, strategizing & planning, solving & characterization, and production implementation stages. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
+> I also carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
 >
-> Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team. I was very keen on nurturing the team, sharing knowledge, and recording sessions for broader access & history keeping, a practice I picked up during the pandemic remote working environment. Recently I came across a book [The Staff Engineer's Path](https://newsletter.pragmaticengineer.com/p/the-staff-engineers-path) (highly recommend!) and found a lot of common themes.
+> Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the Research/ML division, laid out the technological foundation and assembled a team.
 >
-> I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from ML frameworks **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **CuPy**, **TensorRT**, powerful MLOps platforms/tools **AWS SageMaker**, **GCP Vertex AI**, [**Ray**](https://github.com/ray-project/ray), **Airflow**, **MLFlow**, **DVC**, approximate nearest neighbors libraries [**Faiss**](https://github.com/facebookresearch/faiss/), [**hnswlib**](https://github.com/nmslib/hnswlib), and general SWE tools **FastAPI**, **Socket.IO**, **Protobuf & gRPC**, **Redis Stream**, [**RocksDB**](https://github.com/facebook/rocksdb), **Datadog**, **GitLab CI/CD**, **Docker**, **Kubernetes**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fused three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
+> I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from ML frameworks **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **CuPy**, **TensorRT**, approximate nearest neighbors libraries [**Faiss**](https://github.com/facebookresearch/faiss/), [**hnswlib**](https://github.com/nmslib/hnswlib), and general SWE tools **FastAPI**, **Socket.IO**, **Protobuf & gRPC**, **Redis Stream**, [**RocksDB**](https://github.com/facebook/rocksdb), **Datadog**, **GitLab CI/CD**, **Docker**, **Kubernetes**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fused three tough C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. They were incredibly challenging and equally fun.
 </details>
 
 -----------------
@@ -128,7 +128,7 @@ This major was interdisciplinary in nature. As a result, I studied a broad range
 
 -----------------
 
-## <u>MEDIA HIGHLIGHTS</u>
+## <u>MEDIA</u>
 
 [Interview with Biometric Update: How Clearview developed its method for fast search on an above-billion scale database](https://www.biometricupdate.com/202306/how-clearview-developed-its-method-for-fast-search-on-an-above-billion-scale-database)
 

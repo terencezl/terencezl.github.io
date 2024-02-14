@@ -12,7 +12,9 @@ During my academic years, I published 14 peer-reviewed [papers](https://scholar.
 
 **Liu, Z.**, Ton-That, C.-H. (2022) U.S. Patent No. 11,443,553
 
-*More to come...*
+[Efficient Distributed Trainer With Gradient Accumulation on Sampled Weight for Deep Neural Networks in Facial Recognition](https://patentcenter.uspto.gov/applications/17818783)
+
+**Liu, Z.**, (2023) U.S. Patent No. 11,694,477
 
 -----------------
 
