@@ -17,7 +17,7 @@ I wrote about my programming journey in a separate [post](/blog/2023/03/20/my-pr
 
 ### Eager Moves
 
-In C++, when you assign a variable to another variable, the value is copied. With most standard library copiable types that manage resources, this leads to pretty extensive copies. Smart pointers such as `shared_ptr` are exceptions. Generally, you would need to explicitly use `std::move()` to invoke the C++11 move semantics.
+In C++, when you assign a variable to another variable, the value is copied. With most standard library copiable types that manage resources, this leads to pretty extensive copies. Smart pointers such as `shared_ptr` are exceptions. Generally, you would need to explicitly use `std::move()` to get an rvalue reference (see later) to invoke the C++11 move semantics.
 
 ```c++
 vector<int> v1 = {1, 2, 3};
@@ -62,13 +62,13 @@ int a_copy = *p;
 The `&` in `&a` and `*` in `*p` are operators. The `int*` is a pointer type. You announce it on both ends.
 
 ```c++
-// This is how you get a reference:
+// This is how you assign by reference:
 int& r = a;
-// This is how you dereference a reference:
+// This is how you use a reference:
 int a_copy = r;
 ```
 
-You don't need operators to get a reference. The `int&` is a reference type. You announce it only with the type notation.
+The reference `r` is functionally no different from the original `a`. In C++, references are not a first-class type like in Rust, but a mechanism for passing into function arguments, or assigning to variables. You don't need operators to get a reference, but just make the reference notation on the receiver variable side (`int&`). There is more nuance between lvalue and rvalue references that goes beyond the scope of this short post.
 
 Whereas in Rust, references look like the below.
 
@@ -79,7 +79,7 @@ let r: &i32 = &a;
 let a_copy: i32 = *r;
 ```
 
-The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a reference type. Rust uses `&i32` instead of `int*` to represent this concept.
+The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a first-class reference type in its type system, a rather unique choice among common programming languages. There are a lot more rules on auto-dereferencing that goes beyond the superficial resemblance.
 
 ### Pattern Matching
 

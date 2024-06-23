@@ -5,7 +5,7 @@ title: Little-Endian Snafu
 
 You learned about this in college classes. You thought working SWE jobs in 2022 you'd never have to deal with this. But it comes back to trick you at your worst.
 
-I was tripped by endian-ness when implementing inverted list [`listno-offset`/`LO`](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/invlists/DirectMap.h#L21-L31) as a fixed-width binary key in RocksDB.
+I was tripped by endian-ness when implementing inverted list [`listno-offset`/`LO`](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/invlists/DirectMap.h#L21-L31) as a fixed-width byte string key in RocksDB.
 
 ```c++
 // When offsets list id + offset are encoded in an uint64
@@ -34,7 +34,7 @@ I spent hours isolating the problem with trial and error. Then at dinner it dawn
 
 A (most?) modern `x86_64` or `aarch64` machine adopts a little-endian system. Here, a naive slice of the first 4 bytes in that memory blob would give you the `offset`, not the `listno`!
 
-Realizing that, the fix was to build `LO` with string concatenation or `memcpy` in the expected order. And the problem was solved.
+Realizing that, the fix was to switch the `list_id` and `offset` in `lo_build`, or, build `LO` with string concatenation or `memcpy` in the expected order. And the problem was solved.
 
 ------
 [^1]: https://en.wikipedia.org/wiki/Endianness
