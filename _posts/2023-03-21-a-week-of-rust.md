@@ -68,7 +68,7 @@ int& r = a;
 int a_copy = r;
 ```
 
-The reference `r` is functionally no different from the original `a`. In C++, references are not a first-class type like in Rust, but a mechanism for passing into function arguments, or assigning to variables. You don't need operators to get a reference, but just make the reference notation on the receiver variable side (`int&`). There is more nuance between lvalue and rvalue references that goes beyond the scope of this short post.
+The reference `r` is functionally no different from the original `a`. In C++, references are not a first-class type like in Rust, but a mechanism for passing as function arguments, or assigning to variables. You don't need operators to get a reference, but just make the reference notation on the receiver variable side (`int&`). There is more nuance between lvalue and rvalue references that goes beyond the scope of this short post.
 
 Whereas in Rust, references look like the below.
 
@@ -79,7 +79,7 @@ let r: &i32 = &a;
 let a_copy: i32 = *r;
 ```
 
-The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a first-class reference type in its type system, a rather unique choice among common programming languages. There are a lot more rules on auto-dereferencing that goes beyond the superficial resemblance.
+The `&` in `&a` and `*` in `*r` are operators. This feels like pointers in C++. However, the `&i32` is a first-class reference type in its type system, a rather unique choice among common programming languages. There are a lot more rules on auto-dereferencing that go beyond the superficial resemblance.
 
 ### Pattern Matching
 

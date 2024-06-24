@@ -5,7 +5,7 @@ title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X Times)
 
 ![img](/public/imgs/week-of-py03-rust-numpy.png){: style="width: 95%" }
 
-This post is a more hands-on sequel to my beginner [article](/blog/2023/03/21/a-week-of-rust/) about getting to learn Rust. You can check out the code [here](https://github.com/terencezl/rust-ext-example).
+You can check out the code [here](https://github.com/terencezl/rust-ext-example).
 
 If you are like me (and many others), you'd need a strong reason to learn a new programming language (my [journey](/blog/2023/03/20/my-programming-journey/)). It's a big commitment, and requires a lot of days and nights to do it right. Even for languages like Python that boast simplicity, under the hood there is a lot going on. For many developers, Python is the non-negotiable gluing/orchestrating layer that sits closest to them, because it frees them from the distractions that are not part of the main business logic, and has evolved to become the central language for ML/AI.
 
