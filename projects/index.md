@@ -45,16 +45,6 @@ _(2017)_
 
 -----------------
 
-### [Kaggle Competition: Rental Listing Inquiries](https://github.com/terencezl/kaggle-rental-listing-inquiries)
-
-_(2017)_
-
-> Built machine learning classification models (SVMs, random forests, boosted trees) with scikit-learn to predict viewer interest levels of 80k rental listings. Performed text feature engineering and model comparison.
-
-![img](/public/imgs/kaggle.jpg){: style="width: 95%;max-width:500px" }
-
------------------
-
 ## [R-practice](https://github.com/terencezl/R-practice)
 
 _(2017)_
