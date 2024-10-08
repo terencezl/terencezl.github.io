@@ -5,17 +5,19 @@ title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X Times)
 
 ![img](/public/imgs/week-of-py03-rust-numpy.png){: style="width: 95%" }
 
+_Updated Oct 7, 2024: use `unsafe` but correct and faster array content copy to go from 3x to 4x._
+
 You can check out the code [here](https://github.com/terencezl/rust-ext-example).
 
 If you are like me (and many others), you'd need a strong reason to learn a new programming language (my [journey](/blog/2023/03/20/my-programming-journey/)). It's a big commitment, and requires a lot of days and nights to do it right. Even for languages like Python that boast simplicity, under the hood there is a lot going on. For many developers, Python is the non-negotiable gluing/orchestrating layer that sits closest to them, because it frees them from the distractions that are not part of the main business logic, and has evolved to become the central language for ML/AI.
 
-Rust on the other hand, has a lot going on up front. Beyond a "hello world" toy example, it is particularly good at building, e.g. command line programs, because it's a great modern systems language, extremely fast and portable. However, my main programming activities have been in ML and data pipelines.
+Rust on the other hand, requires a lot from a developer up front. Beyond a "hello world" toy example, it gets complex quickly, presenting a steep learning curve. It's an amazing modern systems language, extremely fast and portable. However, my main programming activities have been in ML and data pipelines, operating on the Python (high) level, so I haven't seriously tried to learn it.
 
-This mostly revolves around the Python numeric ecosystem, which really took off when [NumPy](https://en.wikipedia.org/wiki/NumPy) brought in the array interface and advanced math to become the "open-source researchers' MATLAB", that eventually kicked off almost 20 years of ML/AI development. Following that script, there emerged many Python-based workflows and packages that benefited from faster compiled languages as extension modules. They could be exploratory routines in scientific computing (physics, graphics, data analytics) that needed to be flexible yet efficient. They could be deep learning frameworks. They could also be distributed pipelines that ingest & transform large amounts of data, or web servers with heavy computation demands. The interoperating layer was fulfilled by [SWIG](https://github.com/swig/swig), [Cython](https://github.com/cython/cython), and [Boost.Python](https://github.com/boostorg/python). [pybind11](https://github.com/pybind/pybind11) grew as a successor to Boost.Python (different authors!) to offer C++ integration, and got good traction in late 2010.
+Python's ML and data story mostly revolves around the Python numeric ecosystem, which really took off when [NumPy](https://en.wikipedia.org/wiki/NumPy) brought in the array interface and advanced math to become the "open-source researchers' MATLAB", that eventually kicked off almost 20 years of ML/AI development. Following that script, there emerged many Python-based workflows and packages that benefited from faster compiled languages as extension modules. They could be exploratory routines in scientific computing (physics, graphics, data analytics) that needed to be flexible yet efficient. They could be deep learning frameworks. They could also be distributed pipelines that ingest & transform large amounts of data, or web servers with heavy computation demands. The interoperating layer was fulfilled by [Cython](https://github.com/cython/cython), [SWIG](https://github.com/swig/swig), and [Boost.Python](https://github.com/boostorg/python). [pybind11](https://github.com/pybind/pybind11) grew as a successor to Boost.Python (different authors!) to offer C++ integration, and got good traction in late 2010.
 
-On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. People love Rust's safety guarantees, modern features, and excellent ecosystem, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "command line program" example. It wasn't easy to get started this way... Took me through exhilaration, confusion, frustration, and finally, enlightenment in a short span of days. I hope this post can help you get started with your own journey.
+On the Rust side, [PyO3](https://github.com/PyO3/pyo3) has been getting a lot of love. Developers love Rust's safety guarantees, modern features, and excellent ecosystem, and have been leveraging [ndarray](https://github.com/rust-ndarray/ndarray), [rust-numpy](https://github.com/PyO3/rust-numpy) to interoperate with NumPy arrays from Python to speed up performance-critical sections of their code. This has tremendous appeal to me, and has granted me an overwhelming reason to learn Rust with the PyO3 + rust-numpy stack. Let this be my own "[command line program](https://doc.rust-lang.org/book/ch12-00-an-io-project.html)" (from the Book) example. It wasn't easy to get started this way... Took me through confusion, frustration, and finally, enlightenment in a short span of days. I hope this post can help you get started with your own journey.
 
-Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated, but a common practice with Rust crates. I benefited a lot from the [Articles](https://github.com/pyo3/pyo3#articles-and-other-media) section, reading about other developers' journeys[^1] [^2] [^3]. (Note: this article also joined the list!)
+Before pulling up the sleeves, let's peek into Rust and PyO3's ecosystem. PyO3 has great [docs](https://pyo3.rs/), which is much appreciated. I benefited a lot from the [Articles](https://github.com/pyo3/pyo3#articles-and-other-media) section, reading about other developers' journeys[^1] [^2] [^3]. (Note: this article also joined the list!)
 
 <!--more-->
 
@@ -56,7 +58,7 @@ So why do you need additional Python extensions? Well, not all operations can re
 
 ## My Data Pipeline Problem
 
-This is what I ran into. I have many msgpack files generated from some ML routine that packs tens of thousands of NumPy arrays into bytes in each, like below.
+This is what I ran into. I have many msgpack files generated from some ML routine that packs tens of thousands of NumPy arrays into bytes in each, like generated below.
 
 ```python
 from typing import Iterator
@@ -126,7 +128,7 @@ if __name__ == "__main__":
 
     pool = ThreadPoolExecutor(max_workers=N_workers)
 
-    logger.info("With native Python / thread pool:")
+    logger.info("With Python / thread pool:")
     futures = []
     for _ in range(N_tasks):
         futures.append(pool.submit(process_py, filepath))
@@ -138,7 +140,7 @@ if __name__ == "__main__":
 **Output:**
 
 ```plain
-With native Python / thread pool:
+With Python / thread pool:
 ​​32/32 [00:03<00:00,  8.05it/s]
 ```
 
@@ -152,7 +154,7 @@ from concurrent.futures import ProcessPoolExecutor
 # ...
 
     pool = ProcessPoolExecutor(max_workers=N_workers)
-    logger.info("With native Python / process pool:")
+    logger.info("With Python / process pool:")
     futures = []
 
     for _ in range(N_tasks):
@@ -165,7 +167,7 @@ from concurrent.futures import ProcessPoolExecutor
 **Output:**
 
 ```plain
-With native Python / process pool:
+With Python / process pool:
 32/32 [00:06<00:00,  4.86it/s]
 ```
 
@@ -181,7 +183,7 @@ def func():
 
     pool = ProcessPoolExecutor(max_workers=N_workers)
 
-    logger.info("With native Python / process pool:")
+    logger.info("With Python / process pool:")
 
     futures = []
     for _ in range(N_tasks):
@@ -194,7 +196,7 @@ def func():
 **Output:**
 
 ```plain
-With native Python / process pool:
+With Python / process pool:
 32/32 [00:05<00:00,  5.40it/s]
 ```
 
@@ -202,67 +204,89 @@ It's already quite slow, let alone more operations stacked on top. Clearly, goin
 
 ## PyO3 + rust-numpy to Rescue
 
-This is the case where compiled extensions can help. PyO3 and rust-numpy provide an excellent interface to deal with anything that might come your way. There are a lot of other great articles I referenced earlier that can get you set up using [maturin](https://github.com/PyO3/maturin). Assuming you complete the common steps, let us create a Rust extension package that implements a `take_iter()` function. What's really amazing is the interoperability - it can take a native Python iterator!
+This is the case where compiled extensions can help. PyO3 and rust-numpy provide an excellent interface to deal with anything that might come your way. There are a lot of other great articles I referenced earlier that can get you set up using [maturin](https://github.com/PyO3/maturin). Assuming you complete the common steps, let us create a Rust extension package that implements a `take_iter()` function. What's really amazing is the interoperability - it can take a Python iterator!
 
 In `src/lib.rs`, where the main logic lives, we write
 
 ```rust
+use numpy::ndarray::{s, ArrayViewMut1};
+use numpy::PyReadwriteArray2;
+use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 use pyo3::types::{PyBytes, PyIterator};
-use numpy::ndarray::{s, ArrayViewMutD};
-use numpy::PyReadwriteArrayDyn;
 
-static SIZE_ARRAY_DIM: usize = 512;
+const SIZE_ARRAY_DIM: usize = 512;
+const F32_SIZE: usize = 4;
 
-fn copy_array(
-    vectors: &mut ArrayViewMutD<'_, f32>,
-    bytes_vector: &[u8],
-    idx: usize,
-) -> Result<(), String> {
-    if bytes_vector.len() == SIZE_ARRAY_DIM * 4 {
+fn copy_array(src_bytes_vector: &[u8], dst_vector: &mut ArrayViewMut1<f32>) -> Result<(), String> {
+    if src_bytes_vector.len() == SIZE_ARRAY_DIM * F32_SIZE {
         // f32 from msgpack
-        // copy bytes in f32 le format to vectors at idx
-        let mut arrays_slice = vectors.slice_mut(s![idx, ..]);
-        for (dst, src) in arrays_slice.iter_mut().zip(
-            bytes_vector
-                .chunks_exact(4)
-                .map(|x| f32::from_le_bytes(x.try_into().unwrap())),
-        ) {
-            *dst = src;
+
+        // copy bytes in f32 le format to dst_vector
+        // safe but slower
+        // for (dst, src) in dst_vector.iter_mut().zip(
+        //     src_bytes_vector
+        //         .chunks_exact(F32_SIZE)
+        //         .map(|x| f32::from_le_bytes(x.try_into().unwrap())),
+        // ) {
+        //     *dst = src;
+        // }
+
+        // unsafe but correct & faster
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                src_bytes_vector.as_ptr() as *const f32,
+                dst_vector.as_mut_ptr(),
+                SIZE_ARRAY_DIM,
+            );
         }
         return Ok(());
     } else {
-        return Err(format!("array size does not match at {idx}!"));
+        return Err(format!(
+            "Array size is {}, does not match {}!",
+            src_bytes_vector.len(),
+            SIZE_ARRAY_DIM * F32_SIZE
+        ));
     };
 }
 
 #[pymodule]
-fn rust_ext(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
+fn rust_ext(m: &Bound<PyModule>) -> PyResult<()> {
     #[pyfn(m)]
-    fn take_iter<'py>(
-        py: Python<'_>,
-        iter: &PyIterator,
-        mut np_vectors: PyReadwriteArrayDyn<f32>,
+    fn take_iter(
+        py: Python,
+        iter: Bound<PyIterator>,
+        mut np_vectors: PyReadwriteArray2<f32>,
     ) -> PyResult<usize> {
-        // First collect bytes in a Rust-native vector.
-        // We can’t release the GIL here because we are dealing with a Python object.
-        let mut raw_list: Vec<&[u8]> = vec![];
+        // First collect bytes into a Rust-native vector.
+        // We can't release the GIL here because we are dealing with a Python object.
+        let mut raw_list: Vec<Vec<u8>> = vec![];
         for item in iter {
-            raw_list.push(item?.downcast::<PyBytes>()?.as_bytes());
+            raw_list.push(item?.downcast::<PyBytes>()?.as_bytes().to_vec());
         }
+
         let mut vectors = np_vectors.as_array_mut();
 
         // Bytes are read as f32 arrays and copied into the passed in NumPy array.
         // We release the GIL here so other Python threads can run in true parallelism.
         py.allow_threads(|| {
+            if raw_list.len() > vectors.dim().0 {
+                return Err(PyValueError::new_err("Too many items in iterator!"));
+            }
+            if vectors.dim().1 != SIZE_ARRAY_DIM {
+                return Err(PyValueError::new_err(format!(
+                    "2D NumPy array has {} columns, does not match {}!",
+                    vectors.dim().1,
+                    SIZE_ARRAY_DIM
+                )));
+            }
+
             let mut idx = 0;
-            for &bytes_vector in raw_list.iter() {
-                match copy_array(&mut vectors, bytes_vector, idx) {
-                    Err(e) => {
-                        println!("Error: {}", e);
-                        continue;
-                    }
-                    Ok(_) => {}
+            for src_bytes_vector in raw_list {
+                let mut dst_vector = vectors.slice_mut(s![idx, ..]);
+                if let Err(e) = copy_array(&src_bytes_vector, &mut dst_vector) {
+                    eprintln!("Error: {}. Skipping...", e);
+                    continue;
                 }
                 idx += 1;
             }
@@ -305,25 +329,25 @@ def process_rs(filepath):
 
 ```plain
 With Rust extension / thread pool:
-32/32 [00:01<00:00, 24.38it/s]
+32/32 [00:00<00:00, 33.58it/s]
 ```
 
-That's 3x faster than the native Python code!
+That's 4x faster than the Python code!
 
 Let's do a full rerun with a 2x2 combo to take it home:
 
 ```plain
-With native Python / process pool:
+With Python / process pool:
 32/32 [00:05<00:00,  5.45it/s]
 
 With Rust extension / process pool:
 32/32 [00:05<00:00,  5.51it/s]
 
-With native Python / thread pool:
+With Python / thread pool:
 32/32 [00:03<00:00,  8.21it/s]
 
 With Rust extension / thread pool:
-32/32 [00:01<00:00, 24.38it/s]
+32/32 [00:00<00:00, 33.58it/s]
 ```
 
 ## Closing Thoughts
