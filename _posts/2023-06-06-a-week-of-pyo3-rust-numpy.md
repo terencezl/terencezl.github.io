@@ -219,7 +219,7 @@ const SIZE_ARRAY_DIM: usize = 512;
 const F32_SIZE: usize = 4;
 
 fn copy_array(src_bytes_vector: &[u8], dst_vector: &mut ArrayViewMut1<f32>) -> Result<(), String> {
-    if src_bytes_vector.len() == SIZE_ARRAY_DIM * F32_SIZE {
+    if src_bytes_vector.len() == dst_vector.len() * F32_SIZE {
         // f32 from msgpack
 
         // copy bytes in f32 le format to dst_vector
@@ -237,7 +237,7 @@ fn copy_array(src_bytes_vector: &[u8], dst_vector: &mut ArrayViewMut1<f32>) -> R
             std::ptr::copy_nonoverlapping(
                 src_bytes_vector.as_ptr() as *const f32,
                 dst_vector.as_mut_ptr(),
-                SIZE_ARRAY_DIM,
+                dst_vector.len(),
             );
         }
         return Ok(());
@@ -245,7 +245,7 @@ fn copy_array(src_bytes_vector: &[u8], dst_vector: &mut ArrayViewMut1<f32>) -> R
         return Err(format!(
             "Array size is {}, does not match {}!",
             src_bytes_vector.len(),
-            SIZE_ARRAY_DIM * F32_SIZE
+            dst_vector.len() * F32_SIZE
         ));
     };
 }
