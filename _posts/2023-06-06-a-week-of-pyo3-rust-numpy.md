@@ -79,7 +79,7 @@ if __name__ == "__main__":
             msgpack.pack(vector.tobytes(), f)
 ```
 
-There are a lot of them sitting somewhere. I need to use this to iterate through them in Python. It's worth noting in this particular example one could even write this msgpack iterator in Rust, but in reality there was some custom logic that was hard to replicate. So we will stick with Python for the demo's sake.
+There are a lot of them sitting somewhere. I need to use this to iterate through them in Python. It's worth noting in this particular example one could even write this msgpack iterator in Rust, but in reality there was some custom logic that was hard to replicate. So we will stick with Python for the demo's sake. You could gain a **lot** of performance by writing this in Rust, especially with many Python threads, because iterating over Python iterators is slow, and bound by the GIL.
 
 ```python
 def iterate_msgpack(filename):
@@ -103,7 +103,7 @@ def take_iter_py(iterator: Iterator[bytes], np_vectors: np.ndarray) -> int:
             vector = np.frombuffer(bytes_vector, dtype=np.float32).reshape(SIZE_ARRAY_DIM)
             np_vectors[idx] = vector
         except ValueError:
-            print(f"array size does not match at {idx}!")
+            print(f"Array size does not match!")
             continue
         idx += 1
 
