@@ -1,0 +1,10 @@
+---
+layout: post
+title: "The Rust Invasion: New Possibilities in the Python Ecosystem"
+---
+
+<div style="max-width: 95%; width: 610px; height: 380px; margin: 0 auto;">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTPcjPJfL0o0XdVozmhDLsKN88OG-LNPmFvWmy91ZUqsGMmMCb1moCer5uIc0ZOTMPU6WFX6AbfgJHr/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+
+I presented at the local [MadPy](https://madpy.com/meetups/2024/10/10/20241010-the-rust-invasion/) meetup group on the new possibilities in the Python ecosystem in light of recent development in the Rust ecosystem. Spent some time curating those links, so they may be worth a shuffle!
