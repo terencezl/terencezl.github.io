@@ -8,11 +8,9 @@ permalink: /
 
 -----------------
 
-Well well. Welcome.
+I enjoy building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions, and have been maintaining it since then. In 2022, I drove the research and implementation of a new **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces), which has since been powering the service at Clearview AI. Being an academically trained computational physicist, I am passionate about performance computing, and the fundamental hardware/language/software breakthroughs that accelerate its progress.
 
-I am a domain expert in building and deploying **machine learning models**, **vector search engines**, and **distributed computing/data systems**. In 2021, I created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) that ranked **US #1** and **World #2** among top companies and research institutions, and have been maintaining it since then. In 2022, I drove the research and implementation of a new **deca-billion-scale** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces), which has since been powering the service at Clearview AI. Being an academically trained computational physicist, I am passionate about performance computing, and the fundamental hardware/language/software breakthroughs that accelerate its progress.
-
-I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I enjoy the cutting-edge while seeking to understand established working patterns before instituting change. This technical [Blog](/blog) might interest you. Please find me on [LinkedIn](https://www.linkedin.com/in/terence-z-liu/) ([CV](/public/cv.pdf)).
+I’m very hands-on with my work and believe in-depth experience and insights lead to strategic vision in this field. I enjoy the cutting-edge while seeking to understand established working patterns before instituting change. This technical [Blog](/blog) might interest you.
 
 -----------------
 
@@ -20,17 +18,19 @@ I’m very hands-on with my work and believe in-depth experience and insights le
 
 ### Clearview AI
 
-_Head of ML / Principal Engineer, 2021 - Present_
+_Head of Engineering, 2025 - Present_<br>
+_Head of ML / Principal Engineer, 2021 - 2025_
 
-I had previously worked on computer vision / facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in each of the two years when I was here. In addition, I took on a lot more strategic and people responsibilities.
+I had previously worked on computer vision / facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). Clearview was the perfect opportunity for me. I ended up solving them in the first two years when I was here. In addition, I grew a lot more here.
+
+IC work:
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** (at time of submission) by [NIST](https://pages.nist.gov/frvt/html/frvt11.html).
-* Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that was **100+** times the SOTA throughput. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
-* Achieved SOTA accuracy in the domain category with efficient model training orchestrating a cluster of nodes. Became early adopters of alternative chips, e.g. [Intel Habana Gaudi2](https://habana.ai/products/gaudi3/).
+* Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that has proven its value. Fused high-profile open-source C++ libraries and created Python bindings. Near-term 1/10 server cost & much higher capacity. Long-term $multi-M annual savings.
+* Achieved SOTA accuracy in the domain category with efficient model training orchestrating a cluster of nodes. Became early adopters of alternative chips, e.g. [Intel Habana Gaudi2](https://habana.ai/products/gaudi2/).
 * Drove model efficiency using distillation training, quantization, pruning/trimming & hardware acceleration. Streamlined deployment with model encryption & serving engines.
 * Established foundational ML/data practices & native (C++ & Rust) tooling for performance-sensitive tasks.
 * Led cross-functional collaboration to design & implement multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
-* Co-wrote legal documents, marketing materials & public letters, engaged with policy officials to establish the company reputation.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
@@ -71,8 +71,7 @@ I moved into the industry and realized I really liked to work with computers in 
 
 ### University of Toledo
 
-_Ph.D., Physics, 2012 – 2017_<br>
-_Researcher & Developer, 2013 - 2017_
+_Ph.D., Physics, 2012 – 2017_
 
 I spent four of the five years here as a funded researcher working on First-Principles materials simulations with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. It was an exciting field that only became feasible after ~50 years of advances in supercomputing since WWII... not just quantum mechanics theories anymore. However the tooling around the core Fortran software package [VASP](https://www.vasp.at/) was very scarce, and I had to be very proactive about what to learn and build. This journey taught me a lot of things, _resilience_ being the most valuable aspect of it. Because of the fundamental similarity in problem scope (iterative optimization), working approach (scientific experiments) and technical requirements (big computers), it naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning.
 
@@ -80,32 +79,13 @@ I spent four of the five years here as a funded researcher working on First-Prin
 * Calculated electronic ground states with gradient descent & residual minimization schemes, (non-)linear regression - similar routines as in ML/DL frameworks. Had various classical ML [projects](/projects/).
 * Authored open-source projects: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
 * Built a materials database [website](/projects/#ceramics-database) with a modern stack, supporting tabulation/graphing, user auth/contribution. Project helped get a $100k research grant.
-* Mentored three undergraduate and two graduate students.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
 
-> Additional courses:
->
-> * Statistical Inference (MATH 8650)
-> * Categorical Data Analysis (MATH 8620)
-> * Topics In Statistics (MATH 8640)
-> * Statistical Consulting (MATH 8600)
->
-> Online courses:
->
-> * Introduction to Databases (Stanford) - with Distinction
-> * Algorithms, Part I (Princeton)
-> * Introduction to Probability and Data (Duke)
-> * Inferential Statistics (Duke)
-> * R Programming (Johns Hopkins)
-> * Regression Models (Johns Hopkins)
-> * Practical Machine Learning (Johns Hopkins)
-> * Statistical Learning “ISLR” (Stanford)
->
 > [Dissertation on material properties prediction with cluster expansion regression models](http://iopscience.iop.org/article/10.1088/0953-8984/29/3/035401)
 >
-> > Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
+> Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
 >
 > ![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
 >
@@ -145,24 +125,6 @@ _(2023-04-18)_
 _(2022-08-25)_
 
 > Clearview Vice President of Research Terence Liu explained to Biometric Update in an interview that face biometrics algorithms are trained by ingesting several images from each subject, and then organizing data from ingested images into “clusters” with other images from the same subject.
-
------------------
-
-[Interview with Biometric Update: Clearview reveals biometric presentation attack detection feature, talks training and testing](https://www.biometricupdate.com/202208/clearview-reveals-biometric-presentation-attack-detection-feature-talks-training-and-testing)
-
-_(2022-08-10)_
-
-> Clearview’s technology focuses on single images from commercial RGB images, VP of Research Terence Liu told Biometric Update during the same video call… Clearview takes an ensemble approach, combining models that look for different things, Liu says.
-
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/737559530?h=be84cede9f" width="95%" height="300" frameborder="0" allowfullscreen></iframe>
-
------------------
-
-[Reuters: EXCLUSIVE Facial recognition company Clearview AI seeks first big deals, discloses research chief](https://www.reuters.com/technology/exclusive-facial-recognition-company-clearview-ai-seeks-first-big-deals-2022-02-22/)
-
-_(2022-02-22)_
-
-> Ton-That said Terence Liu is the Pennsylvania-based computational physicist behind some of Clearview's algorithms and its vice president of research. They are listed together on a patent application filed Tuesday… The research head Liu formally joined last year after working as a senior software engineer at Bloomberg LP since 2017, he said. He earlier had partnered with Ton-That to advance Clearview's prototype.
 
 -----------------
 
