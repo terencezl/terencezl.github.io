@@ -32,20 +32,6 @@ IC work:
 * Established foundational ML/data practices & native (C++ & Rust) tooling for performance-sensitive tasks.
 * Led cross-functional collaboration to design & implement multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
 
-<details markdown=block>
-<summary markdown=span>**MORE**</summary>
-
-> During this time I got to be the sole person pushing through from data collection, pipelining, cleaning, preprocessing, training & experimentation, model productionization/inference optimization, all the way to indexing for search at deca-B scale. These tasks encompassed almost the entirety of the industrial ML/DL specializations.
->
-> My role here was a combination of _ML Researcher_ (smaller part), _ML/Data Engineer_ and _Platform Engineer_. The latter one echoed back with my experience at [Bloomberg](#bloomberg-lp) doing platform engineering work. In addition, due to the visual nature of computer vision, being able to anticipate and connect to the frontend/product experience was essential. Therefore I took lead roles at adjacent teams and contributed heavy-handedly to a few projects. The aim was to drive the initiatives to the logical conclusions and reap the benefits of what the ML core had to offer. Through them I got to really stretch my abilities. The hands-on technical experience and intuition I gained from these projects were priceless.
->
-> I carried various projects from research & prototyping to production in accelerated time frames, and obtained very concrete rules to determine progress in a sea of complexity. I made sure to communicate the expectations and stop gaps at each stage. With a few projects completed, I demonstrated that technology leadership could be driven out of a persistent vision.
->
-> Since the algorithm's debut success, I became the trusted expert on the core tech in the leadership team and took on the scientific authority in product marketing and policy & legal messaging. I built the ML/Research division, laid out the technological foundation and assembled a team.
->
-> I encountered a vast lineup of technologies along the way, and became a proficient user in order to get the most out of them. They ranged from ML frameworks **PyTorch**, **OpenCV**, **ONNX Runtime**, **OpenVINO**, **CuPy**, **TensorRT**, approximate nearest neighbors libraries [**Faiss**](https://github.com/facebookresearch/faiss/), [**hnswlib**](https://github.com/nmslib/hnswlib), and general SWE tools **FastAPI**, **Socket.IO**, **Protobuf & gRPC**, **Redis Stream**, [**RocksDB**](https://github.com/facebook/rocksdb), **Datadog**, **GitLab CI/CD**, **Docker**, **Kubernetes**. I had to take face detectors and embedders apart in pieces and put them back together with different acceleration framework backends to understand how to create the best interfaces. I fused three high-profile C++ libraries (and more utility ones) together to arrive at what I needed for things to scale. Later I introduced a spectrum of Rust tooling into the stack for performance/cost-sensitive tasks. They were incredibly challenging and equally fun.
-</details>
-
 -----------------
 
 ### Bloomberg LP
@@ -59,14 +45,6 @@ I moved into the industry and realized I really liked to work with computers in 
 * Leveraged S3 Storage as SFTP subsystem with file system emulation and cross-data-center replication & failover.
 * Spearheaded successful multi-year high-stake account migration as technical lead.
 
-<details markdown=block>
-<summary markdown=span>**MORE**</summary>
-
-> The work here felt like a high-stake crash course of the book [System Design Interview](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF). Clients, servers, DNS, API gateways, load balancers, proxies, route hosts, databases, caches, message buses, logging, metrics, rate limting, JWT auth, cryptographic padding/cert signing, user models, isolated networks and staged rollouts... and a lot more. It was humbling to see it first hand how seasoned engineers deal with large systems serving millions of users and requests every day. I made valuable contributions to the over-arching theme of transitioning from the old system to the new system, and matured into the likes of my peers.
->
-> At Bloomberg I became serious with **C++** (it's a C++ shop after all!), **Golang**, **OpenSSH**, Web development stack **Flask**, **SQLAlchemy**, **Postgres**, **Redis**, **MongoDB**, data/messaging frameworks **RabbitMQ**, **Kafka**, **Flink**, **Spark**, system monitoring tools **Grafana**, **Splunk**, **Humio**, DevOps & Platform Engineering tools **Jenkins**, **Chef**, **Docker**, **Kubernetes**, **OpenStack**. I took a special interest in scalable data/messaging pipeline and database components. Meanwhile I kept learning about ML/AI on the side.
-</details>
-
 -----------------
 
 ### University of Toledo
@@ -75,10 +53,10 @@ _Ph.D., Physics, 2012 – 2017_
 
 I spent four of the five years here as a funded researcher working on First-Principles materials simulations with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. It was an exciting field that only became feasible after ~50 years of advances in supercomputing since WWII... not just quantum mechanics theories anymore. However the tooling around the core Fortran software package [VASP](https://www.vasp.at/) was very scarce, and I had to be very proactive about what to learn and build. This journey taught me a lot of things, _resilience_ being the most valuable aspect of it. Because of the fundamental similarity in problem scope (iterative optimization), working approach (scientific experiments) and technical requirements (big computers), it naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning.
 
-* Specialized in materials simulations with parallel computing clusters. 14 [papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en) published.
+* Specialized in materials simulations with parallel computing clusters ([papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en)).
 * Calculated electronic ground states with gradient descent & residual minimization schemes, (non-)linear regression - similar routines as in ML/DL frameworks. Had various classical ML [projects](/projects/).
 * Authored open-source projects: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
-* Built a materials database [website](/projects/#ceramics-database) with a modern stack, supporting tabulation/graphing, user auth/contribution. Project helped get a $100k research grant.
+* Built a materials database [website](/projects/#ceramics-database) with a modern stack, supporting tabulation/graphing, user auth/contribution.
 
 <details markdown=block>
 <summary markdown=span>**MORE**</summary>
@@ -88,8 +66,6 @@ I spent four of the five years here as a funded researcher working on First-Prin
 > Predicting properties from atomic configurations with linear models, cross validation and selection (cluster expansion formalism).
 >
 > ![img](/public/imgs/TiN.jpg){: style="width: 90%;max-width:600px" }
->
-> Here I became proficient with **Linux** and **Python** and their **scientific computing** eco-systems, e.g. **NumPy**, **SciPy**, **scikit-learn**, **XGBoost**, **LightGBM**, **pandas**, **matplotlib**, etc. I took a lot of additional courses and did [projects](/projects/) to be fully equipped in SWE/ML/DL in the industry.
 >
 > NOTE: if you would like to plan for a transition from PhD to the SWE/ML/AI industry, prepare early, and read [A Survival Guide to a PhD](http://karpathy.github.io/2016/09/07/phd/) from Andrej Karpathy and the [HN discussion](https://news.ycombinator.com/item?id=12447495).
 </details>
