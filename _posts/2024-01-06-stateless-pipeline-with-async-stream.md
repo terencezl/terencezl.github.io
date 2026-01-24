@@ -439,7 +439,7 @@ Async Rust is a very interesting topic. If interest follows, please check out a 
 
 ----
 [^1]: https://tokio.rs/tokio/tutorial/streams
-[^2]: https://rust-lang.github.io/async-book/05_streams/02_iteration_and_concurrency.html
+[^2]: [Async Book: Iteration and Concurrency](https://rust-lang.github.io/async-book/05_streams/02_iteration_and_concurrency.html)
 [^3]: https://www.qovery.com/blog/a-guided-tour-of-streams-in-rust/
 [^4]: https://stackoverflow.com/questions/70599317/is-there-any-point-in-async-file-io
 [^5]: https://darkcoding.net/software/linux-what-can-you-epoll/
