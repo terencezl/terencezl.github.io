@@ -15,6 +15,8 @@ They are burstable instances. The smaller ones are often offered for free as the
 
 ## The `c`/`m`/`r` Families
 
+<!--more-->
+
 They are the workhorse instances, with CPU/RAM ratio of 1:2, 1:4, and 1:8. You'd usually use `c` when you have compute-heavy workloads, with native languages C/C++/Rust. You'd use `m` when you use interpreted languages such as Python for web servers, and want to be on the safe side. You'd use `r` when you want to host a database that requires a good amount of caching, or in-memory data structures, like vector DBs.
   
 It's important to think about CPU and RAM differently as resources. CPU cores accelerate things, and with more, you get to do things faster, but they are more or less elastic. On the other hand, RAM is usually a rigid requirement - your application might just crash due to OOM if there is not enough memory. Swapping on fast local NVMe drives could alleviate some hot spots occasionally, but the data structures that work well on RAM usually don't work that well on drives, even NVMe drives, due to random access patterns (it's what RAM is literally named after). Because of this, when you host databases on `r` instances, and your traffic is low, you might observe the CPUs are just idling at 5% - kind of a waste.
@@ -30,8 +32,6 @@ The storytelling and price performance shift quite significantly at `*7*` and `*
 ### Variations
 
 There are these suffixes to the instance names, like `d` for extra and smallish ephemeral NVMe drives attached if your workloads need them, and `n` for much higher networking allowance. They could come in combos, e.g. `m6i`, `m6id`, `m6in`, `m6idn`. However, with the `*7*` and `*8*` generations, AWS moved away from Intel chips to prefer their own Gravitons to be the bearer of these varieties. They are also not evenly distributed in the `c`/`m`/`r` spectrum. In `*7g`, `c7g` has `d` and `n`, but `m7g`/`r7g` only have `d`. `*8g` has a much fuller line-up, and introduced another variation `b` for higher EBS volume allowance. I would like to note that `n` (and aforementioned `b`) gives you much better EBS volume communication capacity (IOPs and throughput), because EBS volumes are network-connected drives, so they follow similar rules. You need to be aware of this when your database needs larger than usual communication bandwidth than what regular instances have to offer. So upgrade with `n` and `b` accordingly.
-
-<!--more-->
 
 ## The `x` Family
 

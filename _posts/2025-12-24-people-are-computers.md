@@ -12,4 +12,6 @@ There are a lot of analogies between people in a team setting, and computers. Ca
 * work validation and feedback loops <> compile-time type checking / schema validation / fail-fast design
 * work planning around existing interfaces/checkpoints & migration <> compiler optimization upholding invariants / pipeline parallelism
 
+<!--more-->
+
 WIP
