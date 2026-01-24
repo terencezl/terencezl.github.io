@@ -11,12 +11,12 @@ I wanted to write this post after juggling PBs of (non-tabular) data in the past
 
 In the past 10 years, a couple of major changes took place in computing:
 
+<!--more-->
+
 1. Computing power per machine continued to grow, not through higher clock frequencies, but by inventing advanced instruction sets (e.g. SIMD), and packing more CPU cores and memory chips. It’s commonplace to see machines with 100+ cores and TBs of memory. What used to be achievable only by a cluster of machines now can be accessed by one single node. Similar things happened to accelerated computing, e.g. GPUs.
 2. Cloud platforms have become commodities, with higher accessibility to a variety of instance types, resources, and predictable & ever-lowering costs. Users also have easy access to high network bandwidth, and near-infinite reliable cloud object storage that speaks S3 with high throughput. For example, you could get an [instance](https://instances.vantage.sh/aws/ec2/i4i.32xlarge) from major cloud providers with 128 cores, 1 TB of memory, 30 TB of NVMe low-latency local storage, and 75 Gibps of network bandwidth for $10/hr.
 3. Memory-safe systems programming languages became more mature and gained wide adoption, notably Rust. This enabled close-to-metal performance and utilization of modern processors’ parallel architectures. There emerged a proliferation of native tooling to tackle Big Data problems.
 4. An important side effect of the wider systems languages adoption was high-level dynamic languages benefiting substantially from native extensions written in those languages. A Python programmer can easily access extreme performance otherwise not accessible before. Since Python has become the de facto language for ML/AI used by millions of people, this “upcast” dramatically extended those projects’ reach, as well as developers’ abilities. Examples: for tabular data, [DuckDB](https://duckdb.org/), [Polars](https://pola.rs/), [PyArrow](https://arrow.apache.org/docs/python/index.html), [Delta Lake](https://delta-io.github.io/delta-rs/), for vector data, [Faiss](https://github.com/facebookresearch/faiss), [hnswlib](https://github.com/nmslib/hnswlib). New promising format: [LanceDB](https://lancedb.github.io/lancedb/).
-
-<!--more-->
 
 ## Use One Big Machine!
 

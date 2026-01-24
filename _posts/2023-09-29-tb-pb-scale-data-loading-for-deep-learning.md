@@ -14,6 +14,8 @@ Support for WebDataset has been slowly growing.
 3. [Ray Data]((https://docs.ray.io/en/latest/data/api/doc/ray.data.read_webdataset.html)) has an implementation and it was suggested to me during the recent Ray Summit. Although you would likely need to use the whole platform for it.
 4. [NVIDIA DALI](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/operations/nvidia.dali.fn.readers.webdataset.html#nvidia.dali.fn.readers.webdataset) supports the basic use of it, but apparently only loading from disk so far. One could however create an [external source](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/general/data_loading/parallel_external_source.html) in Python. The advantage of DALI is doing image transforms/augmentations on GPUs in CUDA streams, taking the load off CPUs. Although usually CPUs are sufficient at simple-ish augs.
 
+<!--more-->
+
 I am currently switching between the original author's impl and the TorchData impl. They work reasonably well for my use case. The challenge has been handling interaction between distributed/multiprocessing and shard splitting. There are many GitHub issues around it, and the documentations are not written for users who *just want to shuffle and feed data correctly*. Essentially, in the WebDataset scheme, the data shards are treated as coarse indexes, and it requires some finessing to have all ranks receive the same number of batches to synchronize, and not lose some of the data.
 These two libraries evolved with each other's influence, and made a lot of genius use of iterators and all kinds of iterator functions. It's kind of a nod to Rust's wide support for iterators.
 
