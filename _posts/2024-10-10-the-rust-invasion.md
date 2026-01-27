@@ -9,6 +9,6 @@ title: "The Rust Invasion: New Possibilities in the Python Ecosystem"
 
 <br>
 
-I presented at the local [MadPy](https://madpy.com/meetups/2024/10/10/20241010-the-rust-invasion/) meetup group on the new possibilities in the Python ecosystem in light of recent development in the Rust world. Spent some time curating those links, so they may be worth a shuffle!
+> I presented at the local [MadPy](https://madpy.com/meetups/2024/10/10/20241010-the-rust-invasion/) meetup group on the new possibilities in the Python ecosystem in light of recent development in the Rust world. Spent some time curating those links, so they may be worth a shuffle!
 
 In case the embedded slides are not loading, here is the [Google Slides](https://docs.google.com/presentation/d/1tLYikXrzC5Bee6rvBNzitNv5FmVQLZvDuN3OnNNEeeE).

@@ -31,7 +31,7 @@ The storytelling and price performance shift quite significantly at `*7*` and `*
 
 ### Variations
 
-There are these suffixes to the instance names, like `d` for extra and smallish ephemeral NVMe drives attached if your workloads need them, and `n` for much higher networking allowance. They could come in combos, e.g. `m6i`, `m6id`, `m6in`, `m6idn`. However, with the `*7*` and `*8*` generations, AWS moved away from Intel chips to prefer their own Gravitons to be the bearer of these varieties. They are also not evenly distributed in the `c`/`m`/`r` spectrum. In `*7g`, `c7g` has `d` and `n`, but `m7g`/`r7g` only have `d`. `*8g` has a much fuller line-up, and introduced another variation `b` for higher EBS volume allowance. I would like to note that `n` (and aforementioned `b`) gives you much better EBS volume communication capacity (IOPs and throughput), because EBS volumes are network-connected drives, so they follow similar rules. You need to be aware of this when your database needs larger than usual communication bandwidth than what regular instances have to offer. So upgrade with `n` and `b` accordingly.
+There are these suffixes to the instance names, like `d` for extra and smallish ephemeral NVMe drives attached if your workloads need them, and `n` for much higher networking allowance. They could come in combos, e.g. `m6i`, `m6id`, `m6in`, `m6idn`. However, with the `*7*` and `*8*` generations, AWS moved away from Intel chips to prefer their own Gravitons to be the bearer of these varieties. They are also not evenly distributed in the `c`/`m`/`r` spectrum. In `*7g`, `c7g` has `d` and `n`, but `m7g`/`r7g` only have `d`. `*8g` has a much fuller line-up, and introduced another variation `b` for higher EBS volume allowance. I would like to note that `n` (and aforementioned `b`) gives you much better EBS volume communication capacity (IOPS and throughput), because EBS volumes are network-connected drives, so they follow similar rules. You need to be aware of this when your database needs larger than usual communication bandwidth than what regular instances have to offer. So upgrade with `n` and `b` accordingly.
 
 ## The `x` Family
 
@@ -69,7 +69,7 @@ They are the family of NVIDIA training-oriented cards. `p3` had NVIDIA V100, `p4
 
 ## `g6e`/`g7e`
 
-These are in fact in the middle between training and inference, targeting GPU (virtual) workstations. `g6e` has L40S, and `g7e` in fact has RTX Pro 6000. I didn't know about them until doing this research.
+These are in fact in the middle between training and inference, targeting GPU (virtual) workstations. `g6e` has L40S, and `g7e` in fact has RTX Pro 6000 Blackwell. I didn't know about them until writing this post.
 
 There are other families, like `u` for extreme CPU/RAM ratio, `hpc*` for HPC parallel scientific workloads, `mac*` for MacOS CI/CD purposes, `inf*` and `trn*` for AWS's own Inferentia and Trainium chips, and more. I have not directly used them yet. Although, the `dl1.24xlarge` (Intel's Habana Gaudi training chip) on AWS Marketpace paved my way to directly contact the Habana team to use their Gaudi2 chips for a few months, and got great training results after jumping through a few hurdles.
 

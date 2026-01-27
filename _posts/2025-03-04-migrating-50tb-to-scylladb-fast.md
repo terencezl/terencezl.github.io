@@ -9,7 +9,7 @@ title: "Migrating 50TB Data From a Home-Grown Database to ScyllaDB, Fast"
 
 <br>
 
-Terence shares how Clearview AI's infra needs evolved and why they chose ScyllaDB after first-principles research. From fast ingestion to production queries. The talk explores their journey with embedded DB readers and the ScyllaDB Rust driver, plus config tips for bulk ingestion and achieving data parity.
+> Terence shares how Clearview AI's infra needs evolved and why they chose ScyllaDB after first-principles research. From fast ingestion to production queries, the talk explores their journey with embedded DB readers and the ScyllaDB Rust driver, plus config tips for bulk ingestion and achieving data parity.
 
 Original [link](https://www.scylladb.com/tech-talk/migrating-50tb-data-from-a-home-grown-database-to-scylladb-fast/).
 

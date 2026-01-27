@@ -93,7 +93,7 @@ _(2025-03-04)_
 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/q1GZEwLKTug?si=FeHFTFhgABIcWwMS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-> Terence shares how Clearview AI's infra needs evolved and why they chose ScyllaDB after first-principles research. From fast ingestion to production queries. The talk explores their journey with embedded DB readers and the ScyllaDB Rust driver, plus config tips for bulk ingestion and achieving data parity.
+> Terence shares how Clearview AI's infra needs evolved and why they chose ScyllaDB after first-principles research. From fast ingestion to production queries, the talk explores their journey with embedded DB readers and the ScyllaDB Rust driver, plus config tips for bulk ingestion and achieving data parity.
 
 [The Rust Invasion: New Possibilities in the Python Ecosystem](/blog/2024/10/10/the-rust-invasion/)
 
