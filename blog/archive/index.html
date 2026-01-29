@@ -1,25 +1,7 @@
 ---
 layout: default
-title: Blog
+title: Blog Archive
 ---
-
-<div class="masthead">
-  <p>I write about systems - technical systems, organizational systems, and the space where the two intersect.
-    Earlier posts focus heavily on performance, infrastructure, and low-level implementation details,
-    because you can't reason clearly about tradeoffs without understanding the mechanics.
-    However, most system failures aren't caused by insufficient optimization - they're caused by misaligned decisions.
-  </p>
-
-  <p>So in addition to the low-level details, this blog also explores:</p>
-
-  <ul>
-    <li>When performance work is worth doing (and when it isn't)</li>
-    <li>Why "technically correct" solutions often fail in practice</li>
-    <li>How infrastructure choices shape team velocity</li>
-    <li>How to evaluate new technologies under uncertainty</li>
-  </ul>
-  <hr>
-</div>
 
 <div class="posts">
   {% for post in paginator.posts %}

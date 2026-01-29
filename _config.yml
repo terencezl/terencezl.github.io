@@ -22,7 +22,7 @@ url:               https://terencezl.github.io
 baseurl:           ''
 
 paginate:          100
-paginate_path:     blog/page:num
+paginate_path:     blog/archive/page:num
 
 # Plugins
 plugins:           [jekyll-paginate, jekyll-gist]
