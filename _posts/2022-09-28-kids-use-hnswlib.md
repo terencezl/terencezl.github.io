@@ -11,7 +11,7 @@ Which to pick? Being a long-time Faiss user, I had the natural inclination to ke
 
 <!--more-->
 
-So I whipped up a large HNSW index with scalar quantization (SQ) `HNSW32,SQ8`, 512 dimensions, ~30M vectors, with `efConstruction=100`. It amounted to a little over 20GB in size. The general setup was a cloud instance with 32 physical cores and 64 hyperthreads and 120GB ~ 590GB memory, but a smaller or larger config would yield similar outcomes. I also experimented with both Intel and AMD, Ubuntu and RHEL-based OSes, so what I saw should be representative. Note the CPUs all supported AVX512 and less instructions.
+So I whipped up a large HNSW index with scalar quantization (SQ) `HNSW32,SQ8`, 512 dimensions, ~30M vectors, with `efConstruction=100`. It amounted to a little over 20GB in size. The general setup was a cloud instance with 32 physical cores and 64 hyperthreads and 120GB ~ 590GB memory, but a smaller or larger config would yield similar outcomes. I also experimented with both Intel and AMD, Ubuntu and RHEL-based OSes, so what I saw should be representative. Note the CPUs all supported AVX-512 and less instructions.
 
 Initially, everything was fine, all cores/threads firing 100% (green in `htop` meaning all user threads), and memory usage stable. As I kept adding new vectors into it, suddenly, around ~25GB in size, ~30M vectors, searches became twice to three times slower. The CPU utilization was less than total thread count, and there was a lot of red in `htop` indicating kernel threads firing. The resident memory started fluctuating within a 3GB range. The above screenshot depicts the CPU usage issue, red kernel threads dominating the green user threads, which used to be almost 100% when the index was smaller/fewer vectors.
 
@@ -19,7 +19,7 @@ I checked the SSD, not much IO, and there was no swap set up. All were indicatin
 
 If I had to guess, it was probably tweakable through some OS setting related to memory and caching. But how could I best debug and analyze the issue? I was [informed](https://github.com/facebookresearch/faiss/issues/2490#issuecomment-1256549270) by the Faiss author Matthijs Douze, that I should try the original/reference implementation from hnswlib.
 
-Here is a side-by-side comparison using full precision `float32` vectors. Both were benchmarked through bindings using Python 3.8. Faiss 1.7.2 was installed from the Anaconda pytorch channel with AVX2 support, and hnswlib 0.6.2 was compiled with `native` flag enabling AVX512 support.
+Here is a side-by-side comparison using full precision `float32` vectors. Both were benchmarked through bindings using Python 3.8. Faiss 1.7.2 was installed from the Anaconda pytorch channel with AVX2 support, and hnswlib 0.6.2 was compiled with `native` flag enabling AVX-512 support.
 
 ```python
 In []: import numpy as np
@@ -71,7 +71,7 @@ And this for Faiss `HNSW32`:
 
 Compare hnswlib's 22s with Faiss `IndexHNSW`'s 2min42s. That was a huge difference.
 
-Why? I thought first off there were confounding factors - CPU advanced instruction sets. The `float32` [implementation](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/space_ip.h#L328) in hnswlib was at an advantage because it fully utilized AVX512, whereas in Faiss it used AVX at best ([here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp#L103), [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexFlat.cpp#L144), and [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/utils/distances_simd.cpp#L350)). These powerful vectorization techniques would make a lot of difference in numerical computations.
+Why? I thought first off there were confounding factors - CPU advanced instruction sets. The `float32` [implementation](https://github.com/nmslib/hnswlib/blob/v0.6.2/hnswlib/space_ip.h#L328) in hnswlib was at an advantage because it fully utilized AVX-512, whereas in Faiss it used AVX at best ([here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexHNSW.cpp#L103), [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/IndexFlat.cpp#L144), and [here](https://github.com/facebookresearch/faiss/blob/v1.7.2/faiss/utils/distances_simd.cpp#L350)). These powerful vectorization techniques would make a lot of difference in numerical computations.
 
 To highlight this factor, I did some single-core benchmarking at the same param settings with `float32` vectors. I did not observe kernel thrashing (red in `htop`) so the difference must have been mostly due to advanced instruction sets. Faiss's search queries took ~1.72x (quite consistently) those of hnswlib.
 

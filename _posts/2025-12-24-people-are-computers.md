@@ -3,7 +3,7 @@ layout: post
 title: "People are Computers"
 ---
 
-There are a lot of analogies between people in a team setting, and computers. Calling out some of these analogies helps tremendously when it come to scaling a team.
+There are a lot of analogies between people in a team setting, and computers. Calling out some of these analogies helps tremendously when it comes to scaling a team.
 
 * raw intelligence <> chip processor clock frequency (and turbo when drinking coffee)
 * learning-based skill-up <> advanced instruction set / specialization

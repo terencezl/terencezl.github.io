@@ -20,3 +20,13 @@ permalink: /projects/
 > This crate does what Python's [msgpack-numpy](https://github.com/lebedov/msgpack-numpy/) does in Rust, and a lot [faster](https://github.com/clearviewai/msgpack-numpy-rs?tab=readme-ov-file#benchmarks). It serializes and deserializes NumPy scalars and arrays to and from the [MessagePack](https://msgpack.org/) format, in the same serialized formats as the Python counterpart, so they could interoperate with each other. It enables processing NumPy arrays in a different service in Rust through IPC, or saving Machine Learning results to disk (better paired with compression).
 
 ![img](/public/imgs/msgpack-numpy-rs.png){: style="width: 80%" }
+
+-----------------
+
+## DevOps Tools
+
+## [gitlab-migrator](https://github.com/clearviewai/gitlab-migrator)
+
+> This is a fork of the [GitLab-to-GitHub migration tool](https://github.com/manicminer/gitlab-migrator) with a core focus on maintaining MR<>PR number equivalence - essential because MR numbers are referenced everywhere in an org: merge commit messages, MR descriptions, Slack, Linear, Notion, etc. To achieve this, the fork aims to cover all known edge cases, and creates placeholder PRs for some of them, and fails fast on errors so users can inspect and resume. Additional enhancements include: fetching comments via both the Discussions and Notes APIs to preserve thread grouping, linking diff notes to GitHub's `/compare/` view with correct line anchors, concurrent comment migration with goroutines, detecting and rewriting GitLab-uploaded images to a self-hosted GitHub repo, displaying approvers and original merge commits, and backticking `@mention`s/`#issue-number`s to prevent accidental notifications.
+
+<a href="/public/imgs/gitlab-migrator.png"><img src="/public/imgs/gitlab-migrator.png" style="width: 30%"></a>

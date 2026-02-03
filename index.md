@@ -26,14 +26,15 @@ _Head of ML / Principal Engineer, 2021 - 2025_
 I had previously worked on computer vision / facial recognition back in 2017, and really wanted to solve the two biggest problems in the industry - the accuracy of the algorithm, and the accuracy & scalability of the vector search engine at increasingly large sizes (deca-billion scale and more). I ended up solving them in the first two years. Further, I grew a lot more, both into technical systems engineering and scaling engineering goals & operations.
 
 * Created a facial recognition [algorithm](https://pages.nist.gov/frvt/reportcards/11/clearviewai_000.html) ranked **US #1** and **World #2** (time of submission) by [NIST](https://pages.nist.gov/frvt/html/frvt11.html) ([updated](https://face.nist.gov/frte/reportcards/11/clearviewai_002.html) in 2024).
-* Researched & implemented a **deca-B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that has proven its value. Fused high-profile open-source C++ libraries and created Python bindings. $MM annual savings.
+* Researched & implemented a **70B** [vector search engine](https://www.clearview.ai/post/how-we-store-and-search-30-billion-faces) that has proven its value. Fused high-profile open-source C++ libraries and created Python bindings. $MM annual savings.
 * Achieved SOTA accuracy in the domain category with efficient model training orchestrating a cluster of nodes. Became early adopters of alternative chips, e.g. [Intel Habana Gaudi2](https://habana.ai/products/gaudi2/).
 * Drove model efficiency using distillation training, quantization, pruning/trimming & hardware acceleration. Streamlined deployment with model encryption & serving engines. Early user of the NVIDIA stack - [TensorRT](https://developer.nvidia.com/tensorrt)/[Triton](https://developer.nvidia.com/dynamo-triton).
-* Established foundational ML/data practices & native (C++ & Rust) tooling for performance-sensitive tasks.
-* Designed & implemented multiple compute-intensive data pipelines & inference infra for images/videos, resulting in $100k cost reduction per recurring batch job.
+* Established foundational ML/data practices & native (C++ & Rust) tooling for performance-critical tasks.
+* Collated **5PB** of small objects on S3 to accelerate future batch processing, and avoid vendor lock-in.
+* Designed & implemented multiple compute-intensive data pipelines & inference infra for images/videos, pulling at **150 Gbps** DC-scale throughput. $100k cost reduction per recurring batch job.
 * Consolidated infra and renegotiated with vendors, leading to **40% drop** of infra COGS.
 * Revamped team processes and executed on hiring of key divisions.
-* OSS work: [msgpack-numpy-rs](https://github.com/clearviewai/msgpack-numpy-rs), [sulfite](https://github.com/clearviewai/sulfite)
+* Open-source work: [msgpack-numpy-rs](https://github.com/clearviewai/msgpack-numpy-rs), [sulfite](https://github.com/clearviewai/sulfite), [gitlab-migrator](https://github.com/clearviewai/gitlab-migrator)
 
 -----------------
 
@@ -43,7 +44,7 @@ _Senior Software Engineer, Platform, 2017 - 2021_
 
 I became more equipped with key data structures, system design patterns, essential tools, and frameworks.
 
-* Maintained & monitored widely-used bare-metal SFTP infra with 7M daily logins.
+* Maintained widely-used bare-metal SFTP infra with 7M daily logins.
 * Designed & implemented reliable account management, auth, routing, caching, messaging for cloud-based next-gen SFTP. Wrote OS-level modules and web servers for auth interfacing with OpenSSH. Managed deployment on internal Kubernetes-based PaaS.
 * Leveraged S3 Storage as SFTP subsystem with file system emulation and cross-data-center replication & failover.
 * Spearheaded successful multi-year high-stake account migration as technical lead.
@@ -52,13 +53,13 @@ I became more equipped with key data structures, system design patterns, essenti
 
 ### University of Toledo
 
-_Ph.D., Physics, 2012 – 2017_
+_Ph.D., Computational Physics, 2012 – 2017_
 
 I spent four of the five years here as a funded researcher working on First-Principles materials simulations with [Density Functional Theory](https://en.wikipedia.org/wiki/Density_functional_theory) on supercomputing clusters. It was an exciting field that only became feasible after ~50 years of advances in supercomputing since WWII... not just quantum mechanics theories anymore. However the tooling around the core Fortran software package [VASP](https://www.vasp.at/) was very scarce, and I had to be very proactive about what to learn and build. This journey taught me a lot of things, _resilience_ being the most valuable aspect of it. Because of the fundamental similarity in problem scope (iterative optimization), working approach (scientific experiments) and technical requirements (big computers), it naturally paved my way to the growing Data Science and Machine Learning fields, and as soon as GPUs became more available, Deep Learning.
 
 * Specialized in materials simulations with parallel computing clusters ([papers](https://scholar.google.com/citations?user=AT89GwYAAAAJ&hl=en)).
 * Calculated electronic ground states with gradient descent & residual minimization schemes, (non-)linear regression - similar routines as in ML/DL frameworks. Had various classical ML projects.
-* Authored open-source projects: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow).
+* Open-source work: [ScriptsForVASP](https://github.com/terencezl/ScriptsForVASP), [pydass_vasp](https://github.com/terencezl/ScriptsForVASP), [pyvasp-workflow](https://github.com/terencezl/pyvasp-workflow)
 * Built a materials database website with a modern stack, supporting tabulation/graphing, user auth/contribution.
 
 <details markdown=block>
@@ -77,9 +78,9 @@ I spent four of the five years here as a funded researcher working on First-Prin
 
 ### Nanjing University
 
-_Bachelor of Science, Materials Science & Engineering, 2008 – 2012_
+_Bachelor of Science, Materials Science & Engineering (Materials Physics), 2008 – 2012_
 
-This major was interdisciplinary in nature. As a result, I studied a broad range of subjects: materials science & engineering, physics, chemistry, electrical engineering, computer science, math, statistics, etc. I also prepared and participated in a mathematical modeling contest with a team that focused on operations research.
+This major was cross-disciplinary in nature. As a result, I studied a broad range of subjects: materials science & engineering, physics, chemistry, electrical engineering, computer science, math, statistics, etc. I also prepared and participated in a mathematical modeling contest with a team that focused on operations research.
 
 -----------------
 
