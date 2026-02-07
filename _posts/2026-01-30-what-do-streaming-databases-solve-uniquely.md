@@ -17,7 +17,7 @@ Stream processing solutions often materialize the "past x hours/days" queries in
 
 * Keep hot data in memory or SSD-backed stores
 * Push older data into columnar formats optimized for compression and batch queries
-* Transition data through tiers as it ages (memory → SSD → object storage)
+* Transition data through tiers as it ages (memory -> SSD -> object storage)
 
 Further, when someone creates a materialized view for "last 24 hours of user activity," they're telling the system: "I will query this repeatedly, optimize accordingly." The system can
 

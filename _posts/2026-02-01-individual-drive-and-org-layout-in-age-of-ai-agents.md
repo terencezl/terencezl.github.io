@@ -15,7 +15,7 @@ Somewhere in 2025, my product-focused colleagues were incorporating AI agents mo
 
 The scale really got tipped at the end of 2025. I noticed myself using AI agents in Cursor a lot more, and started using Claude Code, because
 
-1. they were able to make more pinpointed changes, keeping me in control, and 
+1. they were able to make more pinpointed changes, keeping me in control, and
 2. when they made bigger and cross-file changes, they tended to be more often correct, thorough, and insightful.
 
 The **boundary of trust** has been crossed. I would ask an agent to do a few things:
@@ -51,4 +51,4 @@ Vertical scaling solves this. If you could consolidate more resources per indivi
 
 ---
 [^1]: You should totally put Claude Code into your MR/PR review process. It sits in the right context (the diff, description & comments), and helps with reviewer's understanding. Done well, it's not just a cynical game of AI reviewing AI.
-[^2]: There is an aside on agent plan of action's serial nature, clashing with GPU chips' high throughput but high latency nature. This led to NVIDIA's choice on [licensing](https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale) Groq.
+[^2]: There is an aside on agent plan of action's serial nature, clashing with GPU chips' high throughput but high latency nature. This led to NVIDIA's choice on [licensing](https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale) Groq. There is also the "acquiring the competitor" angle, as has been lately revealed.
