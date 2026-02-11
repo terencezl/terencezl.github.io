@@ -3,7 +3,7 @@ layout: post
 title: "The Wonders of RocksDB in Rust (Part I - Intro)"
 ---
 
-![img](/public/imgs/rocksdb-in-rust.png){: style="width: 95%" }
+![img](/public/imgs/rocksdb-in-rust-part-i.png){: style="width: 95%" }
 
 *You can check out the code [here](https://github.com/terencezl/rocksdb-examples).*
 
@@ -17,7 +17,7 @@ Historically, if you want to deal with data in a structured way, you have two mo
 
 Rust changed this. It is a high-level, memory-safe language for your data engineering problems, with performance matching other low-level systems languages. What's been historically overlooked is now possible, and can give one great leverage. You can actually use Rust to get data in and out of RocksDB as stable and long-term stores!
 
-This Part I just scratches the surface with the state of the ecosystem, basic patterns, parallel reads and writes with performance in mind. It doesn't go deep into topics that showcase the mojo. We save them for the Part II.
+This Part I just scratches the surface with the state of the ecosystem, basic patterns, parallel reads and writes with performance in mind. It doesn't go deep into topics that showcase the mojo. We save them for the [Part II](/blog/2026/02/11/the-wonders-of-rocksdb-in-rust-part-ii/).
 
 ## RocksDB and its Bindings
 
@@ -147,4 +147,4 @@ This takes a while, and roughly doubles your disk usage. If you use `zstd` as th
 
 <br>
 
-Why is RocksDB in Rust a strong setup for data engineering? It's an embedded, production-grade K-V store without the overhead of a full database service, coupled with a memory-safe language. With the techniques above, you can already move a lot of data in and out of RocksDB. In Part II, we’ll look at some very cool patterns, including parallel two-pointer set logic, and MapReduce for out-of-core aggregations.
+Why is RocksDB in Rust a strong setup for data engineering? It's an embedded, production-grade K-V store without the overhead of a full database service, coupled with a memory-safe language. With the techniques above, you can already move a lot of data in and out of RocksDB. In [Part II](/blog/2026/02/11/the-wonders-of-rocksdb-in-rust-part-ii/) and beyond, we’ll look at some very cool patterns, including parallel two-pointer set logic, and MapReduce for out-of-core aggregations.
