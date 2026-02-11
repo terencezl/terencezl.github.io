@@ -5,7 +5,7 @@ title: Stateless Pipeline with Async Stream
 
 ![img](/public/imgs/stateless-pipeline.png){: style="width: 95%" }
 
-You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs/blob/main/src/bin/async-stream.rs).
+*You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs/blob/main/src/bin/async-stream.rs).*
 
 After the series on pools and pipeline ([Part I](/blog/2023/12/27/pools-and-pipeline-with-tokio-part-i/), [Part II](/blog/2023/12/28/pools-and-pipeline-with-tokio-part-ii/)) was published, a friend graciously pointed me to [another approach](https://stackoverflow.com/questions/51044467/how-can-i-perform-parallel-asynchronous-http-get-requests-with-reqwest/) that would be simpler for a lot of occasions with less boilerplate code. It uses the async [`Stream`](https://docs.rs/futures-core/0.3.30/futures_core/stream/trait.Stream.html) trait and its iterator-like adaptors in [`StreamExt`](https://docs.rs/tokio-stream/0.1.14/tokio_stream/trait.StreamExt.html). That Stack Overflow post was from 2018, but up till today (Jan 2024), the `Stream` trait is still not stablized into the Rust standard library. However, what worked back then still works today. It is so useful, and has become my go-to option in many cases. So let's look at it together.
 

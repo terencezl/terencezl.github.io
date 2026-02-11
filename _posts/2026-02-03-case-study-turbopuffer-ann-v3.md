@@ -15,7 +15,7 @@ Multi-tenanted use cases provide a great opportunity for **optimization by amort
 
 Vector search over a single large corpus is an even more punishing data access pattern - in theory, the entirety of your corpus needs to be considered. You can't use the above amortization optimization anymore. As a platform provider, turbopuffer entered into a different race with a new customer profile that wants to search through a single namespace without additional filtering. Now they need to pound-for-pound optimize for those specific customers and make sure their demands are expressed with the best tradeoffs. These customers could make different choices because they are the **consumer** of a database that ideally fully serves their needs, instead of the **provider** of a database that needs to find common ground from a lot of customers. These customers could ask for a lot of optimizations uniquely afforded by them, given their own insights, and have better definitions of acceptable tradeoffs.
 
-### Cost at 1k qps
+## Cost at 1k qps
 
 Let's calculate how much it costs for the final setup to reach 1k qps. At the beginning of the article:
 
@@ -31,7 +31,7 @@ Looking around [EC2 instance options](/blog/2026/01/23/some-aws-ec2-instance-cho
 
 With on-demand pricing, it amounts to `13 x $10.98/hr = $142.8/hr` ($103k/mo)! With a 3-year savings plan, `13 x $5.08/hr = $66.04/hr` ($48k/mo). More than half a mil annually.
 
-### But Wait...
+## But Wait...
 
 In their final setup,
 
@@ -120,7 +120,7 @@ At `fp16`, `120GB/(1x100MB) = 1,200 qps`, just enough to match the target. Howev
 
 Of course, we miss out on the extra CPUs from the other 5 nodes, and DRAM gets woefully under-utilized. `i`-family instances have `r`-family level CPU/DRAM ratio, and over-provision on DRAM. Is there a more CPU heavy instance type with a lot of disks? [`c6id.32xlarge`](https://instances.vantage.sh/aws/ec2/c6id.32xlarge) comes to mind with 128 vCPUs (same as `i4i.32xlarge`) and 256GB DRAM, instead of 1024GB. But like `r6id.32xlarge`, they only carry 7.4TiB disk space. `(200TiB + 12.5TiB) / 7.4 = 28.7` -> 29 instances! This amounts to a 3-yr savings plan `29 x $2.696/hr = $78/hr`, **`$78 / $66 = 1.2x` the original budget**. However, it is a net more balanced configuration, because you now get to have **`29 / 13 = 2.23x` the original CPUs** to solve your compute-bound problem, so the overall qps should multiply as much. This might be what some bigger customers need.
 
-### Re-examining the Original Vectors
+## Re-examining the Original Vectors
 
 What's up with `fp16` for original vectors? The industry finally accepted `fp32` was too much for vector data, and `fp16` wouldn't cause any significant accuracy loss. Most models are even trained with `fp16` autocast on most layers and ops, and the `fp16` final embeddings are more than fine for L2 distance/cosine similarity calculations. But what about `INT8`? In practice, it leads to less than 0.01 accuracy loss. For a well-tuned embedding model (texts or images), the similarity range is wide and clear, <0.4 for dissimilar, 0.4~0.6 for some relevance, and >0.6 for similar. You can totally use `INT8` quantization. Best, to preserve more accuracy, use [non-uniform scalar quantization](https://github.com/facebookresearch/faiss/blob/v1.13.2/faiss/impl/ScalarQuantizer.h#L28) so that each dimension gets its own dynamic range trained by representative data. This cuts down your 200TiB original vectors by half! So `(100TiB + 12.5TiB) / 7.4 = 15.2` -> 16 `c6id.32xlarge` instances. `16 x $2.696/hr = $43/hr`, **`$43 / $66 = 65%` the original budget**, and **`16 / 13 = 1.23x` the original CPUs** to run RaBitQ. `INT8` also runs faster than `fp16` for distance/similarity calculations.
 
@@ -128,16 +128,16 @@ If you go down further to non-uniform [`INT4`](https://github.com/facebookresear
 
 Also, maybe your embedding model could be retrained or fine-tuned to use a smaller output dimension with negligible accuracy loss. **This is where it helps to optimize the entire ML<>Data as a system**, because a decision during training that helped hit leaderboards might come back to haunt you if that means doubling a huge amount of infra cost to store. Study and document it, and you might just get another 1/2 factor! **Vector search is full of these 1/2 (or 2x) factors, and when you stack them up, suddenly you get an order of magnitude of differences!**
 
-### The 100 qps Target
+## The 100 qps Target
 
 What if I don't need 1k qps? Let's re-evaluate the 100 qps target given what we just went through. At this scale, the extra CPUs are extra cost to avoid, so we need to choose a high SSD/CPU ratio instance type. [`i3en.24xlarge`](https://instances.vantage.sh/aws/ec2/i3en.24xlarge) with 96 vCPUs, 768GB DRAM, and 58.5TiB SSDs is great for this. `(100TiB + 12.5TiB) / 58.5TiB = 1.9` -> 2 instances. `2 x $4.72/hr = $9.44/hr`, **`$9.44 / $66 = 14%` the original budget**, and **`96 * 2 / 13 / 128 = 12%` the original CPUs**. Sounds about right.
 
-### The Budget Option for 100B
+## The Budget Option for 100B
 
 What if you only need 1~10 qps? This is the true budget option. At this scale, the extra speed NVMe SSDs offer is even extra cost to avoid. Should you appreciate the wonder of `gp3` EBS drives? Take an [`r6in.4xlarge`](https://instances.vantage.sh/aws/ec2/r6in.4xlarge) (`n` for high-throughput EBS access), and pair with 2 x 64TB drives, and pay for some extra IOPS and throughput (not counted): `$0.565/hr + $0.08/GB/mo * 128000GB / (30 * 24 hrs/mo) = $14.8/hr`. That's already more expensive than the 100 qps target.
 
 In their original blog [article](https://turbopuffer.com/blog/turbopuffer), turbopuffer said they built an LSM-tree directly on object storage. That might bring the instance cost down to a fraction of what you pay for object storage, which is roughly `(100TiB + 12.5TiB) x $20/mo/TiB / (30 x 24 hrs/mo) = $3.1/hr` on AWS S3.
 
-### Conclusion
+## Conclusion
 
 You should be able to get more bang for your buck, by putting quantized vectors onto SSDs, choosing more compute-optimized instance types, and re-examining the original vector precision tradeoffs. Moreover, scaling down from the mighty 1k qps is graceful and elastic. turbopuffer is really cool.

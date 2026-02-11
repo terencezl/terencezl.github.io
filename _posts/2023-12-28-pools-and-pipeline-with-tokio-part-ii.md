@@ -5,7 +5,7 @@ title: Pools and Pipeline with Tokio (Part II - Streaming)
 
 ![img](/public/imgs/pools-and-pipeline-ii.png){: style="width: 95%" }
 
-You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs).
+*You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs).*
 
 In [Part I](/blog/2023/12/27/pools-and-pipeline-with-tokio-part-i/) of this mini-series, I implemented an actor pool pattern to perform IO-intensive pipeline jobs using the RPC model. The RPC model is relatively easy to program, because the main control flow code is together in one place, which abstracts away the dependencies as services. I don't know about you, but this paradigm makes me feel like I'm following along in the life cycle of each task, and unless I send a request to some service, nothing moves. There is a psychological sense of safety to it... The biggest downside used to be spawning threads, which is expensive in synchronous programming. However, with async coroutines, it's less of an issue.
 

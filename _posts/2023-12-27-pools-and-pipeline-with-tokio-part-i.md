@@ -5,7 +5,7 @@ title: Pools and Pipeline with Tokio (Part I - RPC)
 
 ![img](/public/imgs/pools-and-pipeline.png){: style="width: 95%" }
 
-You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs).
+*You can check out the code [here](https://github.com/terencezl/pools-and-pipeline-rs).*
 
 I am working on a Rust project that goes through a lot of small tasks in parallel. These tasks are primarily IO intensive, like downloading objects from S3, processing them, and storing the results somewhere else. Since this is a fairly representative use case in data engineering, I am keen on working out a generalized design pattern that can be customized to more scenarios. This post lays out such a pattern, and I will explain some of the specific considerations and choices made along the way.
 

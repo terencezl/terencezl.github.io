@@ -7,7 +7,7 @@ title: A Week of PyO3 + rust-numpy (How to Speed Up Your Data Pipeline X Times)
 
 _Updated Oct 7, 2024: use `unsafe` but correct and faster array content copy to go from 3x to 4x._
 
-You can check out the code [here](https://github.com/terencezl/rust-ext-example).
+*You can check out the code [here](https://github.com/terencezl/rust-ext-example).*
 
 If you are like me (and many others), you'd need a strong reason to learn a new programming language (my [journey](/blog/2023/03/20/my-programming-journey/)). It's a big commitment, and requires a lot of days and nights to do it right. Even for languages like Python that boast simplicity, under the hood there is a lot going on. For many developers, Python is the non-negotiable gluing/orchestrating layer that sits closest to them, because it frees them from the distractions that are not part of the main business logic, and has evolved to become the central language for ML/AI.
 

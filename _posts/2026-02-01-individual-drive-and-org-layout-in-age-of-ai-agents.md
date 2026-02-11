@@ -3,13 +3,13 @@ layout: post
 title: "Individual Drive and Organizational Layout in the Age of AI Agents"
 ---
 
+![img](/public/imgs/big-tabber.png){: style="width: 40%" }
+
 Many people are talking about the power of newer and newer AI agents, and what's SOTA today is expiring tomorrow. However, many have also observed that AI in automating knowledge work has crossed some sort of boundary of late e.g. [Karpathy](https://x.com/karpathy/status/2015883857489522876?s=20), [Cherny (creator of Claude Code)](https://x.com/bcherny/status/2004887829252317325?s=20), like the uncanny valley has been crossed. Maybe it was just Opus 4.5, which materially improved beyond the last frontier. Maybe all of those models have improved due to post-training agentic calibration towards practical tasks. From a technological progress standpoint, this may just be one small step towards the eventuality that everyone has been working for years. But it signals some kind of maturation, so it could finally be highly depended upon en masse. Most individuals, and most companies, even the ones actively adopting AI into their people's daily work lives, have not fully embraced or benefited from this new paradigm. I'm trying to draw some metaphysical points from firsthand.
 
 <!--more-->
 
 A brief history. My work has been mostly in the backend, ML, and data. Back in 2022/2023 when Copilot and Cursor were released to the public, people were transitioning from more intelligent auto-complete in control to getting a lot of shock and awe from AI coding out entire UIs. I started learning Rust in early 2023, but AI wasn't very helpful, given its limited exposure to the language on the Internet and limited reasoning abilities. My first big project in Rust was at the end of 2023, and it lasted a couple of months. I remember when approaching mid-year 2024 that AI got a lot more helpful. My two primary modes of AI usage were still quite limited then - I would have Q&As on questions that could help my own learning in Claude.ai, or I would use the increasingly more powerful auto-complete in the IDE. I only started using Cursor at the beginning of 2025 for its more powerful (and trigger-happy) auto-complete, and still did not appreciate its agent mode. Coding agents moved my code and files too much without precision, and the unwanted creativity wasn't worth giving up control for. In other words, I was a Big Tabber.
-
-![img](/public/imgs/big-tabber.png){: style="width: 40%" }
 
 Somewhere in 2025, my product-focused colleagues were incorporating AI agents more into their workflows in experimental ways, creating guiding prompts and plans, and sometimes slowing down noticeably because they ended up waiting on AI to delegate their tasks to, and each iteration took a lot of "thinking". It was also a time when people started to complain that vibe-coded code was getting a little overwhelming at MR/PR review time[^1].
 
