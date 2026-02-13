@@ -31,6 +31,7 @@ So in addition to the low-level details, this blog also explores:
 
 ## Rust Specific
 
+- [The Wonders of RocksDB in Rust (Part III - MapReduce Group-By)](/blog/2026/02/12/the-wonders-of-rocksdb-in-rust-part-iii/) (Feb 12, 2026)
 - [The Wonders of RocksDB in Rust (Part II - Set Operations)](/blog/2026/02/11/the-wonders-of-rocksdb-in-rust-part-ii/) (Feb 11, 2026)
 - [The Wonders of RocksDB in Rust (Part I - Intro)](/blog/2026/02/10/the-wonders-of-rocksdb-in-rust-part-i/) (Feb 10, 2026)
 - [The Rust Invasion: New Possibilities in the Python Ecosystem](/blog/2024/10/10/the-rust-invasion/) (Oct 10, 2024)

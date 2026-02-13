@@ -11,7 +11,7 @@ Squarely two years ago (Jan 2024), I needed to interact with an [in-house](/blog
 
 Looking back, I got so much out of that setup, and I still frequently reuse and share with people some of the techniques from that time. This enabled my [one-big-machine](/blog/2024/06/30/big-data-engineering-in-the-2020s-one-big-machine/)-style data processing pattern, turning Big Data into smoldata, accelerated by flexibly picking from a fleet of [EC2 instances](/blog/2026/01/23/some-aws-ec2-instance-choices/). It's gotten to a point where a mini blog series is warranted.
 
-Historically, if you want to deal with data in a structured way, you have two more or less isolated options. You either go high-level with packaged database services (OLTP/OLAP, SQL/NoSQL), get locked into their provided transformation functions, and pay the interface overhead. One step down, there are embedded OLTP (sqlite) and OLAP (DuckDB), but they are purpose-built for SQL-centric workloads. On the other end, you roll up your sleeves and reinvent a good part of the wheel from on-disk data representation all the way up. RocksDB filled this gap by providing a strong embedded K-V store for other database services to build upon. But much of the development was confined to the **database community**, rather than the **data engineering community**. It was very hard to imagine using systems languages like C/C++ to work on data engineering problems, because one bad pointer may corrupt your data silently, and data outlives software!
+Historically, if you want to deal with data in a structured way, you have two more or less isolated options. You either go high-level with packaged database services (OLTP/OLAP, SQL/NoSQL), get locked into their provided transformation functions, and pay the interface overhead. One step down, there are embedded OLTP ([SQLite](https://www.sqlite.org)) and OLAP ([DuckDB](https://duckdb.org/)), but they are purpose-built for SQL-centric workloads. On the other end, you roll up your sleeves and reinvent a good part of the wheel from on-disk data representation all the way up. RocksDB filled this gap by providing a strong embedded K-V store for other database services to build upon. But much of the development was confined to the **database community**, rather than the **data engineering community**. It was very hard to imagine using systems languages like C/C++ to work on data engineering problems, because one bad pointer may corrupt your data silently, and data outlives software!
 
 <!--more-->
 
@@ -125,7 +125,7 @@ There are a few things here. We configure each thread to write all data entries 
 
 We also write without recording entries in the Write-Ahead Log (WAL), so they only go into the memtables. We flush the memtables at the very end. This avoids the extra work of writing to the WAL, at the risk of the bulk load job crashing in the middle. Usually, it's not worth resuming during a bulk load, and you can just redo completely.
 
-When opening the DB, there are many options to control the behavior of the session while the DB is open. Some options affect reads over existing data in sorted string table (SST) files, while some options affect the new files written. RocksDB is known to be production-ready, highly tunable, and highly backward-compatible. Generally, newer versions can open DBs created from older versions. Some older versions can open DBs created from newer versions. To learn more about this and become an expert, it's important to read through the [Wiki](https://github.com/facebook/rocksdb/wiki), the [FAQ](https://github.com/facebook/rocksdb/wiki/RocksDB-FAQ), and read the header files [options.h](https://github.com/facebook/rocksdb/blob/v10.10.1/include/rocksdb/options.h) (and [advanced_options.h](https://github.com/facebook/rocksdb/blob/v10.10.1/include/rocksdb/advanced_options.h)) / Rust bindings [docs](https://docs.rs/rust-rocksdb/0.46.0/rust_rocksdb/).
+When opening the DB, there are many options to control the behavior of the session while the DB is open. Some options affect reads over existing data in sorted string table (SST) files, while some options affect the new files written. RocksDB is known to be production-ready, highly tunable, and highly backward-compatible. Generally, newer versions can open DBs created from older versions. Some older versions can open DBs created from newer versions. To learn more about this and become an expert, it's important to read through the [Wiki](https://github.com/facebook/rocksdb/wiki), the [FAQ](https://github.com/facebook/rocksdb/wiki/RocksDB-FAQ), and read the header files [options.h](https://github.com/facebook/rocksdb/blob/v10.10.1/include/rocksdb/options.h) (and [table.h](https://github.com/facebook/rocksdb/blob/v10.10.1/include/rocksdb/table.h), [advanced_options.h](https://github.com/facebook/rocksdb/blob/v10.10.1/include/rocksdb/advanced_options.h)) / Rust bindings [docs](https://docs.rs/rust-rocksdb/0.46.0/rust_rocksdb/).
 
 If you want a head start, look at the various `open_rocksdb_*()` functions in my [rocksdb_utils.rs](https://github.com/terencezl/rocksdb-examples/blob/main/src/rocksdb_utils.rs). It gives you a very strong baseline on modern SSDs.
 
@@ -133,11 +133,10 @@ If you want a head start, look at the various `open_rocksdb_*()` functions in my
 
 After a bulk load without compaction, you need to manually compact the DB ([full code](https://github.com/terencezl/rocksdb-examples/blob/main/examples/write-hex-hashes.rs#L69-L76)):
 ```rust
-let target_level = 6; // default bottommost level
 let mut compaction_opts = rust_rocksdb::CompactOptions::default();
 compaction_opts.set_exclusive_manual_compaction(true);
 compaction_opts.set_change_level(true);
-compaction_opts.set_target_level(target_level);
+compaction_opts.set_target_level(ROCKSDB_NUM_LEVELS - 1);
 compaction_opts
     .set_bottommost_level_compaction(rust_rocksdb::BottommostLevelCompaction::ForceOptimized);
 db.compact_range_opt(None::<&[u8]>, None::<&[u8]>, &compaction_opts);
@@ -147,4 +146,4 @@ This takes a while, and roughly doubles your disk usage. If you use `zstd` as th
 
 <br>
 
-Why is RocksDB in Rust a strong setup for data engineering? It's an embedded, production-grade K-V store without the overhead of a full database service, coupled with a memory-safe language. With the techniques above, you can already move a lot of data in and out of RocksDB. In [Part II](/blog/2026/02/11/the-wonders-of-rocksdb-in-rust-part-ii/) and beyond, we’ll look at some very cool patterns, including parallel two-pointer set logic, and MapReduce for out-of-core aggregations.
+Why is RocksDB in Rust a strong setup for data engineering? It's an embedded, production-grade K-V store without the overhead of a full database service, coupled with a memory-safe language. With the techniques above, you can already move a lot of data in and out of RocksDB. In [Part II](/blog/2026/02/11/the-wonders-of-rocksdb-in-rust-part-ii/) and [Part III](/blog/2026/02/12/the-wonders-of-rocksdb-in-rust-part-iii/), we’ll look at some very cool patterns, including parallel two-pointer set operations, and MapReduce for out-of-core aggregations.

@@ -7,6 +7,8 @@ title: "The Wonders of RocksDB in Rust (Part II - Set Operations)"
 
 *You can check out the code [here](https://github.com/terencezl/rocksdb-examples).*
 
+*This is the second part of the RocksDB in Rust series. In [Part I](/blog/2026/02/10/the-wonders-of-rocksdb-in-rust-part-i/), we looked at how to interact with RocksDB in Rust. In this part, we'll look at how to do parallel two-pointer set operations.*
+
 How does one get the intersection of two sorted lists in memory?
 
 One could simply convert each list into a hash set to get the intersection. The time complexity is `O(n + m)` for the conversion, and `O(min(n, m))` for the intersection, with `n` and `m` being the lengths of the two lists. The hash set lookup is constant. The space complexity is `O(n + m)` for the conversion.
@@ -17,7 +19,7 @@ def get_intersection(list1: list[int], list2: list[int]) -> set:
     return set1 & set2
 ```
 
-You could get away with converting only one list, then iterate through the other list to check if the element is in the set. The time complexity is still `O(n + m)` and the space complexity is `O(n)`. This is how DuckDB and Polars do it. For equi-joins (match by equality), both use the same idea: **hash join** — build a hash table on one side (usually the smaller), then probe with the other. So it's the same `O(n + m)` time complexity and `O(n)` space complexity, just at columnar scale with SIMD and careful memory layout. When the build side doesn't fit in memory, DuckDB switches to a partitioned **out-of-core hash join** (spill to disk, then merge). Polars' streaming engine processes in batches but does not spill join state to disk — joins can still be memory-heavy or fall back to the in-memory engine, so very large joins may OOM.
+You could get away with converting only one list, then iterate through the other list to check if the element is in the set. The time complexity is still `O(n + m)` and the space complexity is `O(n)`. This is how [DuckDB](https://duckdb.org/) and [Polars](https://pola.rs/) do it. For equi-joins (match by equality), both use the same idea: **hash join** — build a hash table on one side (usually the smaller), then probe with the other. So it's the same `O(n + m)` time complexity and `O(n)` space complexity, just at columnar scale with SIMD and careful memory layout. When the build side doesn't fit in memory, DuckDB switches to a partitioned **out-of-core hash join** (spill to disk, then merge). Polars' streaming engine processes in batches but does not spill join state to disk — joins can still be memory-heavy or fall back to the in-memory engine, so very large joins may OOM.
 
 ## A Tale of Two Pointers
 
@@ -107,7 +109,7 @@ We can adapt the two-pointer technique to run in parallel with the parallel scan
 let db_left = open_rocksdb_for_read_only(&args.db_dir_left, true)?;
 let db_right = open_rocksdb_for_read_only(&args.db_dir_right, true)?;
 
-let prefixes = generate_consecutive_hex_strings(4);
+let prefixes = generate_consecutive_hex_strings(3);
 let pb = make_progress_bar(Some(prefixes.len() as u64));
 
 let counts = prefixes
@@ -185,6 +187,12 @@ let counts = prefixes
             count_intersection: accs.count_intersection + counts.count_intersection,
         },
     );
+
+pb.finish_with_message("done");
 ```
 
 This is a very powerful pattern that can be used to solve a lot of problems. It can be used to get the intersection, union, difference, and symmetric difference of two sets of data, and apply arbitrary business logic to those parts of data.
+
+<br>
+
+Two-pointer over sorted data gives you Venn-style set operations in one linear pass with no extra space. RocksDB’s sorted keys let you do the same across two DBs, in parallel by splitting on key prefix as in [Part I](/blog/2026/02/10/the-wonders-of-rocksdb-in-rust-part-i/). In [Part III](/blog/2026/02/12/the-wonders-of-rocksdb-in-rust-part-iii/), we'll look at how to do MapReduce for out-of-core aggregations.
