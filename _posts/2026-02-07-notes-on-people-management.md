@@ -21,7 +21,7 @@ Assuming each person is of similar intellect, you can aim for a best case of Nx 
 
 On the individual/micro-level, a manager needs to optimize towards a higher scaling factor, by focusing on [prioritization, unblocking, collaboration, and fostering a culture of learning](/blog/2025/06/23/lets-work-better/), so team members can skill up. They also need to identify, convince, and hire more talented/experienced candidates onto their team within the budget, to boost up the per-capita productivity. Together, the team's output is maximized. The management quality is determined by these two axes, in how strongly they can guarantee their team's high productivity and success within the budget.
 
-A manager needs to develop an **active personal loop** with every team member, from when they were still a candidate before hire. The idea is, you need to understand their capabilities and drive, so that you can maintain alignment and let them push themselves the most. You need to **mature yourself faster than the team**, so you could offer guidance, mentorship, and make the right calls. **This creates mutual respect and trust, a critical component in leadership dynamics.**
+A manager needs to develop an **active personal loop** with every team member, from when they were still a candidate before hire. The idea is, you need to understand their capabilities and drive, so that you can maintain alignment and let them push themselves the most. You need to **mature yourself faster than the team**, so you could offer guidance, mentorship, and make the right calls. **This creates mutual respect and trust, a critical component in [leadership](/blog/2025/12/15/what-makes-a-good-technical-leader/) dynamics.**
 
 When getting new people onboarded, a manager needs to foster opportunities for them to absorb the instutitional knowledge. Talk to them often, and encourage them to sync up with existing team members. A good start forms the baseline expectations. **Let high-bandwidth communication be part of that baseline.**
 
@@ -38,3 +38,9 @@ You also want to avoid having only one person in charge of an entire field of wo
 <br>
 
 To conclude, people management is ultimately about making the business’s productivity guarantee credible. That means hiring, unblocking, and developing people proactively, and being willing to reshape the team when needed. The hardest situations - thrashing or a single “indispensable” owner - force you to rely on a deeper understanding of everything around you, and human nature. That understanding is what lets you move forward when formal authority alone isn’t enough.
+
+*Recommended Reading:*
+
+* [The Manager's Path](https://www.amazon.com/Managers-Path-Leaders-Navigating-Growth/dp/1491973897) - Camille Fournier
+* [Staff Engineer](https://staffeng.com/) - Will Larson
+* [Why I Ignore The Spotlight as a Staff Engineer](https://lalitm.com/software-engineering-outside-the-spotlight/) - Lalit Maganti
