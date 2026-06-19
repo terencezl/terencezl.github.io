@@ -18,6 +18,12 @@ In this [blog](/blog), I write about the technical and the organizational, where
 
 ## <u>EXPERIENCE</u>
 
+### Stealth
+
+_2026 - Present_
+
+Systems Engineering - ML/DL \| Data \| Platform
+
 ### Clearview AI
 
 _Interim Head of Engineering, 2025_<br>
